@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgk140qcsgapt"
-path="res://.godot/imported/big_flowers.png-cddac228bf9218b591b6d1a6b9cc1eb0.ctex"
+uid="uid://ntssjasxs8t6"
+path="res://.godot/imported/decorations_64x64.png-8649e1cdf26759ef0697a45340f85c50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/forest_theme/big_flowers.png"
-dest_files=["res://.godot/imported/big_flowers.png-cddac228bf9218b591b6d1a6b9cc1eb0.ctex"]
+source_file="res://assets/tilesets/forest_theme/decorations_64x64.png"
+dest_files=["res://.godot/imported/decorations_64x64.png-8649e1cdf26759ef0697a45340f85c50.ctex"]
 
 [params]
 
