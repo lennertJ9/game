@@ -379,18 +379,6 @@ shape = SubResource("CircleShape2D_wb5ct")
 [node name="Visuals" type="Node2D" parent="."]
 scale = Vector2(-1, 1)
 
-[node name="HandLeft" type="Sprite2D" parent="Visuals"]
-z_index = 1
-position = Vector2(4, -3)
-texture = ExtResource("1_ugt1c")
-hframes = 2
-
-[node name="Weapon" type="Sprite2D" parent="Visuals/HandLeft"]
-position = Vector2(-1, 1)
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("3_knn3d")
-offset = Vector2(4, -4)
-
 [node name="Legs" type="Sprite2D" parent="Visuals"]
 position = Vector2(0, -11)
 texture = ExtResource("2_vrv6n")
@@ -403,6 +391,17 @@ z_index = 1
 position = Vector2(0, -15)
 texture = ExtResource("3_epntp")
 offset = Vector2(0, 11)
+
+[node name="HandLeft" type="Sprite2D" parent="Visuals"]
+z_index = 1
+position = Vector2(4, -3)
+texture = ExtResource("1_ugt1c")
+hframes = 2
+
+[node name="Weapon" type="Sprite2D" parent="Visuals/HandLeft"]
+position = Vector2(-1, 1)
+texture = ExtResource("3_knn3d")
+offset = Vector2(4, -4)
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
 z_index = 1

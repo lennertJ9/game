@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed = 100
+@export var speed = 80
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $Visuals
 @onready var run_dust = $Visuals/RunDust
@@ -28,16 +28,20 @@ func _input(event):
 		
 
 	if event.is_action_pressed("do_something"):
-		emit_dust_particles()
+		print("s")
+		var tween = create_tween()
+		tween.tween_property(hand_left,"rotation_degrees", + 15, .25).set_trans(Tween.TRANS_BACK)
+		tween.tween_property(hand_left,"rotation_degrees", -10, .15)
+		
 
 func _process(delta):
 	var direction = (get_global_mouse_position() - global_position).normalized()
-	var target_position = global_position + Vector2(0,-5) + direction * 7
+	var target_position = global_position + Vector2(0,-4) + direction * 7
 	
 	
 	if direction.x < 0:
 		$Visuals.scale.x = -1
-		hand_left.rotation_degrees = rad_to_deg(direction.dot(Vector2.DOWN)) -55
+		hand_left.rotation_degrees = rad_to_deg(direction.dot(Vector2.DOWN)) -50
 		
 	else: 
 		$Visuals.scale.x = 1
