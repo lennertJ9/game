@@ -29,10 +29,10 @@ func _input(event):
 			
 		if movement_direction.y < 0: # up
 			is_up = true
-			animation_player.play("Run_Back")
+			animation_player.play("RUN_FRONT")
 		else: 
 			is_up = false # down
-			animation_player.play("Run_Front")
+			animation_player.play("RUN_FRONT")
 #		print(is_up)
 		
 		
@@ -42,6 +42,7 @@ func _input(event):
 
 func _process(delta):
 	pass
+	#$Visuals/HandLeft.global_position = get_global_mouse_position()
 	
 
 func _physics_process(_delta):
@@ -54,9 +55,9 @@ func _physics_process(_delta):
 	else:
 		is_running = false
 		if is_up:
-			animation_player.play("Idle_Back")
+			animation_player.play("IDLE_FRONT")
 		else:
-			animation_player.play("Idle_Front")
+			animation_player.play("IDLE_FRONT")
 
 
 
