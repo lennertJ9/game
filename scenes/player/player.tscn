@@ -122,43 +122,43 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/HandLeft:position")
+tracks/1/path = NodePath("Visuals/HandRight:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.1, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2(4, -2), Vector2(4, -3)]
+"values": [Vector2(-4, -2), Vector2(-4, -3)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/HandRight:position")
+tracks/2/path = NodePath("Visuals/Legs:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(-4, -2), Vector2(-4, -3)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Visuals/Legs:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Body:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 11)]
+}
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Visuals/Body:offset")
+tracks/4/path = NodePath("Visuals/Legs:offset")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -170,22 +170,10 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Visuals/Legs:offset")
+tracks/5/path = NodePath("Visuals/Head:offset")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 11)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Visuals/Head:offset")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
@@ -348,22 +336,10 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Visuals/HandLeft:position")
+tracks/5/path = NodePath("Visuals/HandRight:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(4, -3), Vector2(4, -3), Vector2(4, -2)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Visuals/HandRight:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
@@ -401,14 +377,16 @@ position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_wb5ct")
 
 [node name="Visuals" type="Node2D" parent="."]
+scale = Vector2(-1, 1)
 
 [node name="HandLeft" type="Sprite2D" parent="Visuals"]
+z_index = 1
 position = Vector2(4, -3)
 texture = ExtResource("1_ugt1c")
 hframes = 2
 
 [node name="Weapon" type="Sprite2D" parent="Visuals/HandLeft"]
-rotation = 0.145283
+position = Vector2(-1, 1)
 texture = ExtResource("3_knn3d")
 offset = Vector2(4, -4)
 
@@ -422,8 +400,10 @@ position = Vector2(0, -11)
 texture = ExtResource("2_vrv6n")
 offset = Vector2(0, 11)
 hframes = 5
+frame = 1
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
+z_index = 1
 position = Vector2(1, -10)
 texture = ExtResource("4_5whas")
 hframes = 8

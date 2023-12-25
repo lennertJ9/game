@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var run_dust = $Visuals/RunDust
 @onready var animation_tree = $AnimationTree
 
+@onready var hand_left = $Visuals/HandLeft
+@onready var weapon = $Visuals/HandLeft/Weapon
 
 # walking system
 var movement_direction: Vector2
@@ -22,27 +24,31 @@ func _input(event):
 		target = get_global_mouse_position()
 		movement_direction = global_position.direction_to(target)
 		
-		if movement_direction.x < 0: #links
-			visuals.scale.x = -1
-		else:
-			visuals.scale.x = 1      #rechts
-			
 		if movement_direction.y < 0: # up
 			is_up = true
 			animation_player.play("RUN_FRONT")
 		else: 
 			is_up = false # down
 			animation_player.play("RUN_FRONT")
-#		print(is_up)
-		
-		
-		
 
-
+	if event.is_action_pressed("do_something"):
+		pass
 
 func _process(delta):
-	pass
-	#$Visuals/HandLeft.global_position = get_global_mouse_position()
+	var direction = (get_global_mouse_position() - global_position).normalized()
+	var target_position = global_position + Vector2(0,-3) + direction * 5
+	
+	if direction.x < 0:
+		$Visuals.scale.x = -1
+		hand_left.rotation_degrees = rad_to_deg(direction.dot(Vector2.DOWN))
+		
+	else: 
+		$Visuals.scale.x = 1
+		hand_left.rotation_degrees = rad_to_deg(direction.dot(Vector2.DOWN))
+	print(rad_to_deg(direction.dot(Vector2.UP)))
+	
+	
+	hand_left.global_position = target_position
 	
 
 func _physics_process(_delta):
