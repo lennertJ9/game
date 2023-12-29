@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://vu0buuwgsk77" path="res://scenes/player/visuals/player_head.png" id="4_5whas"]
 [ext_resource type="PackedScene" uid="uid://cykjiqwg0xeee" path="res://scenes/player/visuals/RunDust.tscn" id="6_5mi4u"]
 [ext_resource type="Texture2D" uid="uid://wgrxq8datsum" path="res://scenes/player/visuals/player_shadow.png" id="7_wqlqq"]
+[ext_resource type="PackedScene" uid="uid://kk2qojh5k81f" path="res://scenes/Abilities/Bolt/bolt_manager.tscn" id="9_rk672"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb5ct"]
 radius = 4.0
@@ -190,9 +191,6 @@ tracks/6/keys = {
 "update": 1,
 "values": [Vector2(4, -3), Vector2(4, -3), Vector2(4, -2)]
 }
-
-[sub_resource type="Animation" id="Animation_38ay4"]
-resource_name = "test"
 
 [sub_resource type="Animation" id="Animation_13vkn"]
 resource_name = "RUN_REVERSE"
@@ -432,8 +430,7 @@ _data = {
 "IDLE_BACK": SubResource("Animation_a6un2"),
 "RUN": SubResource("Animation_86567"),
 "RUN_BACK": SubResource("Animation_ajxh6"),
-"RUN_REVERSE": SubResource("Animation_13vkn"),
-"test": SubResource("Animation_38ay4")
+"RUN_REVERSE": SubResource("Animation_13vkn")
 }
 
 [sub_resource type="Animation" id="Animation_ls5fr"]
@@ -514,3 +511,5 @@ speed_scale = 0.7
 libraries = {
 "": SubResource("AnimationLibrary_poquf")
 }
+
+[node name="BoltManager" parent="." instance=ExtResource("9_rk672")]

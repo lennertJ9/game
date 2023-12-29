@@ -40,6 +40,7 @@ func _input(event):
 		var tween = create_tween()
 		tween.tween_property(hand_left,"rotation_degrees", + 15, .25).set_trans(Tween.TRANS_BACK)
 		tween.tween_property(hand_left,"rotation_degrees", -10, .15)
+		$BoltManager.shoot()
 
 
 func _process(delta):

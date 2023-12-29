@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b33mmwu7fmrcf"]
+
+[ext_resource type="Texture2D" uid="uid://dnydobk2gx68l" path="res://scenes/Abilities/Bolt/Bolt.png" id="1_ijve5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5oc0h"]
+radius = 3.0
+height = 8.0
+
+[node name="Bolt" type="Area2D"]
+
+[node name="Bolt" type="Sprite2D" parent="."]
+texture = ExtResource("1_ijve5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5oc0h")
