@@ -40,7 +40,9 @@ func _input(event):
 		var tween = create_tween()
 		tween.tween_property(hand_left,"rotation_degrees", + 15, .25).set_trans(Tween.TRANS_BACK)
 		tween.tween_property(hand_left,"rotation_degrees", -10, .15)
-		$BoltManager.shoot()
+		var shoot_direction = (get_global_mouse_position() - $Visuals/Marker2D.global_position).normalized()
+		print(shoot_direction)
+		$BoltManager.shoot(shoot_direction,$Visuals/Marker2D.global_position)
 
 
 func _process(delta):
