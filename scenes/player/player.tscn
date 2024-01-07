@@ -486,13 +486,12 @@ z_index = 1
 position = Vector2(1, -10)
 texture = ExtResource("4_5whas")
 hframes = 8
-frame = 2
 
 [node name="Shadow" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("7_wqlqq")
 
 [node name="HandRight" type="Sprite2D" parent="Visuals"]
-position = Vector2(-4, -2)
+position = Vector2(-4, -3)
 texture = ExtResource("1_ugt1c")
 hframes = 2
 
