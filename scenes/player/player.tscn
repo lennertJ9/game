@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=20 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
 [ext_resource type="Texture2D" uid="uid://c534pgu34r7b8" path="res://scenes/player/visuals/player_hand.png" id="1_ugt1c"]
@@ -424,10 +424,14 @@ tracks/5/keys = {
 "values": [Vector2(-4, -3), Vector2(-4, -3), Vector2(-4, -2)]
 }
 
+[sub_resource type="Animation" id="Animation_f57af"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bc3sj"]
 _data = {
 "IDLE": SubResource("Animation_mn5wf"),
 "IDLE_BACK": SubResource("Animation_a6un2"),
+"RESET": SubResource("Animation_f57af"),
 "RUN": SubResource("Animation_86567"),
 "RUN_BACK": SubResource("Animation_ajxh6"),
 "RUN_REVERSE": SubResource("Animation_13vkn")
@@ -481,15 +485,14 @@ offset = Vector2(4, -4)
 z_index = 1
 position = Vector2(1, -10)
 texture = ExtResource("4_5whas")
-offset = Vector2(0, 1)
 hframes = 8
-frame = 1
+frame = 2
 
 [node name="Shadow" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("7_wqlqq")
 
 [node name="HandRight" type="Sprite2D" parent="Visuals"]
-position = Vector2(-4, -3)
+position = Vector2(-4, -2)
 texture = ExtResource("1_ugt1c")
 hframes = 2
 

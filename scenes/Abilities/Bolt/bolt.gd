@@ -13,3 +13,7 @@ func _ready():
 	
 func _physics_process(delta):
 	global_position += speed * movement_direction * delta
+
+
+func remove_bullet():
+	queue_free()

@@ -36,7 +36,7 @@ func _input(event):
 
 
 	if event.is_action_pressed("do_something"):
-		print("s")
+		
 		var tween = create_tween()
 		tween.tween_property(hand_left,"rotation_degrees", + 15, .25).set_trans(Tween.TRANS_BACK)
 		tween.tween_property(hand_left,"rotation_degrees", -10, .15)
@@ -52,7 +52,7 @@ func _process(delta):
 # weapon rotation -----------------------------------------------------------------------
 	if direction_to_mouse.x < 0:
 		$Visuals.scale.x = -1
-		hand_left.rotation_degrees = rad_to_deg(direction_to_mouse.dot(Vector2.DOWN)) -50
+		hand_left.rotation_degrees = rad_to_deg(direction_to_mouse.dot(Vector2.DOWN)) -55
 		
 	else: 
 		$Visuals.scale.x = 1
