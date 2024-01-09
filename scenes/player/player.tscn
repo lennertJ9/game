@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=21 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
 [ext_resource type="Texture2D" uid="uid://c534pgu34r7b8" path="res://scenes/player/visuals/player_hand.png" id="1_ugt1c"]
@@ -438,11 +438,65 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_ls5fr"]
-resource_name = "ATTACH_FRONT"
+resource_name = "ATTACK_LEFT_FRONT"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/HandLeft:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/HandLeft:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_i81qq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/HandLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/HandLeft:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_poquf"]
 _data = {
-"ATTACH_FRONT": SubResource("Animation_ls5fr")
+"ATTACK_LEFT_FRONT": SubResource("Animation_ls5fr"),
+"RESET": SubResource("Animation_i81qq")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -472,7 +526,7 @@ offset = Vector2(0, 11)
 
 [node name="HandLeft" type="Sprite2D" parent="Visuals"]
 z_index = 1
-position = Vector2(4, -3)
+position = Vector2(5, -3)
 texture = ExtResource("1_ugt1c")
 hframes = 2
 
@@ -485,7 +539,9 @@ offset = Vector2(4, -4)
 z_index = 1
 position = Vector2(1, -10)
 texture = ExtResource("4_5whas")
+offset = Vector2(0, 1)
 hframes = 8
+frame = 1
 
 [node name="Shadow" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("7_wqlqq")
@@ -518,5 +574,6 @@ speed_scale = 0.7
 libraries = {
 "": SubResource("AnimationLibrary_poquf")
 }
+speed_scale = 1.8
 
 [node name="BoltManager" parent="." instance=ExtResource("9_rk672")]

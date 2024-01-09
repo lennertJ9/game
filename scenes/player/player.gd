@@ -30,40 +30,46 @@ func _input(event):
 		if movement_direction.x > 0:
 			is_moving_right = true
 			is_moving_left = false
+			$Visuals.scale.x = 1
 		else:
 			is_moving_right = false
 			is_moving_left = true
+			$Visuals.scale.x = -1
 
 
 	if event.is_action_pressed("do_something"):
 		
-		var tween = create_tween()
-		tween.tween_property(hand_left,"rotation_degrees", + 15, .25).set_trans(Tween.TRANS_BACK)
-		tween.tween_property(hand_left,"rotation_degrees", -10, .15)
+		#var tween = create_tween()
+		#tween.tween_property(hand_left,"rotation_degrees", + 15, .25).set_trans(Tween.TRANS_BACK)
+		#tween.tween_property(hand_left,"rotation_degrees", -10, .15)
 		var shoot_direction = (get_global_mouse_position() - $Visuals/Marker2D.global_position).normalized()
-		print(shoot_direction)
+		
 		$BoltManager.shoot(shoot_direction,$Visuals/Marker2D.global_position)
-
+		$AnimationPlayer2.play("ATTACK_LEFT_FRONT")
+		if get_global_mouse_position().x > 0:
+			$Visuals.scale.x = 1
+		else:
+			$Visuals.scale.x = -1
 
 func _process(delta):
 	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
 	var target_position = global_position + Vector2(0,-4) + direction_to_mouse * 7
 	
 # weapon rotation -----------------------------------------------------------------------
-	if direction_to_mouse.x < 0:
-		$Visuals.scale.x = -1
-		hand_left.rotation_degrees = rad_to_deg(direction_to_mouse.dot(Vector2.DOWN)) -55
+	#if direction_to_mouse.x < 0:
+		#$Visuals.scale.x = -1
+		#hand_left.rotation_degrees = rad_to_deg(direction_to_mouse.dot(Vector2.DOWN)) -55
 		
-	else: 
-		$Visuals.scale.x = 1
-		hand_left.rotation_degrees = rad_to_deg(direction_to_mouse.dot(Vector2.DOWN)) -55
+	#else: 
+		#$Visuals.scale.x = 1
+		#hand_left.rotation_degrees = rad_to_deg(direction_to_mouse.dot(Vector2.DOWN)) -55
 		
-	hand_left.global_position = target_position
+	#hand_left.global_position = target_position
 	
 # reverse walking logic ---------------------------------------------------------------------------------------------------------
-	if direction_to_mouse.x < 0 and is_moving_right and is_running or direction_to_mouse.x > 0 and is_moving_left and is_running:
-		animation_player.play("RUN_REVERSE")
-		print("revers")
+	#if direction_to_mouse.x < 0 and is_moving_right and is_running or direction_to_mouse.x > 0 and is_moving_left and is_running:
+		#animation_player.play("RUN_REVERSE")
+		#print("revers")
 		
 	
 	
