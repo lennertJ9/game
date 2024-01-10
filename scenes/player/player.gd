@@ -43,10 +43,10 @@ func _input(event):
 		#tween.tween_property(hand_left,"rotation_degrees", + 15, .25).set_trans(Tween.TRANS_BACK)
 		#tween.tween_property(hand_left,"rotation_degrees", -10, .15)
 		var shoot_direction = (get_global_mouse_position() - $Visuals/Marker2D.global_position).normalized()
-		
+		print(shoot_direction)
 		$BoltManager.shoot(shoot_direction,$Visuals/Marker2D.global_position)
 		$AnimationPlayer2.play("ATTACK_LEFT_FRONT")
-		if get_global_mouse_position().x > 0:
+		if shoot_direction.x > 0:
 			$Visuals.scale.x = 1
 		else:
 			$Visuals.scale.x = -1

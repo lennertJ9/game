@@ -21,43 +21,43 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Head:frame")
+tracks/0/path = NodePath("Visuals/HandRight:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [1, 0, 2, 0]
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-4, -2.5), Vector2(-4, -3)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/HandRight:position")
+tracks/1/path = NodePath("Visuals/Legs:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(-4, -2), Vector2(-4, -3)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/Legs:frame")
+tracks/2/path = NodePath("Visuals/Body:offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Vector2(0, 11)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Visuals/Body:offset")
+tracks/3/path = NodePath("Visuals/Legs:offset")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -69,26 +69,26 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Visuals/Legs:offset")
+tracks/4/path = NodePath("Visuals/Head:offset")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 11)]
+"values": [Vector2(0, 0.5), Vector2(0, 0), Vector2(0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Visuals/Head:offset")
+tracks/5/path = NodePath("Visuals/HandLeft:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(0, 1), Vector2(0, 0), Vector2(0, 0)]
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, -2.5), Vector2(4, -3)]
 }
 
 [sub_resource type="Animation" id="Animation_a6un2"]
@@ -183,6 +183,18 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_f57af"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/HandLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, -3)]
+}
 
 [sub_resource type="Animation" id="Animation_86567"]
 resource_name = "RUN"
@@ -191,74 +203,74 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Head:frame")
+tracks/0/path = NodePath("Visuals/Head:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/Head:offset")
+tracks/1/path = NodePath("Visuals/Legs:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)]
+"values": [1, 2, 3]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/Legs:frame")
+tracks/2/path = NodePath("Visuals/Legs:offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [1, 2, 3]
+"update": 0,
+"values": [Vector2(0, 11), Vector2(0, 12), Vector2(0, 11)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Visuals/Legs:offset")
+tracks/3/path = NodePath("Visuals/Body:offset")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [Vector2(0, 11), Vector2(0, 12), Vector2(0, 11)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Visuals/Body:offset")
+tracks/4/path = NodePath("Visuals/HandRight:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(0, 11), Vector2(0, 12), Vector2(0, 11)]
+"update": 0,
+"values": [Vector2(-4, -3), Vector2(-4, -3), Vector2(-4, -2.8)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Visuals/HandRight:position")
+tracks/5/path = NodePath("Visuals/HandLeft:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(-4, -3), Vector2(-4, -3), Vector2(-4, -2)]
+"update": 0,
+"values": [Vector2(4, -3), Vector2(4, -3), Vector2(4, -2.8)]
 }
 
 [sub_resource type="Animation" id="Animation_ajxh6"]
@@ -448,10 +460,10 @@ tracks/0/path = NodePath("Visuals/HandLeft:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(5, -3)]
+"values": [Vector2(4, -2), Vector2(5, -2), Vector2(4, -2), Vector2(2, 0), Vector2(5, -2)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -460,10 +472,22 @@ tracks/1/path = NodePath("Visuals/HandLeft:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.15, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0]
+"values": [0.0, 2.71819, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/HandLeft/Weapon:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_i81qq"]
@@ -491,6 +515,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/HandLeft/Weapon:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_poquf"]
@@ -525,7 +561,6 @@ texture = ExtResource("3_epntp")
 offset = Vector2(0, 11)
 
 [node name="HandLeft" type="Sprite2D" parent="Visuals"]
-z_index = 1
 position = Vector2(5, -3)
 texture = ExtResource("1_ugt1c")
 hframes = 2
@@ -539,15 +574,15 @@ offset = Vector2(4, -4)
 z_index = 1
 position = Vector2(1, -10)
 texture = ExtResource("4_5whas")
-offset = Vector2(0, 1)
+offset = Vector2(0, 0.125)
 hframes = 8
-frame = 1
+frame = 2
 
 [node name="Shadow" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("7_wqlqq")
 
 [node name="HandRight" type="Sprite2D" parent="Visuals"]
-position = Vector2(-4, -3)
+position = Vector2(-4, -2.625)
 texture = ExtResource("1_ugt1c")
 hframes = 2
 
@@ -568,12 +603,11 @@ zoom = Vector2(4, 4)
 libraries = {
 "": SubResource("AnimationLibrary_bc3sj")
 }
-speed_scale = 0.7
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_poquf")
 }
-speed_scale = 1.8
+speed_scale = 4.0
 
 [node name="BoltManager" parent="." instance=ExtResource("9_rk672")]

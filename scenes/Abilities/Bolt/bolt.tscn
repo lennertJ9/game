@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b33mmwu7fmrcf"]
+[gd_scene load_steps=5 format=3 uid="uid://b33mmwu7fmrcf"]
 
 [ext_resource type="Texture2D" uid="uid://dnydobk2gx68l" path="res://scenes/Abilities/Bolt/Bolt.png" id="1_ijve5"]
 [ext_resource type="Script" path="res://scenes/Abilities/Bolt/bolt.gd" id="1_vfogj"]
+[ext_resource type="Texture2D" uid="uid://cj33nl45pc2gc" path="res://scenes/Abilities/Bolt/bolt_shadow.png" id="2_nrgp4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5oc0h"]
 radius = 3.0
 height = 8.0
 
 [node name="Bolt" type="Area2D"]
+modulate = Color(1, 1, 1, 0.827451)
 z_index = 1
 collision_layer = 8
 collision_mask = 0
@@ -15,6 +17,12 @@ script = ExtResource("1_vfogj")
 
 [node name="Bolt" type="Sprite2D" parent="."]
 texture = ExtResource("1_ijve5")
+
+[node name="BoltShadow" type="Sprite2D" parent="Bolt"]
+self_modulate = Color(1, 1, 1, 0.254902)
+position = Vector2(0, 8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_nrgp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

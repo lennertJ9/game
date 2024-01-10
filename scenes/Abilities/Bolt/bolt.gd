@@ -10,6 +10,9 @@ func _on_timer_timeout():
 
 func _ready():
 	rotation_degrees = angle
+	if movement_direction.x < 0:
+		print('ture')
+		$Bolt.scale.y = -1
 	
 func _physics_process(delta):
 	global_position += speed * movement_direction * delta
