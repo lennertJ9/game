@@ -18,6 +18,9 @@ var is_moving_right: bool
 var is_moving_left: bool
 
 
+func _ready():
+	weapon.visible = false
+
 func _input(event):
 	if event.is_action_pressed("right_click"):
 		is_running = true
@@ -91,4 +94,8 @@ func emit_dust_particles():
 	particle.global_position = global_position
 	particle.play()
 	world.add_child(particle)
+	
+func hide_weapon():
+	$AnimationPlayer2.play('HIDE_WEAPON')
+	
 	
