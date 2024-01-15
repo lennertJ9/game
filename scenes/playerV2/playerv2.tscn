@@ -1,0 +1,158 @@
+[gd_scene load_steps=9 format=3 uid="uid://f0ci26nlw7q8"]
+
+[ext_resource type="Texture2D" uid="uid://ch61tt5t1wjen" path="res://scenes/playerV2/body.png" id="1_4r27f"]
+[ext_resource type="Texture2D" uid="uid://cnuyjojfujhv6" path="res://scenes/playerV2/hand.png" id="1_t7s2i"]
+[ext_resource type="Texture2D" uid="uid://bcn66wvonbg01" path="res://scenes/playerV2/feet.png" id="2_63o3s"]
+[ext_resource type="Texture2D" uid="uid://dxo3gj4o6h153" path="res://scenes/playerV2/head.png" id="4_hf7sc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_51u4i"]
+
+[sub_resource type="Animation" id="Animation_yekga"]
+resource_name = "RUN"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/LeftFoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(3, 2), Vector2(3, 3), Vector2(3, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/RightFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 3), Vector2(0, 3), Vector2(0, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2, -6), Vector2(2, -5.5), Vector2(2, -6), Vector2(2, -5.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c1d3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/LeftFoot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/RightFoot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_al6lp"]
+_data = {
+"RESET": SubResource("Animation_c1d3l"),
+"RUN": SubResource("Animation_yekga")
+}
+
+[node name="Playerv2" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_51u4i")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="LeftHand" type="Sprite2D" parent="Visuals"]
+position = Vector2(6, 1)
+texture = ExtResource("1_t7s2i")
+
+[node name="RightHand" type="Sprite2D" parent="Visuals"]
+position = Vector2(-3, 1)
+texture = ExtResource("1_t7s2i")
+
+[node name="Body" type="Sprite2D" parent="Visuals"]
+position = Vector2(2, 0)
+texture = ExtResource("1_4r27f")
+
+[node name="LeftFoot" type="Sprite2D" parent="Visuals"]
+position = Vector2(3, 3)
+texture = ExtResource("2_63o3s")
+
+[node name="RightFoot" type="Sprite2D" parent="Visuals"]
+position = Vector2(0, 3)
+texture = ExtResource("2_63o3s")
+
+[node name="Head" type="Sprite2D" parent="Visuals"]
+position = Vector2(2, -6)
+texture = ExtResource("4_hf7sc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_al6lp")
+}
+speed_scale = 0.9
+
+[node name="Camera2D" type="Camera2D" parent="."]
