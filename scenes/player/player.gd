@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 
 
-@onready var animation_player = $AnimationPlayer
+@onready var animation_player1 = $AnimationPlayer
+@onready var animation_player_2 = $AnimationPlayer2
+
 @onready var visuals = $Visuals
 @onready var run_dust = $Visuals/RunDust
 @onready var hand_left = $Visuals/HandLeft
@@ -19,7 +21,8 @@ var is_moving_left: bool
 
 
 func _ready():
-	weapon.visible = false
+	animation_player1.play("IDLE_DOWN")
+
 
 func _input(event):
 	if event.is_action_pressed("right_click"):
@@ -28,7 +31,7 @@ func _input(event):
 		target = get_global_mouse_position()
 		movement_direction = global_position.direction_to(target)
 
-		animation_player.play("RUN")
+		animation_player1.play("RUN_DOWN")
 
 		if movement_direction.x > 0:
 			is_moving_right = true
@@ -85,7 +88,7 @@ func _physics_process(_delta):
 
 	else:
 		is_running = false
-		animation_player.play("IDLE")
+		animation_player1.play("IDLE_DOWN")
 
 
 func emit_dust_particles():
