@@ -11,8 +11,8 @@ extends CharacterBody2D
 @onready var weapon = $Visuals/HandLeft/Weapon
 
 # walking system
-@export var speed = 80
-var current_speed = 80
+@export var speed = 40
+var current_speed = 60
 var movement_direction: Vector2
 var target = position
 var is_running
@@ -30,17 +30,22 @@ func _input(event):
 
 		target = get_global_mouse_position()
 		movement_direction = global_position.direction_to(target)
-
-		animation_player1.play("RUN_DOWN")
-
-		if movement_direction.x > 0:
-			is_moving_right = true
-			is_moving_left = false
-			$Visuals.scale.x = 1
+		print(movement_direction)
+		if movement_direction.x > 0.6 or movement_direction.x < -0.6:
+			print("side")
+			animation_player1.play("RUN_SIDE")
+			if movement_direction.x > 0:
+				$Visuals.scale.x = 1
+			else:
+				$Visuals.scale.x = -1
+				
 		else:
-			is_moving_right = false
-			is_moving_left = true
-			$Visuals.scale.x = -1
+			print("down")
+			animation_player1.play("RUN_DOWN")
+		
+
+		
+		
 
 
 	if event.is_action_pressed("do_something"):
