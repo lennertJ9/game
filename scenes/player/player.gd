@@ -12,11 +12,11 @@ extends CharacterBody2D
 
 # walking system
 @export var speed = 40
-var current_speed = 70
+var current_speed = 65
 var movement_direction: Vector2
-var target = position
+var target = Vector2.ZERO
 
-
+var boolie = true
 
 func _ready():
 	animation_player1.play("IDLE_DOWN")
@@ -24,44 +24,24 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("right_click"):
-
 		target = get_global_mouse_position()
 		movement_direction = global_position.direction_to(target)
+		update_running_animation(global_position.direction_to(get_global_mouse_position()))
 		
-		if movement_direction.x > 0.6 or movement_direction.x < -0.6:
-			animation_player1.play("RUN_SIDE")
-			if movement_direction.x > 0:
-				$Visuals.scale.x = 1
-			else:
-				$Visuals.scale.x = -1
-				
-		else:
-			print("down")
-			if movement_direction.y > 0:
-				animation_player1.play("RUN_DOWN")
-			else:
-				animation_player1.play("RUN_UP")
-		
-
 	if event.is_action_pressed("a"):
+		if boolie:
+			animation_player2.play("ATTACK_DOWN")
+			boolie = false
+			print("1")
+		else:
+			animation_player2.play("ATTACK_DOWN_2")
+			
+			boolie = true
+			print('2')
+			
+		$BoltManager.shoot(global_position.direction_to(get_global_mouse_position()), position)
+		update_running_animation(global_position.direction_to(get_global_mouse_position()))
 		
-		var animation: Animation = animation_player2.get_animation("IDLE_FRONT")
-		animation.track_set_key_value(0,0,Vector2(-10,0))
-		
-		print(animation.track_get_key_value(0,0))
-		
-		
-		#var tween = create_tween()
-		#tween.tween_property(hand_left,"rotation_degrees", + 15, .25).set_trans(Tween.TRANS_BACK)
-		#tween.tween_property(hand_left,"rotation_degrees", -10, .15)
-		#var shoot_direction = (get_global_mouse_position() - $Visuals/Marker2D.global_position).normalized()
-		#print(shoot_direction)
-		#$BoltManager.shoot(shoot_direction,$Visuals/Marker2D.global_position)
-		#$AnimationPlayer2.play("ATTACK_DOWN")
-		#if shoot_direction.x > 0:
-			#$Visuals.scale.x = 1
-		#else:
-			#$Visuals.scale.x = -1
 
 func _process(delta):
 	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
@@ -72,6 +52,7 @@ func _physics_process(_delta):
 	velocity = movement_direction * current_speed
 	
 	if position.distance_to(target) > 1:
+		print('ffff')
 		move_and_slide()
 
 	else:
@@ -87,4 +68,29 @@ func _physics_process(_delta):
 func hide_weapon():
 	$AnimationPlayer2.play('HIDE_WEAPON')
 	
+
+func update_running_animation(direction):
 	
+	
+	print(movement_direction)
+	if direction.x > 0.6 or direction.x < -0.6:
+		animation_player1.play("RUN_SIDE")
+		if direction.x > 0:
+			$Visuals.scale.x = 1
+		else:
+			$Visuals.scale.x = -1
+			
+	else:
+		
+		if direction.y > 0:
+			animation_player1.play("RUN_DOWN")
+			if direction.x > 0:
+				$Visuals.scale.x = 1
+			else:
+				$Visuals.scale.x = -1
+		else:
+			animation_player1.play("RUN_UP")
+			if direction.x > 0:
+				$Visuals.scale.x = 1
+			else:
+				$Visuals.scale.x = -1
