@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=37 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
 [ext_resource type="Texture2D" uid="uid://c8o4n6pdcjsh0" path="res://assets/player/player_legs.png" id="2_aufhp"]
 [ext_resource type="Texture2D" uid="uid://c2kgbta0kdgnu" path="res://assets/player/player_body.png" id="3_x2jjb"]
 [ext_resource type="Texture2D" uid="uid://tij6tessec61" path="res://assets/player/player_head.png" id="6_fmvws"]
 [ext_resource type="Texture2D" uid="uid://wgrxq8datsum" path="res://scenes/player/visuals/player_shadow.png" id="7_wqlqq"]
+[ext_resource type="PackedScene" uid="uid://dw7542qtinm0q" path="res://scenes/UI/resource_bar.tscn" id="8_gxwic"]
 [ext_resource type="Texture2D" uid="uid://ddk5aokqe2ecd" path="res://assets/player/weapon.png" id="8_panfk"]
 [ext_resource type="PackedScene" uid="uid://kk2qojh5k81f" path="res://scenes/Abilities/Bolt/bolt_manager.tscn" id="9_rk672"]
 
@@ -1013,7 +1014,6 @@ texture = ExtResource("8_panfk")
 offset = Vector2(5, -4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1041,5 +1041,9 @@ parameters/WALKING/blend_position = Vector2(0.00690603, -0.82199)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ResourceBar" parent="CanvasLayer" instance=ExtResource("8_gxwic")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
