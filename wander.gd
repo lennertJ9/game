@@ -2,7 +2,7 @@ extends Node
 
 
 func _ready():
-	print(owner)
+	
 	set_physics_process(false)
 
 

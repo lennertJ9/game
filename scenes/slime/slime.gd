@@ -37,3 +37,14 @@ func check():
 #func _on_jump_timer_timeout():
 	#jump()
 	
+
+
+func _on_hurt_box_hit():
+	var shader = $visuals.material as ShaderMaterial
+	shader.set_shader_parameter("amount", 0.65)
+	shader.set_shader_parameter("active", true)
+	await get_tree().create_timer(0.125).timeout
+	shader.set_shader_parameter("active", false)
+
+
+

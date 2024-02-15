@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvvyfxv83le51"]
+
+[ext_resource type="Script" path="res://scenes/Components/HurtBox/Hurtbox.gd" id="1_jhro6"]
+[ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/Components/HealthComponent/HealthComponent.tscn" id="2_s0ftu"]
+
+[node name="HurtBox" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_jhro6")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_s0ftu")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

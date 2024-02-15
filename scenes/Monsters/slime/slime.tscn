@@ -1,11 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://su8br4pp0fhs"]
 
 [ext_resource type="Script" path="res://scenes/Monsters/slime/slime.gd" id="1_3hfx0"]
-[ext_resource type="Texture2D" uid="uid://dmrc0f0ovoy3x" path="res://scenes/Monsters/slime/slime_shadow.png" id="1_rk37d"]
-[ext_resource type="Texture2D" uid="uid://ssi7nwwh8udr" path="res://scenes/Monsters/slime/slime.png" id="1_yq14d"]
+[ext_resource type="Texture2D" uid="uid://dmrc0f0ovoy3x" path="res://scenes/slime/slime_shadow.png" id="1_rk37d"]
+[ext_resource type="Texture2D" uid="uid://ssi7nwwh8udr" path="res://scenes/slime/slime.png" id="1_yq14d"]
 [ext_resource type="PackedScene" uid="uid://dn3mrqnfwulw4" path="res://scenes/States/state_manager.tscn" id="4_a3fx4"]
 [ext_resource type="PackedScene" uid="uid://b6aamj6c3i7tr" path="res://scenes/States/wander_state.tscn" id="5_oue4e"]
-[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/Hurtbox.tscn" id="6_bvjyg"]
+[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/HurtBox/Hurtbox.tscn" id="6_bvjyg"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgn4q"]
 radius = 5.0

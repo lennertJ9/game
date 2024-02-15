@@ -42,16 +42,15 @@ func _input(event):
 		if boolie:
 			animation_player2.play("ATTACK_DOWN")
 			boolie = false
-			print("1")
+			
 		else:
 			animation_player2.play("ATTACK_DOWN_2")
 			
 			boolie = true
-			print('2')
+			
 			
 		$BoltManager.shoot(global_position.direction_to(get_global_mouse_position()), position)
-		
-		
+
 
 func _process(delta):
 	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
@@ -61,8 +60,7 @@ func _process(delta):
 func _physics_process(_delta):
 	velocity = movement_direction * current_speed
 	
-	
-	
+
 	if position.distance_to(target) > 1:
 		
 		move_and_slide()

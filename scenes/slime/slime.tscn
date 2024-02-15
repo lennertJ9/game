@@ -1,14 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://su8br4pp0fhs"]
+[gd_scene load_steps=15 format=3 uid="uid://su8br4pp0fhs"]
 
 [ext_resource type="Script" path="res://scenes/slime/slime.gd" id="1_3hfx0"]
 [ext_resource type="Texture2D" uid="uid://dmrc0f0ovoy3x" path="res://scenes/slime/slime_shadow.png" id="1_rk37d"]
 [ext_resource type="Texture2D" uid="uid://ssi7nwwh8udr" path="res://scenes/slime/slime.png" id="1_yq14d"]
+[ext_resource type="Shader" path="res://shaders/hit_flash.gdshader" id="3_qa2of"]
 [ext_resource type="PackedScene" uid="uid://dn3mrqnfwulw4" path="res://scenes/States/state_manager.tscn" id="4_a3fx4"]
-[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/Hurtbox.tscn" id="4_ulh0h"]
+[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/HurtBox/Hurtbox.tscn" id="4_ulh0h"]
 [ext_resource type="PackedScene" uid="uid://b6aamj6c3i7tr" path="res://scenes/States/wander_state.tscn" id="5_oue4e"]
+[ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/Components/HealthComponent/HealthComponent.tscn" id="8_khr64"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgn4q"]
 radius = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djo13"]
+shader = ExtResource("3_qa2of")
+shader_parameter/active = false
+shader_parameter/amount = 0.65
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b4y2v"]
 radius = 7.07107
@@ -124,7 +131,7 @@ _data = {
 
 [node name="Slime" type="CharacterBody2D"]
 z_index = 1
-collision_layer = 2
+collision_layer = 4
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_3hfx0")
@@ -140,10 +147,12 @@ texture = ExtResource("1_rk37d")
 
 [node name="visuals" type="Sprite2D" parent="."]
 z_index = 1
+material = SubResource("ShaderMaterial_djo13")
 texture = ExtResource("1_yq14d")
 hframes = 7
 
 [node name="HurtBox" parent="visuals" instance=ExtResource("4_ulh0h")]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="visuals/HurtBox"]
 position = Vector2(0, -3)
@@ -158,11 +167,13 @@ libraries = {
 wait_time = 3.0
 autostart = true
 
-[node name="Node" type="Node" parent="."]
-
 [node name="StateManager" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("4_a3fx4")]
 starting_state = NodePath("WanderState")
 
 [node name="WanderState" parent="StateManager" instance=ExtResource("5_oue4e")]
 
+[node name="HealthComponent" parent="." instance=ExtResource("8_khr64")]
+max_health = 3
+
+[connection signal="hit" from="visuals/HurtBox" to="." method="_on_hurt_box_hit"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

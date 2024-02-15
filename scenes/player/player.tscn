@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=40 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
 [ext_resource type="Texture2D" uid="uid://c8o4n6pdcjsh0" path="res://assets/player/player_legs.png" id="2_aufhp"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dw7542qtinm0q" path="res://scenes/UI/resource_bar.tscn" id="8_gxwic"]
 [ext_resource type="Texture2D" uid="uid://ddk5aokqe2ecd" path="res://assets/player/weapon.png" id="8_panfk"]
 [ext_resource type="PackedScene" uid="uid://kk2qojh5k81f" path="res://scenes/Abilities/Bolt/bolt_manager.tscn" id="9_rk672"]
+[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/HurtBox/Hurtbox.tscn" id="9_vq76y"]
+[ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/Components/HealthComponent/HealthComponent.tscn" id="10_aar1u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb5ct"]
 radius = 4.0
@@ -967,9 +969,11 @@ states/WALKING/node = SubResource("AnimationNodeBlendSpace2D_dhgvy")
 states/WALKING/position = Vector2(399, 98)
 transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_c4708"), "IDLE", "WALKING", SubResource("AnimationNodeStateMachineTransition_magdr"), "WALKING", "IDLE", SubResource("AnimationNodeStateMachineTransition_xyu3s")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ipgv1"]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
-collision_mask = 7
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_5lnvd")
 
@@ -980,7 +984,7 @@ shape = SubResource("CircleShape2D_wb5ct")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Legs" type="Sprite2D" parent="Visuals"]
-z_index = 2
+z_index = 1
 position = Vector2(0, -1)
 texture = ExtResource("2_aufhp")
 hframes = 5
@@ -1045,5 +1049,16 @@ autostart = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ResourceBar" parent="CanvasLayer" instance=ExtResource("8_gxwic")]
+
+[node name="----COMPONENTS-------" type="Node" parent="."]
+
+[node name="HurtBox" parent="." instance=ExtResource("9_vq76y")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_ipgv1")
+
+[node name="HealthComponent" parent="." instance=ExtResource("10_aar1u")]
+max_health = 10
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
