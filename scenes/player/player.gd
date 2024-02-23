@@ -11,6 +11,12 @@ extends CharacterBody2D
 @onready var hand_left = $Visuals/HandLeft
 @onready var weapon = $Visuals/Weapon
 
+@onready var hurt_box = $HurtBox
+@onready var health_component = $HealthComponent
+
+@onready var bolt_manager = $Abilities/BoltManager
+
+
 # walking system
 
 var current_speed = 65
@@ -21,7 +27,7 @@ var boolie = true
 
 
 func _ready():
-	pass
+	hurt_box.hit.connect(on_player_hit)
 	
 
 func _input(event):
@@ -47,9 +53,19 @@ func _input(event):
 			animation_player2.play("ATTACK_DOWN_2")
 			
 			boolie = true
+		bolt_manager.shoot(global_position.direction_to(get_global_mouse_position()), position)
+		
+	if event.is_action_pressed("fireball"):
+		if boolie:
+			animation_player2.play("ATTACK_DOWN")
+			boolie = false
 			
+		else:
+			animation_player2.play("ATTACK_DOWN_2")
 			
-		$BoltManager.shoot(global_position.direction_to(get_global_mouse_position()), position)
+			boolie = true
+			
+		$Abilities/FireballManager.shoot(global_position.direction_to(get_global_mouse_position()), position)
 
 
 func _process(delta):
@@ -68,7 +84,18 @@ func _physics_process(_delta):
 		$AnimationTree["parameters/conditions/is_idle"] = true
 		$AnimationTree["parameters/conditions/is_walking"] = false
 		$AnimationTree["parameters/IDLE/blend_position"] = movement_direction
-		
+
+
+func on_player_hit(area):
+	health_component.damage(area.damage)
+	
+	var shader = $Visuals/Legs.material as ShaderMaterial
+	shader.set_shader_parameter("amount", .8)
+	shader.set_shader_parameter("active", true)
+	await get_tree().create_timer(0.125).timeout
+	shader.set_shader_parameter("active", false)
+
+
 func hide_weapon():
 	$AnimationPlayer2.play('HIDE_WEAPON')
 	

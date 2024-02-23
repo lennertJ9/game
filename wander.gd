@@ -15,7 +15,8 @@ func get_random_direction():
 		owner.movement_direction = (owner.spawn_point - owner.global_position).normalized()
 	else: 
 		owner.movement_direction = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
-	
+		owner.movement_direction = Vector2(1,0)
+		
 	owner.jump()
 	await get_tree().create_timer(3).timeout
 	get_random_direction()

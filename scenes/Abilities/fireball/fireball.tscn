@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvkplnu5eo316"]
+
+[ext_resource type="Script" path="res://scenes/Abilities/fireball/fireball.gd" id="1_p4d2b"]
+[ext_resource type="Texture2D" uid="uid://bsqwrtbun8lfi" path="res://assets/abilities/fireball.png" id="2_pfnq8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5oc0h"]
+radius = 4.0
+height = 14.0
+
+[node name="Bolt" type="Area2D"]
+modulate = Color(1, 1, 1, 0.827451)
+z_index = 1
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_p4d2b")
+
+[node name="Bolt" type="Sprite2D" parent="."]
+texture = ExtResource("2_pfnq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5oc0h")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
