@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://kk2qojh5k81f"]
-
-[ext_resource type="Script" path="res://scenes/Abilities/Bolt/bolt_manager.gd" id="1_typdh"]
-
-[node name="BoltManager" type="Node2D"]
-script = ExtResource("1_typdh")

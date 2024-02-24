@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b6aamj6c3i7tr" path="res://scenes/States/wander_state.tscn" id="5_oue4e"]
 [ext_resource type="Script" path="res://scenes/slime/AttackState.gd" id="8_gw67a"]
 [ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/Components/HealthComponent/HealthComponent.tscn" id="8_khr64"]
-[ext_resource type="PackedScene" uid="uid://kk2qojh5k81f" path="res://scenes/Abilities/Bolt/bolt_manager.tscn" id="10_x1l41"]
+[ext_resource type="PackedScene" uid="uid://kk2qojh5k81f" path="res://scenes/Abilities/projectile_manager/projectile_manager.tscn" id="10_x1l41"]
 [ext_resource type="PackedScene" uid="uid://bl2y85cidvvgs" path="res://scenes/Monsters/slime/SlimeBall.tscn" id="11_7sd65"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgn4q"]

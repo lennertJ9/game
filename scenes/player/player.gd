@@ -1,24 +1,28 @@
 extends CharacterBody2D
 
-
+# -------------- ANIMATIONS ---------------------------------
 @onready var animation_tree = $AnimationTree as AnimationTree
-
 @onready var animation_player1 = $AnimationPlayer
 @onready var animation_player2 = $AnimationPlayer2
 
+# -------------- VISUALS -----------------
 @onready var visuals = $Visuals
 @onready var run_dust = $Visuals/RunDust
 @onready var hand_left = $Visuals/HandLeft
 @onready var weapon = $Visuals/Weapon
 
+# -------------- COMPONENTS --------------------
 @onready var hurt_box = $HurtBox
 @onready var health_component = $HealthComponent
 
+# -------------- ABILITIES -----------------------
 @onready var bolt_manager = $Abilities/BoltManager
+
+# -------------- UI --------------------------------
+@onready var resource_bar = $CanvasLayer/ResourceBar
 
 
 # walking system
-
 var current_speed = 65
 var movement_direction: Vector2
 var target = Vector2.ZERO
@@ -88,6 +92,8 @@ func _physics_process(_delta):
 
 func on_player_hit(area):
 	health_component.damage(area.damage)
+	
+	
 	
 	var shader = $Visuals/Legs.material as ShaderMaterial
 	shader.set_shader_parameter("amount", .8)

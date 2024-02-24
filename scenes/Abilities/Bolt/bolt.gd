@@ -4,7 +4,7 @@ extends Area2D
 var speed = 225
 var movement_direction = Vector2.RIGHT
 var angle
-var damage = 10
+var damage = 1
 
 func _on_timer_timeout():
 	queue_free()
