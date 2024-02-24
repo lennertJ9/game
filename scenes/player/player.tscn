@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=44 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
 [ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/HitFlashShader.tres" id="2_a8xhc"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/HurtBox/Hurtbox.tscn" id="9_vq76y"]
 [ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/Components/HealthComponent/HealthComponent.tscn" id="10_aar1u"]
 [ext_resource type="PackedScene" uid="uid://dvkplnu5eo316" path="res://scenes/Abilities/fireball/fireball.tscn" id="10_ehrv8"]
+[ext_resource type="Texture2D" uid="uid://bsqwrtbun8lfi" path="res://assets/abilities/fireball.png" id="11_ypdqo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb5ct"]
 radius = 4.0
@@ -997,14 +998,14 @@ vframes = 3
 [node name="Body" type="Sprite2D" parent="Visuals"]
 z_index = 1
 material = ExtResource("2_a8xhc")
-position = Vector2(0, -2.619)
+position = Vector2(0, -2.29863)
 texture = ExtResource("3_x2jjb")
 hframes = 2
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
 z_index = 1
 material = ExtResource("2_a8xhc")
-position = Vector2(1, -9.619)
+position = Vector2(1, -9.29862)
 texture = ExtResource("6_fmvws")
 hframes = 5
 frame = 1
@@ -1014,7 +1015,7 @@ position = Vector2(0, -1)
 texture = ExtResource("7_wqlqq")
 
 [node name="WeaponSlot" type="Node2D" parent="Visuals"]
-position = Vector2(2, -1.7714)
+position = Vector2(2, -1.1611)
 
 [node name="Weapon" type="Sprite2D" parent="Visuals/WeaponSlot"]
 z_index = 2
@@ -1036,12 +1037,18 @@ bolt_instance = ExtResource("8_4kkmh")
 
 [node name="FireballManager" parent="Abilities" instance=ExtResource("9_rk672")]
 bolt_instance = ExtResource("10_ehrv8")
+png = ExtResource("11_ypdqo")
 
 [node name="-------UI-------------------" type="Node" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ResourceBar" parent="CanvasLayer" instance=ExtResource("8_gxwic")]
+offset_left = 194.0
+offset_top = 232.0
+offset_right = -894.0
+offset_bottom = -456.0
+scale = Vector2(2, 2)
 
 [node name="----COMPONENTS-------" type="Node" parent="."]
 

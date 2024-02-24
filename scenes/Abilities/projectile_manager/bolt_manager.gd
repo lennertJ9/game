@@ -2,7 +2,7 @@ extends Node2D
 
 
 @export var bolt_instance: PackedScene
-@export var png: CompressedTexture2D = preload("res://assets/UI/abilities/bolt_icon,.png")
+@export var png: CompressedTexture2D = preload("res://assets/UI/abilities/bolt_icon.png")
 
 func shoot(shoot_direction,position):
 	var bolt = bolt_instance.instantiate()
