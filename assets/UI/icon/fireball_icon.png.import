@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3c1k118b6r1d"
-path="res://.godot/imported/bolt_icon.png-e9f4eeb88a92842b58a8fca49f9bed29.ctex"
+uid="uid://bl5komqxl2tr2"
+path="res://.godot/imported/fireball_icon.png-1648f2c1d327b9d77992b41156724127.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/abilities/bolt_icon.png"
-dest_files=["res://.godot/imported/bolt_icon.png-e9f4eeb88a92842b58a8fca49f9bed29.ctex"]
+source_file="res://assets/UI/icon/fireball_icon.png"
+dest_files=["res://.godot/imported/fireball_icon.png-1648f2c1d327b9d77992b41156724127.ctex"]
 
 [params]
 

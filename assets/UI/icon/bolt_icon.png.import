@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ssi7nwwh8udr"
-path="res://.godot/imported/slime.png-abb6adcd74a0d574c6275696c946fbd6.ctex"
+uid="uid://c3c1k118b6r1d"
+path="res://.godot/imported/bolt_icon.png-b8eec4db0e695185bc2c9a1ea3b2b720.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/slime/slime.png"
-dest_files=["res://.godot/imported/slime.png-abb6adcd74a0d574c6275696c946fbd6.ctex"]
+source_file="res://assets/UI/icon/bolt_icon.png"
+dest_files=["res://.godot/imported/bolt_icon.png-b8eec4db0e695185bc2c9a1ea3b2b720.ctex"]
 
 [params]
 

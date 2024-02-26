@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 # -------------- ANIMATIONS ---------------------------------
 @onready var animation_tree = $AnimationTree as AnimationTree
-@onready var animation_player1 = $AnimationPlayer
-@onready var animation_player2 = $AnimationPlayer2
+@onready var animation_player = $AnimationPlayer
+@onready var attack_animations = $AttackAnimations
+
 
 # -------------- VISUALS -----------------
 @onready var visuals = $Visuals
@@ -50,22 +51,22 @@ func _input(event):
 	if event.is_action_pressed("a"):
 		
 		if boolie:
-			animation_player2.play("ATTACK_DOWN")
+			attack_animations.play("ATTACK_DOWN")
 			boolie = false
 			
 		else:
-			animation_player2.play("ATTACK_DOWN_2")
+			attack_animations.play("ATTACK_DOWN_2")
 			
 			boolie = true
 		bolt_manager.shoot(global_position.direction_to(get_global_mouse_position()), position)
 		
 	if event.is_action_pressed("fireball"):
 		if boolie:
-			animation_player2.play("ATTACK_DOWN")
+			attack_animations.play("ATTACK_DOWN")
 			boolie = false
 			
 		else:
-			animation_player2.play("ATTACK_DOWN_2")
+			animation_player.play("ATTACK_DOWN_2")
 			
 			boolie = true
 			
@@ -92,7 +93,7 @@ func _physics_process(_delta):
 
 func on_player_hit(area):
 	health_component.damage(area.damage)
-	
+	resource_bar.update_health(health_component.current_health)
 	
 	
 	var shader = $Visuals/Legs.material as ShaderMaterial
@@ -103,7 +104,7 @@ func on_player_hit(area):
 
 
 func hide_weapon():
-	$AnimationPlayer2.play('HIDE_WEAPON')
+	attack_animations.play('HIDE_WEAPON')
 	
 
 

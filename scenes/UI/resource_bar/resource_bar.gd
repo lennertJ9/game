@@ -13,6 +13,7 @@ func _ready():
 	update_health(health_component.max_health)
 	set_icons()
 
+
 func update_health(health):
 	life.value = health
 	print(health)
@@ -28,4 +29,6 @@ func set_icons():
 		
 		slots.get_child(i).set_icon(ability.png)
 		i += 1
-			
+
+
+

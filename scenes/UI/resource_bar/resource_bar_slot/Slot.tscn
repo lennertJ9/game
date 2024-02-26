@@ -15,8 +15,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_86yu8")
 
-[node name="AbilityTexture" type="Sprite2D" parent="."]
-position = Vector2(14, 9)
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 22.0
+offset_bottom = 17.0
+value = 71.0
+rounded = true
+fill_mode = 5
+tint_under = Color(0.498039, 0.498039, 0.498039, 1)
 
 [node name="SlotTexture" type="Sprite2D" parent="."]
 position = Vector2(14, 10)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqtffxhke1xq5" path="res://assets/tilesets/forest_theme/decorations_32x32.png" id="3_312gv"]
 [ext_resource type="PackedScene" uid="uid://dywg1dlia21m4" path="res://scenes/player/player.tscn" id="3_nyilr"]
 [ext_resource type="Texture2D" uid="uid://ntssjasxs8t6" path="res://assets/tilesets/forest_theme/decorations_64x64.png" id="4_vee5r"]
-[ext_resource type="PackedScene" uid="uid://su8br4pp0fhs" path="res://scenes/slime/slime.tscn" id="5_xhwnt"]
+[ext_resource type="PackedScene" uid="uid://su8br4pp0fhs" path="res://scenes/Monsters/slime/slime.tscn" id="5_hu50d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5pm0"]
 texture = ExtResource("2_xg6e4")
@@ -272,7 +272,7 @@ layer_2/y_sort_enabled = true
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(-524288, 2, 0, -655373, 2, 0, 262132, 2, 0, 327682, 131074, 0, 196619, 131074, 0, -524276, 131074, 0, -589815, 2, 1, -196597, 2, 1, 262157, 2, 1, 393226, 2, 1, -196619, 65538, 1, -524294, 65538, 1, 5, 65538, 1, -393215, 196610, 0, 65540, 196610, 0, 327680, 196610, 0, 196609, 196610, 0, 393203, 196610, 0, 196593, 196610, 0, -655370, 65536, 5, -589832, 65536, 5, -524297, 131072, 5, -524286, 131072, 5, 3, 131072, 5, -65534, 196608, 5, 2, 0, 5, 65537, 0, 5, 393211, 0, 5, 458749, 0, 5, 524284, 65536, 5, 393202, 65536, 5)
 
-[node name="Slime" parent="." instance=ExtResource("5_xhwnt")]
-position = Vector2(-187, -2)
-
 [node name="Player" parent="." instance=ExtResource("3_nyilr")]
+
+[node name="Slime" parent="." instance=ExtResource("5_hu50d")]
+position = Vector2(-81, -62)

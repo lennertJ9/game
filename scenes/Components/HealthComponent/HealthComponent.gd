@@ -14,7 +14,7 @@ func _ready():
 
 func damage(amount):
 	current_health -= amount
-	
+	print('health damage')
 	
 	if current_health <= 0:
 		await get_tree().create_timer(0.1).timeout

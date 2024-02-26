@@ -19,11 +19,26 @@ grow_vertical = 2
 size_flags_vertical = 8
 script = ExtResource("1_lrivw")
 
+[node name="Slots" type="Node2D" parent="."]
+
+[node name="Slot" parent="Slots" instance=ExtResource("5_mgsug")]
+offset_left = 29.0
+offset_top = 8.0
+offset_right = 57.0
+offset_bottom = 27.0
+
+[node name="Slot2" parent="Slots" instance=ExtResource("5_mgsug")]
+offset_left = 107.0
+offset_top = 7.0
+offset_right = 135.0
+offset_bottom = 26.0
+
 [node name="Life" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 1.52588e-05
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 36.0
+offset_bottom = 33.0
 rotation = -0.000723525
 value = 50.0
 fill_mode = 3
@@ -31,26 +46,13 @@ texture_under = ExtResource("2_2ibij")
 texture_progress = ExtResource("3_x1pvd")
 
 [node name="Energy" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
 offset_left = 154.0
-offset_right = 218.0
-offset_bottom = 64.0
+offset_right = 186.0
+offset_bottom = 32.0
 rotation = -0.000723525
 value = 50.0
 fill_mode = 3
 texture_under = ExtResource("2_2ibij")
 texture_progress = ExtResource("4_7x8ng")
-
-[node name="Slots" type="Node2D" parent="."]
-
-[node name="Slot" parent="Slots" instance=ExtResource("5_mgsug")]
-offset_left = 73.0
-offset_top = 7.0
-offset_right = 101.0
-offset_bottom = 26.0
-
-[node name="Slot2" parent="Slots" instance=ExtResource("5_mgsug")]
-offset_left = 107.0
-offset_top = 7.0
-offset_right = 135.0
-offset_bottom = 26.0
