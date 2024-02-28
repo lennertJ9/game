@@ -48,16 +48,16 @@ func _input(event):
 		else:
 			visuals.scale.x = 1
 		
-	if event.is_action_pressed("a"):
+	if event.is_action_pressed("magic_bolt"):
 		
-		if boolie:
-			attack_animations.play("ATTACK_DOWN")
-			boolie = false
+		#if boolie:
+			#attack_animations.play("ATTACK_DOWN")
+			#boolie = false
+			#
+		#else:
+			#attack_animations.play("ATTACK_DOWN_2")
+			#boolie = true
 			
-		else:
-			attack_animations.play("ATTACK_DOWN_2")
-			
-			boolie = true
 		bolt_manager.shoot(global_position.direction_to(get_global_mouse_position()), position)
 		
 	if event.is_action_pressed("fireball"):
@@ -107,4 +107,12 @@ func hide_weapon():
 	attack_animations.play('HIDE_WEAPON')
 	
 
+func play_animation():
+	if boolie:
+		attack_animations.play("ATTACK_DOWN")
+		boolie = false
+		
+	else:
+		attack_animations.play("ATTACK_DOWN_2")
+		boolie = true
 

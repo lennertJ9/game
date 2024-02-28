@@ -16,7 +16,7 @@ func _ready():
 
 func update_health(health):
 	life.value = health
-	print(health)
+	
 
 
 func update_properties():

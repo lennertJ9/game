@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwab6h3f6vtm"]
+[gd_scene load_steps=4 format=3 uid="uid://cwab6h3f6vtm"]
 
 [ext_resource type="Script" path="res://scenes/UI/resource_bar/resource_bar_slot/Slot.gd" id="1_86yu8"]
+[ext_resource type="Texture2D" uid="uid://c3c1k118b6r1d" path="res://assets/UI/icon/bolt_icon.png" id="2_ikdcs"]
 [ext_resource type="Texture2D" uid="uid://b64ey0n7pqrb1" path="res://assets/UI/bar_slot.png" id="2_rn4by"]
 
 [node name="Slot" type="Control"]
@@ -22,11 +23,16 @@ offset_left = 6.0
 offset_top = 1.0
 offset_right = 22.0
 offset_bottom = 17.0
-value = 71.0
-rounded = true
-fill_mode = 5
-tint_under = Color(0.498039, 0.498039, 0.498039, 1)
+max_value = 5.0
+step = 0.01
+fill_mode = 4
+texture_under = ExtResource("2_ikdcs")
+texture_progress = ExtResource("2_ikdcs")
+tint_progress = Color(0.435294, 0.435294, 0.435294, 1)
 
 [node name="SlotTexture" type="Sprite2D" parent="."]
 position = Vector2(14, 10)
 texture = ExtResource("2_rn4by")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

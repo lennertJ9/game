@@ -999,14 +999,14 @@ vframes = 3
 [node name="Body" type="Sprite2D" parent="Visuals"]
 z_index = 1
 material = ExtResource("2_a8xhc")
-position = Vector2(0, -3)
+position = Vector2(0, -2.67528)
 texture = ExtResource("3_x2jjb")
 hframes = 2
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
 z_index = 1
 material = ExtResource("2_a8xhc")
-position = Vector2(1, -10)
+position = Vector2(1, -9.67528)
 texture = ExtResource("6_fmvws")
 hframes = 5
 frame = 1
@@ -1016,7 +1016,7 @@ position = Vector2(0, -1)
 texture = ExtResource("7_wqlqq")
 
 [node name="WeaponSlot" type="Node2D" parent="Visuals"]
-position = Vector2(2, -2)
+position = Vector2(2, -1.80517)
 
 [node name="Weapon" type="Sprite2D" parent="Visuals/WeaponSlot"]
 z_index = 2

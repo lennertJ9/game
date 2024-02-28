@@ -16,8 +16,9 @@ extends Node2D
 
 func shoot(shoot_direction,position):
 	if off_cooldown:
-		
-		
+		if owner.has_method("play_animation"):
+			owner.play_animation()
+		$"../../CanvasLayer/ResourceBar/Slots/Slot".timer(1)
 		var bolt = bolt_instance.instantiate()
 		var world = get_tree().get_first_node_in_group("world")
 		bolt.global_position = position

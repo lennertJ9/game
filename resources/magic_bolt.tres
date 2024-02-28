@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://bolbionv4wv0o"]
+
+[ext_resource type="Script" path="res://resources/Ability.gd" id="1_7q33w"]
+[ext_resource type="Texture2D" uid="uid://c3c1k118b6r1d" path="res://assets/UI/icon/bolt_icon.png" id="1_j5mqq"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_7q33w")
+name = ""
+icon = ExtResource("1_j5mqq")
+speed = 0
