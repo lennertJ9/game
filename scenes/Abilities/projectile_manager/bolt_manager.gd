@@ -19,11 +19,11 @@ func _ready():
 	
 	
 func update_slots():
+	var slots = get_tree().get_first_node_in_group("UI").ability_slots.get_children()
+	
 	var i = 0
-	for slot in slots.get_children():
-		get_child(i).resource = slot.resource
-		get_child(i).off_cooldown = false
-		get_child(i).cooldown_timer.start()
+	for slot in slots:
+		get_child(i).update_ability_manager(slot.resource)
 		i += 1
 	
 	

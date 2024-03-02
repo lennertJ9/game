@@ -8,7 +8,7 @@ func _ready():
 
 func _on_area_entered(area):
 	area.remove_bullet()
-	print("emit")
+	
 	hit.emit(area)
 
 

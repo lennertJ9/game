@@ -1,5 +1,11 @@
 extends CharacterBody2D
-class_name player
+#class_name player
+
+
+signal stats_updated
+
+
+@export var player_stats : stats
 
 # -------------- ANIMATIONS ---------------------------------
 @onready var animation_tree = $AnimationTree as AnimationTree
@@ -14,7 +20,7 @@ class_name player
 @onready var weapon = $Visuals/Weapon
 
 # -------------- COMPONENTS --------------------
-@onready var hurt_box = $HurtBox
+@onready var hurt_box = $HurtBoxComponent
 @onready var health_component = $HealthComponent
 
 # -------------- ABILITIES -----------------------
@@ -26,7 +32,6 @@ class_name player
 
 
 # walking system
-var current_speed = 65
 var movement_direction: Vector2
 var target = Vector2.ZERO
 
@@ -35,15 +40,16 @@ var boolie = true
 
 func _ready():
 	hurt_box.hit.connect(on_player_hit)
+	update_player_stats()
 	
-	
+
 func _process(delta):
 	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
 	var target_position = global_position + Vector2(0,-4) + direction_to_mouse * 7
 
 
 func _physics_process(_delta):
-	velocity = movement_direction * current_speed
+	velocity = movement_direction * player_stats.movement_speed
 	
 	if position.distance_to(target) > 1:
 		
@@ -90,12 +96,17 @@ func _input(event):
 
 	if event.is_action_pressed("debug"):
 		print("debug")
-		projectile_manager.update()
+		#var slots = get_tree().get_first_node_in_group("UI").ability_slots
+		#print("slots --> ",slots)
 
 
 func slot_press(index):
 	$ProjectileManager.get_child(index).use_ability()
-	
+
+
+func update_player_stats():
+	health_component.max_health = player_stats.health
+	stats_updated.emit()
 	
 
 func on_player_hit(area):

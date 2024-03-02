@@ -1,6 +1,6 @@
 extends Control
 
-var index : int
+signal ability_order_changed
 
 @onready var ability_icon = $AbilityIcon
 @onready var slot_texture = $SlotTexture
@@ -14,22 +14,33 @@ var copy_resource : Resource
 
 func _ready():
 	update()
-	if resource:
-		cooldown_timer.wait_time = resource.cooldown
-	print(owner.owner)
-
+	
+		
 
 
 func update():
 	if resource:
 		ability_icon.texture_under = resource.icon
+		ability_icon.texture_progress = resource.icon
+		
+		cooldown_timer.wait_time = resource.cooldown
+		ability_icon.max_value = resource.cooldown
 	else:
 		ability_icon.texture_under = null
-
+		ability_icon.texture_progress = null
+		
+	ability_order_changed.emit()
 
 # UI updaten, progress van een ability cooldown
-func update_progress():
-	ability_icon.texture_progress = cooldown_timer.time_left
+func start_cooldown():
+	cooldown_timer.start()
+	update_timer.start()
+
+
+func _on_update_timer_timeout():
+	ability_icon.value = cooldown_timer.time_left
+	if ability_icon.value < 0:
+		update_timer.stop()
 
 
 func _get_drag_data(at_position):
@@ -39,15 +50,13 @@ func _get_drag_data(at_position):
 		update()
 		
 		var preview = Control.new()
-		preview.scale = Vector2(3,3)
+		preview.scale = Vector2(4,4)
 		
 		var preview_texture = TextureRect.new()
 		preview_texture.texture = copy_resource.icon
 		preview_texture.position = Vector2(-8,-8)
 		preview.add_child(preview_texture)
 		set_drag_preview(preview)
-		
-		
 		return copy_resource
 
 
@@ -57,9 +66,13 @@ func _can_drop_data(at_position, data):
 
 func _drop_data(at_position, data):
 	resource = data
-	ability_icon.texture_under = data.icon
+	update()
+	start_cooldown()
 	
-	owner.owner.projectile_manager.update_slots()
+
+
+
+
 
 
 #func _notification(notification_type):
@@ -68,7 +81,6 @@ func _drop_data(at_position, data):
 			#print(is_drag_successful())
 
 
-func _on_update_timer_timeout():
-	update_progress()
+
 
 

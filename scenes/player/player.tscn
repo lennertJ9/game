@@ -1,8 +1,9 @@
-[gd_scene load_steps=43 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=44 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
 [ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/HitFlashShader.tres" id="2_a8xhc"]
 [ext_resource type="Texture2D" uid="uid://c8o4n6pdcjsh0" path="res://assets/player/player_legs.png" id="2_aufhp"]
+[ext_resource type="Resource" uid="uid://jdbuxjueoppv" path="res://resources/player_stats.tres" id="2_g1s7t"]
 [ext_resource type="Texture2D" uid="uid://c2kgbta0kdgnu" path="res://assets/player/player_body.png" id="3_x2jjb"]
 [ext_resource type="Texture2D" uid="uid://tij6tessec61" path="res://assets/player/player_head.png" id="6_fmvws"]
 [ext_resource type="Texture2D" uid="uid://wgrxq8datsum" path="res://scenes/player/visuals/player_shadow.png" id="7_wqlqq"]
@@ -979,6 +980,7 @@ z_index = 1
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_5lnvd")
+player_stats = ExtResource("2_g1s7t")
 
 [node name="CollisionPlayer" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
@@ -997,14 +999,14 @@ vframes = 3
 [node name="Body" type="Sprite2D" parent="Visuals"]
 z_index = 1
 material = ExtResource("2_a8xhc")
-position = Vector2(0, -2.96932)
+position = Vector2(0, -2.46608)
 texture = ExtResource("3_x2jjb")
 hframes = 2
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
 z_index = 1
 material = ExtResource("2_a8xhc")
-position = Vector2(1, -9.96932)
+position = Vector2(1, -9.46608)
 texture = ExtResource("6_fmvws")
 hframes = 5
 frame = 1
@@ -1014,7 +1016,7 @@ position = Vector2(0, -1)
 texture = ExtResource("7_wqlqq")
 
 [node name="WeaponSlot" type="Node2D" parent="Visuals"]
-position = Vector2(2, -1.46932)
+position = Vector2(2, -1.67965)
 
 [node name="Weapon" type="Sprite2D" parent="Visuals/WeaponSlot"]
 z_index = 2
@@ -1046,14 +1048,13 @@ cooldown = 1.0
 
 [node name="----COMPONENTS-------" type="Node" parent="."]
 
-[node name="HurtBox" parent="." instance=ExtResource("9_vq76y")]
+[node name="HurtBoxComponent" parent="." instance=ExtResource("9_vq76y")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_ipgv1")
 
 [node name="HealthComponent" parent="." instance=ExtResource("10_aar1u")]
-max_health = 10
 
 [node name="----ANIMATIONS---------" type="Node" parent="."]
 

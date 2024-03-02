@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://balv4nb1mv4r0"]
+[gd_scene load_steps=12 format=3 uid="uid://balv4nb1mv4r0"]
 
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_4qf40"]
 [ext_resource type="Texture2D" uid="uid://cr47hn4dk6kbo" path="res://assets/tilesets/forest_theme/decorations_16x16.png" id="2_xg6e4"]
 [ext_resource type="Texture2D" uid="uid://dqtffxhke1xq5" path="res://assets/tilesets/forest_theme/decorations_32x32.png" id="3_312gv"]
 [ext_resource type="PackedScene" uid="uid://dywg1dlia21m4" path="res://scenes/player/player.tscn" id="3_nyilr"]
 [ext_resource type="Texture2D" uid="uid://ntssjasxs8t6" path="res://assets/tilesets/forest_theme/decorations_64x64.png" id="4_vee5r"]
 [ext_resource type="PackedScene" uid="uid://su8br4pp0fhs" path="res://scenes/Monsters/slime/slime.tscn" id="5_hu50d"]
+[ext_resource type="PackedScene" uid="uid://riaycvu1w5m2" path="res://scenes/UI/UI_root/UI.tscn" id="7_0ug0p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5pm0"]
 texture = ExtResource("2_xg6e4")
@@ -258,6 +260,7 @@ sources/2 = SubResource("TileSetAtlasSource_lwkrs")
 
 [node name="Main" type="Node2D" groups=["world"]]
 y_sort_enabled = true
+script = ExtResource("1_4qf40")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -272,7 +275,9 @@ layer_2/y_sort_enabled = true
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(-524288, 2, 0, -655373, 2, 0, 262132, 2, 0, 327682, 131074, 0, 196619, 131074, 0, -524276, 131074, 0, -589815, 2, 1, -196597, 2, 1, 262157, 2, 1, 393226, 2, 1, -196619, 65538, 1, -524294, 65538, 1, 5, 65538, 1, -393215, 196610, 0, 65540, 196610, 0, 327680, 196610, 0, 196609, 196610, 0, 393203, 196610, 0, 196593, 196610, 0, -655370, 65536, 5, -589832, 65536, 5, -524297, 131072, 5, -524286, 131072, 5, 3, 131072, 5, -65534, 196608, 5, 2, 0, 5, 65537, 0, 5, 393211, 0, 5, 458749, 0, 5, 524284, 65536, 5, 393202, 65536, 5)
 
-[node name="Player" parent="." instance=ExtResource("3_nyilr")]
-
 [node name="Slime" parent="." instance=ExtResource("5_hu50d")]
 position = Vector2(-81, -62)
+
+[node name="UI" parent="." instance=ExtResource("7_0ug0p")]
+
+[node name="Player" parent="." instance=ExtResource("3_nyilr")]
