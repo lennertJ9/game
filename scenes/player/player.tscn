@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=43 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
 [ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/HitFlashShader.tres" id="2_a8xhc"]
@@ -7,14 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://tij6tessec61" path="res://assets/player/player_head.png" id="6_fmvws"]
 [ext_resource type="Texture2D" uid="uid://wgrxq8datsum" path="res://scenes/player/visuals/player_shadow.png" id="7_wqlqq"]
 [ext_resource type="PackedScene" uid="uid://b33mmwu7fmrcf" path="res://scenes/Abilities/Bolt/bolt.tscn" id="8_4kkmh"]
-[ext_resource type="PackedScene" uid="uid://dw7542qtinm0q" path="res://scenes/UI/resource_bar/resource_bar.tscn" id="8_gxwic"]
 [ext_resource type="Texture2D" uid="uid://ddk5aokqe2ecd" path="res://assets/player/weapon.png" id="8_panfk"]
 [ext_resource type="PackedScene" uid="uid://kk2qojh5k81f" path="res://scenes/Abilities/projectile_manager/projectile_manager.tscn" id="9_rk672"]
 [ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/HurtBox/Hurtbox.tscn" id="9_vq76y"]
 [ext_resource type="Texture2D" uid="uid://c3c1k118b6r1d" path="res://assets/UI/icon/bolt_icon.png" id="10_0i1nj"]
 [ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/Components/HealthComponent/HealthComponent.tscn" id="10_aar1u"]
-[ext_resource type="PackedScene" uid="uid://dvkplnu5eo316" path="res://scenes/Abilities/fireball/fireball.tscn" id="10_ehrv8"]
-[ext_resource type="Texture2D" uid="uid://bl5komqxl2tr2" path="res://assets/UI/icon/fireball_icon.png" id="11_ppgpf"]
+[ext_resource type="PackedScene" uid="uid://c8k2akatve5qa" path="res://scenes/Abilities/AbilityManager.tscn" id="11_st2pk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb5ct"]
 radius = 4.0
@@ -999,14 +997,14 @@ vframes = 3
 [node name="Body" type="Sprite2D" parent="Visuals"]
 z_index = 1
 material = ExtResource("2_a8xhc")
-position = Vector2(0, -2.67528)
+position = Vector2(0, -2.96932)
 texture = ExtResource("3_x2jjb")
 hframes = 2
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
 z_index = 1
 material = ExtResource("2_a8xhc")
-position = Vector2(1, -9.67528)
+position = Vector2(1, -9.96932)
 texture = ExtResource("6_fmvws")
 hframes = 5
 frame = 1
@@ -1016,7 +1014,7 @@ position = Vector2(0, -1)
 texture = ExtResource("7_wqlqq")
 
 [node name="WeaponSlot" type="Node2D" parent="Visuals"]
-position = Vector2(2, -1.80517)
+position = Vector2(2, -1.46932)
 
 [node name="Weapon" type="Sprite2D" parent="Visuals/WeaponSlot"]
 z_index = 2
@@ -1031,28 +1029,20 @@ zoom = Vector2(2, 2)
 wait_time = 0.1
 autostart = true
 
-[node name="Abilities" type="Node" parent="."]
-
-[node name="BoltManager" parent="Abilities" instance=ExtResource("9_rk672")]
+[node name="ProjectileManager" parent="." instance=ExtResource("9_rk672")]
 bolt_instance = ExtResource("8_4kkmh")
 png = ExtResource("10_0i1nj")
 cooldown = 1.0
 
-[node name="FireballManager" parent="Abilities" instance=ExtResource("9_rk672")]
-bolt_instance = ExtResource("10_ehrv8")
-png = ExtResource("11_ppgpf")
-cooldown = 0.1
+[node name="AbilityManager1" parent="ProjectileManager" instance=ExtResource("11_st2pk")]
 
-[node name="-------UI-------------------" type="Node" parent="."]
+[node name="AbilityManager2" parent="ProjectileManager" instance=ExtResource("11_st2pk")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="AbilityManager3" parent="ProjectileManager" instance=ExtResource("11_st2pk")]
 
-[node name="ResourceBar" parent="CanvasLayer" instance=ExtResource("8_gxwic")]
-offset_left = 194.0
-offset_top = 232.0
-offset_right = -894.0
-offset_bottom = -456.0
-scale = Vector2(2, 2)
+[node name="AbilityManager4" parent="ProjectileManager" instance=ExtResource("11_st2pk")]
+
+[node name="AbilityManager5" parent="ProjectileManager" instance=ExtResource("11_st2pk")]
 
 [node name="----COMPONENTS-------" type="Node" parent="."]
 

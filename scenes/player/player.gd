@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player
 
 # -------------- ANIMATIONS ---------------------------------
 @onready var animation_tree = $AnimationTree as AnimationTree
@@ -17,7 +18,8 @@ extends CharacterBody2D
 @onready var health_component = $HealthComponent
 
 # -------------- ABILITIES -----------------------
-@onready var bolt_manager = $Abilities/BoltManager
+@onready var projectile_manager = $ProjectileManager
+
 
 # -------------- UI --------------------------------
 @onready var resource_bar = $CanvasLayer/ResourceBar
@@ -34,7 +36,24 @@ var boolie = true
 func _ready():
 	hurt_box.hit.connect(on_player_hit)
 	
+	
+func _process(delta):
+	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
+	var target_position = global_position + Vector2(0,-4) + direction_to_mouse * 7
 
+
+func _physics_process(_delta):
+	velocity = movement_direction * current_speed
+	
+	if position.distance_to(target) > 1:
+		
+		move_and_slide()
+	else:
+		$AnimationTree["parameters/conditions/is_idle"] = true
+		$AnimationTree["parameters/conditions/is_walking"] = false
+		$AnimationTree["parameters/IDLE/blend_position"] = movement_direction
+		
+		
 func _input(event):
 	if event.is_action_pressed("right_click"):
 		target = get_global_mouse_position()
@@ -48,48 +67,36 @@ func _input(event):
 		else:
 			visuals.scale.x = 1
 		
-	if event.is_action_pressed("magic_bolt"):
-		
-		#if boolie:
-			#attack_animations.play("ATTACK_DOWN")
-			#boolie = false
-			#
-		#else:
-			#attack_animations.play("ATTACK_DOWN_2")
-			#boolie = true
-			
-		bolt_manager.shoot(global_position.direction_to(get_global_mouse_position()), position)
-		
-	if event.is_action_pressed("fireball"):
-		if boolie:
-			attack_animations.play("ATTACK_DOWN")
-			boolie = false
-			
-		else:
-			animation_player.play("ATTACK_DOWN_2")
-			
-			boolie = true
-			
-		$Abilities/FireballManager.shoot(global_position.direction_to(get_global_mouse_position()), position)
-
-
-func _process(delta):
-	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
-	var target_position = global_position + Vector2(0,-4) + direction_to_mouse * 7
-
-
-func _physics_process(_delta):
-	velocity = movement_direction * current_speed
+	#if event.is_action_pressed("magic_bolt"):
+		#$Abilities/BoltManager.shoot(global_position.direction_to(get_global_mouse_position()), position)
+		#
+	#if event.is_action_pressed("fireball"):
+		#$Abilities/FireballManager.shoot(global_position.direction_to(get_global_mouse_position()), position)
 	
+	if event.is_action_pressed("slot_1"):
+		slot_press(0)
+	
+	if event.is_action_pressed("slot_2"):
+		slot_press(1)
+	
+	if event.is_action_pressed("slot_3"):
+		slot_press(2)
+	
+	if event.is_action_pressed("slot_4"):
+		slot_press(3)
+	
+	if event.is_action_pressed("slot_5"):
+		slot_press(4)
 
-	if position.distance_to(target) > 1:
-		
-		move_and_slide()
-	else:
-		$AnimationTree["parameters/conditions/is_idle"] = true
-		$AnimationTree["parameters/conditions/is_walking"] = false
-		$AnimationTree["parameters/IDLE/blend_position"] = movement_direction
+	if event.is_action_pressed("debug"):
+		print("debug")
+		projectile_manager.update()
 
+
+func slot_press(index):
+	$ProjectileManager.get_child(index).use_ability()
+	
+	
 
 func on_player_hit(area):
 	health_component.damage(area.damage)

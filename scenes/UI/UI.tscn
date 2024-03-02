@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://riaycvu1w5m2"]
+
+[ext_resource type="Script" path="res://scenes/UI/resource_bar/resource_bar.gd" id="1_d2cpv"]
+[ext_resource type="PackedScene" uid="uid://cwab6h3f6vtm" path="res://scenes/UI/resource_bar/resource_bar_slot/Slot.tscn" id="2_2srfd"]
+[ext_resource type="PackedScene" uid="uid://b33mmwu7fmrcf" path="res://scenes/Abilities/Bolt/bolt.tscn" id="3_yaq0c"]
+[ext_resource type="Texture2D" uid="uid://c3c1k118b6r1d" path="res://assets/UI/icon/bolt_icon.png" id="4_dq26s"]
+[ext_resource type="Script" path="res://resources/Ability.gd" id="5_hossx"]
+[ext_resource type="Resource" uid="uid://dl6hywxdnphu5" path="res://resources/fireball.tres" id="6_0xyjh"]
+[ext_resource type="Texture2D" uid="uid://dl25bp70bio53" path="res://assets/UI/bar_border.png" id="7_6fbh6"]
+[ext_resource type="Texture2D" uid="uid://cro4xh8xke6wq" path="res://assets/UI/life.png" id="8_3sqnd"]
+[ext_resource type="Texture2D" uid="uid://b066eoludk3w2" path="res://assets/UI/energy.png" id="9_u8i28"]
+
+[sub_resource type="Resource" id="Resource_j2okj"]
+resource_local_to_scene = true
+script = ExtResource("5_hossx")
+ability_scene = ExtResource("3_yaq0c")
+name = ""
+icon = ExtResource("4_dq26s")
+speed = 350
+cooldown = 2.0
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ResourceBar" type="Control" parent="."]
+custom_minimum_size = Vector2(192, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1088.0
+offset_bottom = -688.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(96, 16)
+size_flags_vertical = 8
+script = ExtResource("1_d2cpv")
+
+[node name="Slots" type="Control" parent="ResourceBar"]
+anchors_preset = 0
+
+[node name="Slot1" parent="ResourceBar/Slots" instance=ExtResource("2_2srfd")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 58.0
+offset_bottom = 29.0
+grow_vertical = 1
+resource = SubResource("Resource_j2okj")
+
+[node name="Slot2" parent="ResourceBar/Slots" instance=ExtResource("2_2srfd")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 55.0
+offset_top = 10.0
+offset_right = 83.0
+offset_bottom = 29.0
+grow_vertical = 1
+resource = ExtResource("6_0xyjh")
+
+[node name="Slot3" parent="ResourceBar/Slots" instance=ExtResource("2_2srfd")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 80.0
+offset_top = 10.0
+offset_right = 108.0
+offset_bottom = 29.0
+grow_vertical = 1
+
+[node name="Slot4" parent="ResourceBar/Slots" instance=ExtResource("2_2srfd")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 105.0
+offset_top = 10.0
+offset_right = 133.0
+offset_bottom = 29.0
+grow_vertical = 1
+
+[node name="Slot5" parent="ResourceBar/Slots" instance=ExtResource("2_2srfd")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 130.0
+offset_top = 10.0
+offset_right = 158.0
+offset_bottom = 29.0
+grow_vertical = 1
+
+[node name="Life" type="TextureProgressBar" parent="ResourceBar"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 36.0
+offset_bottom = 33.0
+rotation = -0.000723525
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("7_6fbh6")
+texture_progress = ExtResource("8_3sqnd")
+
+[node name="Energy" type="TextureProgressBar" parent="ResourceBar"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = 152.0
+offset_top = 1.0
+offset_right = 184.0
+offset_bottom = 33.0
+rotation = -0.000723525
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("7_6fbh6")
+texture_progress = ExtResource("9_u8i28")

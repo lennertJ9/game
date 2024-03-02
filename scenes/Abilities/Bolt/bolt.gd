@@ -1,10 +1,11 @@
 extends Area2D
 
+@export var resource : Resource
 
-var speed = 225
 var movement_direction = Vector2.RIGHT
 var angle
 var damage = 1
+var speed = 150
 
 func _on_timer_timeout():
 	queue_free()

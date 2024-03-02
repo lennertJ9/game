@@ -1,6 +1,6 @@
 extends Area2D
 
-
+@export var resource : Resource
 var speed = 200
 var movement_direction = Vector2.RIGHT
 var angle

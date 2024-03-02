@@ -1,14 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw7542qtinm0q"]
+[gd_scene load_steps=11 format=3 uid="uid://dw7542qtinm0q"]
 
 [ext_resource type="Script" path="res://scenes/UI/resource_bar/resource_bar.gd" id="1_lrivw"]
 [ext_resource type="Texture2D" uid="uid://dl25bp70bio53" path="res://assets/UI/bar_border.png" id="2_2ibij"]
+[ext_resource type="PackedScene" uid="uid://b33mmwu7fmrcf" path="res://scenes/Abilities/Bolt/bolt.tscn" id="3_gvyhi"]
 [ext_resource type="Texture2D" uid="uid://cro4xh8xke6wq" path="res://assets/UI/life.png" id="3_x1pvd"]
+[ext_resource type="Texture2D" uid="uid://c3c1k118b6r1d" path="res://assets/UI/icon/bolt_icon.png" id="4_3nc3y"]
 [ext_resource type="Texture2D" uid="uid://b066eoludk3w2" path="res://assets/UI/energy.png" id="4_7x8ng"]
 [ext_resource type="PackedScene" uid="uid://cwab6h3f6vtm" path="res://scenes/UI/resource_bar/resource_bar_slot/Slot.tscn" id="5_mgsug"]
+[ext_resource type="Script" path="res://resources/Ability.gd" id="5_ypcau"]
+[ext_resource type="Resource" uid="uid://dl6hywxdnphu5" path="res://resources/fireball.tres" id="6_ibmv5"]
 
-[node name="ResourceBar" type="Control"]
-custom_minimum_size = Vector2(192, 32)
+[sub_resource type="Resource" id="Resource_o5b2v"]
+resource_local_to_scene = true
+script = ExtResource("5_ypcau")
+ability_scene = ExtResource("3_gvyhi")
+name = ""
+icon = ExtResource("4_3nc3y")
+speed = 350
+cooldown = 2.0
+
+[node name="UI" type="Control"]
 layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ResourceBar" type="Control" parent="."]
+custom_minimum_size = Vector2(192, 32)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,24 +35,66 @@ offset_right = -1088.0
 offset_bottom = -688.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(96, 16)
 size_flags_vertical = 8
 script = ExtResource("1_lrivw")
 
-[node name="Slots" type="Node2D" parent="."]
+[node name="Slots" type="Control" parent="ResourceBar"]
+anchors_preset = 0
 
-[node name="Slot" parent="Slots" instance=ExtResource("5_mgsug")]
-offset_left = 29.0
-offset_top = 8.0
-offset_right = 57.0
-offset_bottom = 27.0
+[node name="Slot1" parent="ResourceBar/Slots" instance=ExtResource("5_mgsug")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 58.0
+offset_bottom = 29.0
+grow_vertical = 1
+resource = SubResource("Resource_o5b2v")
 
-[node name="Slot2" parent="Slots" instance=ExtResource("5_mgsug")]
-offset_left = 107.0
-offset_top = 7.0
-offset_right = 135.0
-offset_bottom = 26.0
+[node name="Slot2" parent="ResourceBar/Slots" instance=ExtResource("5_mgsug")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 55.0
+offset_top = 10.0
+offset_right = 83.0
+offset_bottom = 29.0
+grow_vertical = 1
+resource = ExtResource("6_ibmv5")
 
-[node name="Life" type="TextureProgressBar" parent="."]
+[node name="Slot3" parent="ResourceBar/Slots" instance=ExtResource("5_mgsug")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 80.0
+offset_top = 10.0
+offset_right = 108.0
+offset_bottom = 29.0
+grow_vertical = 1
+
+[node name="Slot4" parent="ResourceBar/Slots" instance=ExtResource("5_mgsug")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 105.0
+offset_top = 10.0
+offset_right = 133.0
+offset_bottom = 29.0
+grow_vertical = 1
+
+[node name="Slot5" parent="ResourceBar/Slots" instance=ExtResource("5_mgsug")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 130.0
+offset_top = 10.0
+offset_right = 158.0
+offset_bottom = 29.0
+grow_vertical = 1
+
+[node name="Life" type="TextureProgressBar" parent="ResourceBar"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 1.0
@@ -45,12 +106,13 @@ fill_mode = 3
 texture_under = ExtResource("2_2ibij")
 texture_progress = ExtResource("3_x1pvd")
 
-[node name="Energy" type="TextureProgressBar" parent="."]
+[node name="Energy" type="TextureProgressBar" parent="ResourceBar"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
-offset_left = 154.0
-offset_right = 186.0
-offset_bottom = 32.0
+offset_left = 152.0
+offset_top = 1.0
+offset_right = 184.0
+offset_bottom = 33.0
 rotation = -0.000723525
 value = 50.0
 fill_mode = 3
