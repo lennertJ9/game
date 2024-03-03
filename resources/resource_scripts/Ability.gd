@@ -9,5 +9,6 @@ class_name Ability
 
 @export var speed : int
 @export var cooldown : float
+@export var mana_cost : int
 var is_ready : bool
 

@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://su8br4pp0fhs"]
+[gd_scene load_steps=16 format=3 uid="uid://su8br4pp0fhs"]
 
 [ext_resource type="Script" path="res://scenes/Monsters/slime/slime.gd" id="1_3hfx0"]
 [ext_resource type="Texture2D" uid="uid://dmrc0f0ovoy3x" path="res://scenes/Monsters/slime/slime_shadow.png" id="1_kbjwi"]
 [ext_resource type="Texture2D" uid="uid://ssi7nwwh8udr" path="res://scenes/Monsters/slime/slime.png" id="2_ffjr4"]
+[ext_resource type="Resource" uid="uid://cqc6w4fv3mt8h" path="res://resources/monster_stat.tres" id="2_xm2hu"]
 [ext_resource type="Shader" path="res://shaders/hit_flash.gdshader" id="3_v2x0p"]
 [ext_resource type="PackedScene" uid="uid://dn3mrqnfwulw4" path="res://scenes/States/state_manager.tscn" id="4_a3fx4"]
 [ext_resource type="PackedScene" uid="uid://b6aamj6c3i7tr" path="res://scenes/States/wander_state.tscn" id="5_oue4e"]
-[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/HurtBox/Hurtbox.tscn" id="6_bvjyg"]
+[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/HurtBoxComponent/Hurtbox.tscn" id="6_bvjyg"]
 [ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/Components/HealthComponent/HealthComponent.tscn" id="7_8dl5p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgn4q"]
@@ -135,6 +136,7 @@ collision_layer = 4
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_3hfx0")
+stats = ExtResource("2_xm2hu")
 speed = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -172,6 +174,5 @@ position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_r021d")
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_8dl5p")]
-max_health = 20
 
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+
+@export var stats : statistic
+
 @export var movement_direction: Vector2 
 @export var speed: int
 

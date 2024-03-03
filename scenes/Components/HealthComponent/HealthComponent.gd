@@ -2,22 +2,31 @@ extends Node2D
 
 signal health_changed
 
-@onready var resource_bar = $"../CanvasLayer/ResourceBar"
 
-var max_health: int
-var current_health: int
+var stats : statistic
+
+#var max_health: int
+#var current_health: int
 
 func _ready():
-	current_health = max_health
+	stats = owner.stats
 	
-
+	
+	
 func damage(amount):
-	current_health -= amount
+	stats.current_health -= amount
 	
 	
-	if current_health <= 0:
+	if stats.current_health <= 0:
 		await get_tree().create_timer(0.1).timeout
 		owner.queue_free()
 	
-	health_changed.emit(current_health)
+	health_changed.emit()
 
+
+func _on_regenerate_timer_timeout():
+	if stats.current_health < stats.max_health:
+		stats.current_health += stats.health_regeneration
+	
+	
+	

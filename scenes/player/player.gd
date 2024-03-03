@@ -5,7 +5,7 @@ extends CharacterBody2D
 signal stats_updated
 
 
-@export var player_stats : stats
+@export var stats : statistic
 
 # -------------- ANIMATIONS ---------------------------------
 @onready var animation_tree = $AnimationTree as AnimationTree
@@ -22,6 +22,7 @@ signal stats_updated
 # -------------- COMPONENTS --------------------
 @onready var hurt_box = $HurtBoxComponent
 @onready var health_component = $HealthComponent
+@onready var mana_component = $ManaComponent
 
 # -------------- ABILITIES -----------------------
 @onready var projectile_manager = $ProjectileManager
@@ -49,7 +50,7 @@ func _process(delta):
 
 
 func _physics_process(_delta):
-	velocity = movement_direction * player_stats.movement_speed
+	velocity = movement_direction * stats.movement_speed
 	
 	if position.distance_to(target) > 1:
 		
@@ -105,13 +106,13 @@ func slot_press(index):
 
 
 func update_player_stats():
-	health_component.max_health = player_stats.health
+	
 	stats_updated.emit()
 	
 
 func on_player_hit(area):
 	health_component.damage(area.damage)
-	resource_bar.update_health(health_component.current_health)
+	#resource_bar.update_health(health_component.current_health)
 	
 	
 	var shader = $Visuals/Legs.material as ShaderMaterial

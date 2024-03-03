@@ -11,3 +11,4 @@ name = "fireball"
 icon = ExtResource("2_acxp4")
 speed = 200
 cooldown = 1.5
+mana_cost = 40

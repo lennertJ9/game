@@ -12,3 +12,4 @@ name = ""
 icon = ExtResource("3_f7nok")
 speed = 250
 cooldown = 0.25
+mana_cost = 10

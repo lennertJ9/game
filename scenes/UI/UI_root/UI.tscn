@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cro4xh8xke6wq" path="res://assets/UI/life.png" id="9_7p530"]
 [ext_resource type="Texture2D" uid="uid://b066eoludk3w2" path="res://assets/UI/energy.png" id="10_rivw1"]
 
-[sub_resource type="Resource" id="Resource_671xg"]
+[sub_resource type="Resource" id="Resource_dlbne"]
 resource_local_to_scene = true
 script = ExtResource("6_awfws")
 ability_scene = ExtResource("4_3b7kt")
@@ -19,6 +19,7 @@ name = ""
 icon = ExtResource("5_bhju2")
 speed = 250
 cooldown = 0.25
+mana_cost = 10
 
 [node name="UI" type="CanvasLayer" groups=["UI"]]
 script = ExtResource("1_igey8")
@@ -54,7 +55,7 @@ offset_top = 10.0
 offset_right = 58.0
 offset_bottom = 29.0
 grow_vertical = 1
-resource = SubResource("Resource_671xg")
+resource = SubResource("Resource_dlbne")
 
 [node name="Slot2" parent="ResourceBar/AbilitySlots" instance=ExtResource("3_8dcwx")]
 layout_mode = 1
@@ -106,18 +107,26 @@ offset_bottom = 33.0
 rotation = -0.000723525
 value = 50.0
 fill_mode = 3
-texture_under = ExtResource("8_i1hw4")
+texture_over = ExtResource("8_i1hw4")
 texture_progress = ExtResource("9_7p530")
+texture_progress_offset = Vector2(0, 5)
 
-[node name="Energy" type="TextureProgressBar" parent="ResourceBar"]
-custom_minimum_size = Vector2(16, 16)
+[node name="Mana" type="TextureProgressBar" parent="ResourceBar"]
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 0
 offset_left = 152.0
 offset_top = 1.0
 offset_right = 184.0
 offset_bottom = 33.0
 rotation = -0.000723525
-value = 50.0
+value = 100.0
 fill_mode = 3
 texture_under = ExtResource("8_i1hw4")
 texture_progress = ExtResource("10_rivw1")
+texture_progress_offset = Vector2(0, 5)
+
+[node name="UpdateResources" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="UpdateResources" to="." method="_on_update_resources_timeout"]

@@ -1,31 +1,37 @@
 extends CanvasLayer
 
 
-@export var player_stats : Resource
+@export var player_stats : statistic
 
 @onready var ability_slots = $ResourceBar/AbilitySlots
-@onready var life = $ResourceBar/Life
-@onready var energy = $ResourceBar/Energy
+@onready var life_bar = $ResourceBar/Life
+@onready var mana_bar = $ResourceBar/Mana
 
 
 func _ready():
-	update_health(player_stats.health)
+	update_health()
+	update_mana()
 	update_properties()
-	print(ability_slots.get_children())
-
-
-func update_health(health):
-	life.value = health
 	
 
 
+func update_health():
+	life_bar.value = player_stats.current_health
+
+func update_mana():
+	mana_bar.value = player_stats.current_mana
+
+
 func update_properties():
-	life.max_value = player_stats.health
+	life_bar.max_value = player_stats.max_health
+	mana_bar.max_value = player_stats.max_mana
 
 
 func start_slot_cooldown(index):
 	ability_slots.get_child(index).start_cooldown()
 
 
-
-
+func _on_update_resources_timeout():
+	update_mana()
+	update_health()
+	
