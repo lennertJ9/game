@@ -310,7 +310,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-2]
+"values": [-4]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -580,7 +580,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-2]
+"values": [-4]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -595,6 +595,9 @@ tracks/6/keys = {
 "values": [Vector2(2, -3), Vector2(2, -1), Vector2(2, -3), Vector2(2, -1)]
 }
 
+[sub_resource type="Animation" id="Animation_k77wx"]
+resource_name = "test"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bc3sj"]
 _data = {
 "IDLE_DOWN": SubResource("Animation_tf1u8"),
@@ -602,7 +605,8 @@ _data = {
 "IDLE_UP": SubResource("Animation_ftu2c"),
 "RUN_DOWN": SubResource("Animation_2s8yk"),
 "RUN_SIDE": SubResource("Animation_b1mpw"),
-"RUN_UP": SubResource("Animation_mlhtn")
+"RUN_UP": SubResource("Animation_mlhtn"),
+"test": SubResource("Animation_k77wx")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ivp6s"]
@@ -653,9 +657,6 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_wmaf4")
 blend_point_3/pos = Vector2(1, 0)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c4708"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_magdr"]
 advance_mode = 2
 advance_condition = &"is_walking"
@@ -668,10 +669,10 @@ advance_condition = &"is_idle"
 states/End/position = Vector2(1118, 181)
 states/IDLE/node = SubResource("AnimationNodeBlendSpace2D_lye2q")
 states/IDLE/position = Vector2(399, 209)
-states/Start/position = Vector2(182, 209)
+states/Start/position = Vector2(124, 209)
 states/WALKING/node = SubResource("AnimationNodeBlendSpace2D_dhgvy")
 states/WALKING/position = Vector2(399, 98)
-transitions = ["Start", "IDLE", SubResource("AnimationNodeStateMachineTransition_c4708"), "IDLE", "WALKING", SubResource("AnimationNodeStateMachineTransition_magdr"), "WALKING", "IDLE", SubResource("AnimationNodeStateMachineTransition_xyu3s")]
+transitions = ["IDLE", "WALKING", SubResource("AnimationNodeStateMachineTransition_magdr"), "WALKING", "IDLE", SubResource("AnimationNodeStateMachineTransition_xyu3s")]
 
 [sub_resource type="Animation" id="Animation_ls5fr"]
 resource_name = "ATTACK_DOWN"
@@ -976,46 +977,46 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
+rotation = -0.00252731
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_5lnvd")
 stats = ExtResource("2_g1s7t")
 
 [node name="CollisionPlayer" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_wb5ct")
 
 [node name="Visuals" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Legs" type="Sprite2D" parent="Visuals"]
-z_index = 1
 material = ExtResource("2_a8xhc")
-position = Vector2(0, -1)
 texture = ExtResource("2_aufhp")
 hframes = 5
 vframes = 3
 
-[node name="Body" type="Sprite2D" parent="Visuals"]
-z_index = 1
+[node name="Head" type="Sprite2D" parent="Visuals"]
 material = ExtResource("2_a8xhc")
-position = Vector2(0, -3)
+scale = Vector2(1, 1)
+texture = ExtResource("6_fmvws")
+hframes = 5
+frame = 2
+
+[node name="Body" type="Sprite2D" parent="Visuals"]
+material = ExtResource("2_a8xhc")
+rotation = 0.00184886
+scale = Vector2(1, 1)
 texture = ExtResource("3_x2jjb")
 hframes = 2
 
-[node name="Head" type="Sprite2D" parent="Visuals"]
-z_index = 1
-material = ExtResource("2_a8xhc")
-position = Vector2(1, -10)
-texture = ExtResource("6_fmvws")
-hframes = 5
-frame = 1
-
 [node name="Shadow" type="Sprite2D" parent="Visuals"]
-position = Vector2(0, -1)
+position = Vector2(15.9342, 26.0404)
 texture = ExtResource("7_wqlqq")
 
 [node name="WeaponSlot" type="Node2D" parent="Visuals"]
-position = Vector2(2, -2)
+z_index = -4
 
 [node name="Weapon" type="Sprite2D" parent="Visuals/WeaponSlot"]
 z_index = 2
@@ -1045,6 +1046,7 @@ autostart = true
 [node name="----COMPONENTS-------" type="Node" parent="."]
 
 [node name="HurtBoxComponent" parent="." instance=ExtResource("9_vq76y")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
 position = Vector2(0, -7)
@@ -1062,10 +1064,10 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_maac0")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/is_idle = true
+parameters/conditions/is_idle = false
 parameters/conditions/is_walking = false
-parameters/IDLE/blend_position = Vector2(-0.00276244, 1.09948)
-parameters/WALKING/blend_position = Vector2(0.00690603, -0.82199)
+parameters/IDLE/blend_position = Vector2(-0.00513482, -0.166667)
+parameters/WALKING/blend_position = Vector2(0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
