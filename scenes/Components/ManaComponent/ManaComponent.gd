@@ -24,4 +24,7 @@ func check_mana(mana_amount):
 
 
 func _on_regenerate_timer_timeout():
-	stats.current_mana += stats.mana_regeneration
+	if (stats.current_mana + stats.mana_regeneration) > stats.max_mana:
+		stats.current_mana = stats.max_mana
+	else:
+		stats.current_mana += stats.mana_regeneration

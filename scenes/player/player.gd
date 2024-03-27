@@ -56,18 +56,14 @@ func _physics_process(_delta):
 		
 		move_and_slide()
 	else:
-		$AnimationTree["parameters/conditions/is_idle"] = true
-		$AnimationTree["parameters/conditions/is_walking"] = false
-		$AnimationTree["parameters/IDLE/blend_position"] = movement_direction
+		$AnimationPlayer.play("IDLE")
 		
 		
 func _input(event):
 	if event.is_action_pressed("right_click"):
 		target = get_global_mouse_position()
 		movement_direction = global_position.direction_to(target)
-		$AnimationTree["parameters/conditions/is_idle"] = false
-		$AnimationTree["parameters/conditions/is_walking"] = true
-		$AnimationTree["parameters/WALKING/blend_position"] = movement_direction
+		$AnimationPlayer.play("RUN")
 		
 		if movement_direction.x < 0:
 			visuals.scale.x = -1

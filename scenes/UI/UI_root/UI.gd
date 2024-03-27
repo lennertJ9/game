@@ -35,3 +35,7 @@ func _on_update_resources_timeout():
 	update_mana()
 	update_health()
 	
+
+
+func _on_mana_mouse_entered():
+	print(player_stats.current_mana)
