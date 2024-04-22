@@ -10,4 +10,4 @@ health_regeneration = 0
 max_mana = 0
 current_mana = 0
 mana_regeneration = 0
-movement_speed = 50
+movement_speed = 35

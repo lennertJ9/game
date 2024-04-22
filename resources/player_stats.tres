@@ -6,8 +6,8 @@
 script = ExtResource("1_bw12a")
 max_health = 50
 current_health = 5
-health_regeneration = 0
+health_regeneration = 1
 max_mana = 100
 current_mana = 90
 mana_regeneration = 2
-movement_speed = 70
+movement_speed = 100

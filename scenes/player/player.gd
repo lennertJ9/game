@@ -52,11 +52,12 @@ func _process(delta):
 func _physics_process(_delta):
 	velocity = movement_direction * stats.movement_speed
 	
-	if position.distance_to(target) > 1:
+	if position.distance_to(target) > 10:
 		
 		move_and_slide()
 	else:
 		$AnimationPlayer.play("IDLE")
+		
 		
 		
 func _input(event):

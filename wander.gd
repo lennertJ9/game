@@ -1,6 +1,8 @@
 extends Node
 
 
+
+
 func _ready():
 	
 	set_physics_process(false)
@@ -15,11 +17,6 @@ func get_random_direction():
 		owner.movement_direction = (owner.spawn_point - owner.global_position).normalized()
 	else: 
 		owner.movement_direction = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
-		owner.movement_direction = Vector2(1,0)
-		
-	owner.jump()
-	await get_tree().create_timer(3).timeout
-	get_random_direction()
 
 
 func check_distance():
@@ -29,9 +26,17 @@ func check_distance():
 	
 	
 func enter():
-	get_random_direction()
 	set_physics_process(true)
-	
+	get_random_direction()
+	$Timer.start()
+	owner.specific_wander_logic()
 
 func exit():
 	set_physics_process(false)
+	$Timer.stop()
+
+
+func _on_timer_timeout():
+	$Timer.wait_time = randf_range(1,4)
+	get_random_direction()
+	owner.specific_wander_logic()

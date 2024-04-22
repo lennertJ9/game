@@ -1,4 +1,5 @@
 extends Node
+class_name StateManager
 
 @export var starting_state: Node
 var current_state: Node
