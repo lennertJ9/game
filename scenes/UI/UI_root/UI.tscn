@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cro4xh8xke6wq" path="res://assets/UI/life.png" id="9_7p530"]
 [ext_resource type="Texture2D" uid="uid://b066eoludk3w2" path="res://assets/UI/energy.png" id="10_rivw1"]
 
-[sub_resource type="Resource" id="Resource_e0ltr"]
+[sub_resource type="Resource" id="Resource_yhhfj"]
 resource_local_to_scene = true
 script = ExtResource("6_awfws")
 ability_scene = ExtResource("4_3b7kt")
@@ -55,7 +55,7 @@ offset_top = 10.0
 offset_right = 58.0
 offset_bottom = 29.0
 grow_vertical = 1
-resource = SubResource("Resource_e0ltr")
+resource = SubResource("Resource_yhhfj")
 
 [node name="Slot2" parent="ResourceBar/AbilitySlots" instance=ExtResource("3_8dcwx")]
 layout_mode = 1

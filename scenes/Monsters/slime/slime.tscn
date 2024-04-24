@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/Monsters/slime/slime.gd" id="1_3hfx0"]
 [ext_resource type="Texture2D" uid="uid://dmrc0f0ovoy3x" path="res://scenes/Monsters/slime/slime_shadow.png" id="1_kbjwi"]
-[ext_resource type="Texture2D" uid="uid://ssi7nwwh8udr" path="res://scenes/Monsters/slime/slime.png" id="2_ffjr4"]
+[ext_resource type="Texture2D" uid="uid://ssi7nwwh8udr" path="res://assets/monsters/slime/slime.png" id="2_ffjr4"]
 [ext_resource type="Resource" uid="uid://cqc6w4fv3mt8h" path="res://resources/monster_stat.tres" id="2_xm2hu"]
 [ext_resource type="Shader" path="res://shaders/hit_flash.gdshader" id="3_v2x0p"]
 [ext_resource type="PackedScene" uid="uid://dn3mrqnfwulw4" path="res://scenes/States/state_manager.tscn" id="4_a3fx4"]
@@ -151,7 +151,7 @@ radius = 44.2832
 [node name="Slime" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 4
-collision_mask = 0
+collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_3hfx0")
 stats = ExtResource("2_xm2hu")
@@ -200,6 +200,9 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
 position = Vector2(-21, 0)
 shape = SubResource("CircleShape2D_wu5lb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

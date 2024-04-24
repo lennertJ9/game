@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=28 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
 [ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/HitFlashShader.tres" id="2_a8xhc"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://kk2qojh5k81f" path="res://scenes/Abilities/projectile_manager/projectile_manager.tscn" id="9_rk672"]
 [ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/HurtBoxComponent/Hurtbox.tscn" id="9_vq76y"]
 [ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/Components/HealthComponent/HealthComponent.tscn" id="10_aar1u"]
+[ext_resource type="PackedScene" uid="uid://i6cld88cc2u2" path="res://scenes/Managers/status_manager.tscn" id="11_ba7jk"]
 [ext_resource type="PackedScene" uid="uid://c8k2akatve5qa" path="res://scenes/Abilities/AbilityManager.tscn" id="11_st2pk"]
 [ext_resource type="PackedScene" uid="uid://7tmrpmqaxrih" path="res://scenes/Components/ManaComponent/ManaComponent.tscn" id="13_og546"]
 
@@ -149,6 +150,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Visuals/Body:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_jbv76"]
 resource_name = "RUN"
@@ -228,11 +241,51 @@ tracks/5/keys = {
 "values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_3xpqm"]
+resource_name = "STUN"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Leg:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Head:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bc3sj"]
 _data = {
 "IDLE": SubResource("Animation_1aq37"),
 "RESET": SubResource("Animation_umbld"),
-"RUN": SubResource("Animation_jbv76")
+"RUN": SubResource("Animation_jbv76"),
+"STUN": SubResource("Animation_3xpqm")
 }
 
 [sub_resource type="Animation" id="Animation_ls5fr"]
@@ -538,7 +591,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 2
-collision_mask = 5
+collision_mask = 21
 motion_mode = 1
 script = ExtResource("1_5lnvd")
 stats = ExtResource("2_g1s7t")
@@ -599,6 +652,10 @@ autostart = true
 [node name="AbilityManager4" parent="ProjectileManager" instance=ExtResource("11_st2pk")]
 
 [node name="AbilityManager5" parent="ProjectileManager" instance=ExtResource("11_st2pk")]
+
+[node name="-----MANAGERS----------" type="Node" parent="."]
+
+[node name="StatusManager" parent="." instance=ExtResource("11_ba7jk")]
 
 [node name="----COMPONENTS-------" type="Node" parent="."]
 

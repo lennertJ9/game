@@ -12,6 +12,7 @@ var max_wander_distance = 40
 var max_chase_distance = 250
 var jump_cooldown: int = 0
 var speed: int 
+var speed_status_modifier: float = 1.0
 
 @onready var state_manager = $StateManager as StateManager
 @onready var attack_state = $StateManager/AttackState
@@ -22,6 +23,7 @@ var speed: int
 @onready var hurt_box = $HurtBox
 @onready var detection_range = $DetectionRange
 
+@onready var navigation_agent_2d = $NavigationAgent2D
 
 
 func _ready():
@@ -39,17 +41,19 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	velocity = current_direction * speed
+	velocity = current_direction * speed * speed_status_modifier
 	$HurtBox.position = $visuals.offset
 	move_and_slide()
+
 
 
 func jump():
 	
 	check()
 	current_direction = movement_direction
+	
 	$AnimationPlayer.play("run")
-	print(stats.movement_speed)
+	
 	
 
 
@@ -78,7 +82,7 @@ func on_hit(area):
 func _on_animation_player_animation_finished(anim_name):
 	await get_tree().create_timer(jump_cooldown).timeout
 	jump()
-
+	
 
 func _on_detection(body: Node2D):
 	state_manager.change_state(attack_state)

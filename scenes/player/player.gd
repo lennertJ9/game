@@ -34,7 +34,10 @@ signal stats_updated
 
 # walking system
 var movement_direction: Vector2
+var current_direction: Vector2
+var speed_status_modifier: float = 1.0
 var target = Vector2.ZERO
+
 
 var boolie = true
 
@@ -50,9 +53,9 @@ func _process(delta):
 
 
 func _physics_process(_delta):
-	velocity = movement_direction * stats.movement_speed
+	velocity = movement_direction * stats.movement_speed * speed_status_modifier
 	
-	if position.distance_to(target) > 10:
+	if position.distance_to(target) > 1:
 		
 		move_and_slide()
 	else:
@@ -64,12 +67,13 @@ func _input(event):
 	if event.is_action_pressed("right_click"):
 		target = get_global_mouse_position()
 		movement_direction = global_position.direction_to(target)
-		$AnimationPlayer.play("RUN")
+		if !speed_status_modifier == 0:
+			$AnimationPlayer.play("RUN") 
 		
-		if movement_direction.x < 0:
-			visuals.scale.x = -1
-		else:
-			visuals.scale.x = 1
+			if movement_direction.x < 0:
+				visuals.scale.x = -1
+			else:
+				visuals.scale.x = 1
 		
 	#if event.is_action_pressed("magic_bolt"):
 		#$Abilities/BoltManager.shoot(global_position.direction_to(get_global_mouse_position()), position)
@@ -94,6 +98,8 @@ func _input(event):
 
 	if event.is_action_pressed("debug"):
 		print("debug")
+		$StatusManager.stun(2)
+		$AnimationPlayer.play("STUN")
 		#var slots = get_tree().get_first_node_in_group("UI").ability_slots
 		#print("slots --> ",slots)
 
@@ -117,7 +123,8 @@ func on_player_hit(area):
 	shader.set_shader_parameter("active", true)
 	await get_tree().create_timer(0.125).timeout
 	shader.set_shader_parameter("active", false)
-
+	
+	$StatusManager.stun(2)
 
 func hide_weapon():
 	attack_animations.play('HIDE_WEAPON')

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ssi7nwwh8udr"
-path="res://.godot/imported/slime.png-8147929032bdf7a224646d66dfd257e3.ctex"
+uid="uid://djccq3vs8c7ru"
+path="res://.godot/imported/objects_16x16.png-fde02fb7fca1bd8baf825efc353652d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Monsters/slime/slime.png"
-dest_files=["res://.godot/imported/slime.png-8147929032bdf7a224646d66dfd257e3.ctex"]
+source_file="res://assets/tilesets/forest_theme/objects_16x16.png"
+dest_files=["res://.godot/imported/objects_16x16.png-fde02fb7fca1bd8baf825efc353652d6.ctex"]
 
 [params]
 
