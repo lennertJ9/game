@@ -4,13 +4,9 @@ extends Node
 
 
 func _ready():
-	
 	set_physics_process(false)
 
 
-
-func _process(delta):
-	pass
 
 func get_random_direction():
 	if check_distance():
@@ -40,3 +36,4 @@ func _on_timer_timeout():
 	$Timer.wait_time = randf_range(1,4)
 	get_random_direction()
 	owner.specific_wander_logic()
+	

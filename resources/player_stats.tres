@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_bw12a")
 max_health = 50
-current_health = 5
+current_health = 40
 health_regeneration = 1
 max_mana = 100
 current_mana = 90

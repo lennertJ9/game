@@ -13,7 +13,7 @@ func _ready():
 
 
 func check_mana(mana_amount):
-	print("mana_amount: ", mana_amount)
+	
 	
 	if mana_amount <= stats.current_mana:
 		stats.current_mana -= mana_amount

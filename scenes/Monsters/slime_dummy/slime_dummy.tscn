@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1ipanatm85dc"]
+[gd_scene load_steps=7 format=3 uid="uid://d1ipanatm85dc"]
 
 [ext_resource type="Script" path="res://scenes/Monsters/slime_dummy/slime_dummy.gd" id="1_87xvo"]
 [ext_resource type="Texture2D" uid="uid://ssi7nwwh8udr" path="res://assets/monsters/slime/slime.png" id="2_uvppg"]
@@ -6,23 +6,75 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_iemrp"]
 radius = 7.07107
 
+[sub_resource type="Animation" id="Animation_y4jma"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ps221"]
+resource_name = "new_animation"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_47vey"]
+_data = {
+"RESET": SubResource("Animation_y4jma"),
+"new_animation": SubResource("Animation_ps221")
+}
+
 [node name="SlimeDummy" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 4
+collision_mask = 21
+motion_mode = 1
 script = ExtResource("1_87xvo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_iemrp")
 
+[node name="Raycasts" type="Node2D" parent="."]
+position = Vector2(0, -4)
+
+[node name="Ray1" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(50, 0)
+collision_mask = 21
+
+[node name="Ray2" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(50, 0)
+collision_mask = 21
+
+[node name="Ray3" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(50, 0)
+collision_mask = 21
+
+[node name="Ray4" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(50, 0)
+collision_mask = 21
+
+[node name="Ray5" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(50, 0)
+collision_mask = 21
+
+[node name="Ray6" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(50, 0)
+collision_mask = 21
+
+[node name="Ray7" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(50, 0)
+collision_mask = 21
+
+[node name="Ray8" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(50, 0)
+collision_mask = 21
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_uvppg")
 hframes = 7
 vframes = 2
 
-[node name="Navigation" type="Node2D" parent="."]
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
-path_postprocessing = 1
-
-[node name="Timer" type="Timer" parent="Navigation"]
-wait_time = 0.1
-autostart = true
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_47vey")
+}
+autoplay = "new_animation"

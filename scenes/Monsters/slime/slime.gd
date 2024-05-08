@@ -22,6 +22,9 @@ var speed_status_modifier: float = 1.0
 @onready var health_component = $HealthComponent
 @onready var hurt_box = $HurtBox
 @onready var detection_range = $DetectionRange
+@onready var status_manager = $StatusManager
+@onready var animation_player = $AnimationPlayer
+@onready var visuals = $visuals
 
 @onready var navigation_agent_2d = $NavigationAgent2D
 
@@ -30,8 +33,6 @@ func _ready():
 	spawn_point = global_position
 	hurt_box.hit.connect(on_hit)
 	detection_range.body_entered.connect(_on_detection)
-	
-	
 	jump()
 	
 
@@ -43,6 +44,7 @@ func _process(delta):
 func _physics_process(delta):
 	velocity = current_direction * speed * speed_status_modifier
 	$HurtBox.position = $visuals.offset
+	$BodyHitBox.position = $visuals.offset
 	move_and_slide()
 
 
@@ -51,6 +53,7 @@ func jump():
 	
 	check()
 	current_direction = movement_direction
+	$BodyHitBox.movement_direction = movement_direction
 	
 	$AnimationPlayer.play("run")
 	
@@ -87,7 +90,7 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_detection(body: Node2D):
 	state_manager.change_state(attack_state)
 	jump_cooldown = 0
-	jump()
+	
 	stats.movement_speed = 70
 
 func update_speed():

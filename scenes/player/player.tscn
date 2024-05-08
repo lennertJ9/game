@@ -591,7 +591,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 2
-collision_mask = 21
+collision_mask = 17
 motion_mode = 1
 script = ExtResource("1_5lnvd")
 stats = ExtResource("2_g1s7t")
@@ -634,12 +634,11 @@ rotation = 6.07404
 texture = ExtResource("8_panfk")
 offset = Vector2(5, -4)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="-----MANAGERS----------" type="Node" parent="."]
 
 [node name="ProjectileManager" parent="." instance=ExtResource("9_rk672")]
 
@@ -652,8 +651,6 @@ autostart = true
 [node name="AbilityManager4" parent="ProjectileManager" instance=ExtResource("11_st2pk")]
 
 [node name="AbilityManager5" parent="ProjectileManager" instance=ExtResource("11_st2pk")]
-
-[node name="-----MANAGERS----------" type="Node" parent="."]
 
 [node name="StatusManager" parent="." instance=ExtResource("11_ba7jk")]
 

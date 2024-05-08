@@ -16,9 +16,9 @@ func _ready():
 
 
 func use_ability():
-	print(owner.stats.current_mana)
+	
 	if ability_resource and off_cooldown:
-		print("mana cost of ability ",ability_resource.mana_cost)
+		
 		if mana_component.check_mana(ability_resource.mana_cost):
 			cooldown_timer.start()
 			off_cooldown = false

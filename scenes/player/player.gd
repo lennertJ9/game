@@ -24,6 +24,11 @@ signal stats_updated
 @onready var health_component = $HealthComponent
 @onready var mana_component = $ManaComponent
 
+# ------------- MANAGERS -------------------------
+@onready var status_manager = $StatusManager
+
+
+
 # -------------- ABILITIES -----------------------
 @onready var projectile_manager = $ProjectileManager
 
@@ -50,7 +55,14 @@ func _ready():
 func _process(delta):
 	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
 	var target_position = global_position + Vector2(0,-4) + direction_to_mouse * 7
-
+	
+	
+	var a = 0
+	var b = 5
+	print(lerp(a,b,0.5))
+	
+	
+	
 
 func _physics_process(_delta):
 	velocity = movement_direction * stats.movement_speed * speed_status_modifier
@@ -98,11 +110,9 @@ func _input(event):
 
 	if event.is_action_pressed("debug"):
 		print("debug")
-		$StatusManager.stun(2)
-		$AnimationPlayer.play("STUN")
-		#var slots = get_tree().get_first_node_in_group("UI").ability_slots
-		#print("slots --> ",slots)
-
+		
+		
+	
 
 func slot_press(index):
 	$ProjectileManager.get_child(index).use_ability()
@@ -117,14 +127,18 @@ func on_player_hit(area):
 	health_component.damage(area.damage)
 	#resource_bar.update_health(health_component.current_health)
 	
+	if area.knockback:
+		
+		status_manager.knockback(area.movement_direction, area.knockback_strength)
 	
-	var shader = $Visuals/Legs.material as ShaderMaterial
+	var shader = $Visuals/Leg.material as ShaderMaterial
 	shader.set_shader_parameter("amount", .8)
 	shader.set_shader_parameter("active", true)
 	await get_tree().create_timer(0.125).timeout
 	shader.set_shader_parameter("active", false)
 	
-	$StatusManager.stun(2)
+		
+
 
 func hide_weapon():
 	attack_animations.play('HIDE_WEAPON')
