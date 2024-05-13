@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://dl6hywxdnphu5"]
 
-[ext_resource type="Script" path="res://resources/resource_scripts/Ability.gd" id="1_r1aw7"]
+[ext_resource type="Script" path="res://resources/abilities/Ability.gd" id="1_r1aw7"]
 [ext_resource type="PackedScene" uid="uid://dvkplnu5eo316" path="res://scenes/Abilities/fireball/fireball.tscn" id="1_x7f4c"]
 [ext_resource type="Texture2D" uid="uid://bl5komqxl2tr2" path="res://assets/UI/icon/fireball_icon.png" id="2_acxp4"]
 
@@ -10,5 +10,5 @@ ability_scene = ExtResource("1_x7f4c")
 name = "fireball"
 icon = ExtResource("2_acxp4")
 speed = 200
-cooldown = 1.5
-mana_cost = 40
+cooldown = 0.1
+mana_cost = 2

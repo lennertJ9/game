@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwab6h3f6vtm"]
 
 [ext_resource type="Script" path="res://scenes/UI/resource_bar/resource_bar_slot/Slot.gd" id="1_86yu8"]
-[ext_resource type="Texture2D" uid="uid://b64ey0n7pqrb1" path="res://assets/UI/bar_slot.png" id="2_rn4by"]
+[ext_resource type="Texture2D" uid="uid://b64ey0n7pqrb1" path="res://assets/UI/resource_bar/bar_slot.png" id="2_nrcj3"]
 
 [node name="Slot" type="Control"]
 custom_minimum_size = Vector2(28, 19)
@@ -29,7 +29,7 @@ tint_progress = Color(0.435294, 0.435294, 0.435294, 1)
 
 [node name="SlotTexture" type="Sprite2D" parent="."]
 position = Vector2(14, 10)
-texture = ExtResource("2_rn4by")
+texture = ExtResource("2_nrcj3")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true

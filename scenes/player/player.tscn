@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=29 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
 [ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/HitFlashShader.tres" id="2_a8xhc"]
 [ext_resource type="Texture2D" uid="uid://c8o4n6pdcjsh0" path="res://assets/player/player_legs.png" id="2_aufhp"]
-[ext_resource type="Resource" uid="uid://jdbuxjueoppv" path="res://resources/player_stats.tres" id="2_g1s7t"]
+[ext_resource type="Resource" uid="uid://jdbuxjueoppv" path="res://resources/stats/player_stats.tres" id="2_g1s7t"]
+[ext_resource type="Resource" uid="uid://f6evxu85p8mj" path="res://resources/inventory_items/player_inventory.tres" id="3_u0jbh"]
 [ext_resource type="Texture2D" uid="uid://c2kgbta0kdgnu" path="res://assets/player/player_body.png" id="3_x2jjb"]
 [ext_resource type="Texture2D" uid="uid://c1hu4fyc15ksc" path="res://assets/player/shadow.png" id="3_xs3l0"]
 [ext_resource type="Texture2D" uid="uid://tij6tessec61" path="res://assets/player/player_head.png" id="6_fmvws"]
@@ -595,6 +596,7 @@ collision_mask = 17
 motion_mode = 1
 script = ExtResource("1_5lnvd")
 stats = ExtResource("2_g1s7t")
+player_inventory = ExtResource("3_u0jbh")
 
 [node name="CollisionPlayer" type="CollisionShape2D" parent="."]
 visible = false

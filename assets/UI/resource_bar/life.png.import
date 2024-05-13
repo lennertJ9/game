@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iepct7lrrwjd"
-path="res://.godot/imported/hp_energy_bar.png-c1157952e16436e252d760fa319b3d52.ctex"
+uid="uid://cro4xh8xke6wq"
+path="res://.godot/imported/life.png-3480b54f521cee5f89a9bd775ff5152f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/hp_energy_bar.png"
-dest_files=["res://.godot/imported/hp_energy_bar.png-c1157952e16436e252d760fa319b3d52.ctex"]
+source_file="res://assets/UI/resource_bar/life.png"
+dest_files=["res://.godot/imported/life.png-3480b54f521cee5f89a9bd775ff5152f.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://balv4nb1mv4r0"]
+[gd_scene load_steps=26 format=3 uid="uid://balv4nb1mv4r0"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_4qf40"]
 [ext_resource type="Texture2D" uid="uid://cr47hn4dk6kbo" path="res://assets/tilesets/forest_theme/decorations_16x16.png" id="2_xg6e4"]
@@ -1412,9 +1412,6 @@ sources/1 = SubResource("TileSetAtlasSource_7rywf")
 sources/2 = SubResource("TileSetAtlasSource_lwkrs")
 sources/3 = SubResource("TileSetAtlasSource_40tsy")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_si3yo"]
-size = Vector2(50, 20)
-
 [node name="Main" type="Node2D" groups=["world"]]
 y_sort_enabled = true
 script = ExtResource("1_4qf40")
@@ -1452,14 +1449,3 @@ position = Vector2(143, -258)
 position = Vector2(464, -328)
 
 [node name="Camera" parent="." instance=ExtResource("9_eq5e3")]
-zoom = Vector2(4, 4)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-z_index = 2
-position = Vector2(219, -119)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(23, 14)
-shape = SubResource("RectangleShape2D_si3yo")

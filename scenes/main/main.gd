@@ -13,5 +13,9 @@ func _ready():
 	for ability_manager in player.projectile_manager.get_children():
 		ability_manager.ability_used.connect(ui.start_slot_cooldown)
 	
-	for slot in ui.ability_slots.get_children():
+	for slot in ui.resource_bar.slots.get_children():
 		slot.ability_order_changed.connect(player.projectile_manager.update_slots)
+
+
+
+

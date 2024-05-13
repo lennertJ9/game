@@ -9,7 +9,7 @@ func _ready():
 	
 	
 func update_slots():
-	var slots = get_tree().get_first_node_in_group("UI").ability_slots.get_children()
+	var slots = get_tree().get_first_node_in_group("UI").resource_bar.slots.get_children()
 	
 	var i = 0
 	for slot in slots:

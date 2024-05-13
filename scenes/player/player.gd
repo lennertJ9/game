@@ -6,6 +6,7 @@ signal stats_updated
 
 
 @export var stats : statistic
+@export var player_inventory : Inventory
 
 # -------------- ANIMATIONS ---------------------------------
 @onready var animation_tree = $AnimationTree as AnimationTree
@@ -52,17 +53,11 @@ func _ready():
 	update_player_stats()
 	
 
+
 func _process(delta):
 	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
 	var target_position = global_position + Vector2(0,-4) + direction_to_mouse * 7
-	
-	
-	var a = 0
-	var b = 5
-	print(lerp(a,b,0.5))
-	
-	
-	
+
 
 func _physics_process(_delta):
 	velocity = movement_direction * stats.movement_speed * speed_status_modifier
@@ -87,11 +82,7 @@ func _input(event):
 			else:
 				visuals.scale.x = 1
 		
-	#if event.is_action_pressed("magic_bolt"):
-		#$Abilities/BoltManager.shoot(global_position.direction_to(get_global_mouse_position()), position)
-		#
-	#if event.is_action_pressed("fireball"):
-		#$Abilities/FireballManager.shoot(global_position.direction_to(get_global_mouse_position()), position)
+	
 	
 	if event.is_action_pressed("slot_1"):
 		slot_press(0)
@@ -110,6 +101,8 @@ func _input(event):
 
 	if event.is_action_pressed("debug"):
 		print("debug")
+		var item = preload("res://resources/inventory_items/consumables/healing_potion.tres")
+		player_inventory.append_item(item,2)
 		
 		
 	

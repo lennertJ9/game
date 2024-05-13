@@ -3,9 +3,11 @@ extends CanvasLayer
 
 @export var player_stats : statistic
 
-@onready var ability_slots = $ResourceBar/AbilitySlots
-@onready var life_bar = $ResourceBar/Life
-@onready var mana_bar = $ResourceBar/Mana
+
+@onready var resource_bar = $ResourceBar
+@onready var inventory = $Inventory
+
+var is_inventory_open: bool = false
 
 
 func _ready():
@@ -14,26 +16,34 @@ func _ready():
 	update_properties()
 	
 
+func _input(event):
+	if event.is_action_pressed("inventory"):
+		if is_inventory_open:
+			inventory.visible = false
+			is_inventory_open = false
+		else:
+			inventory.visible = true
+			is_inventory_open = true
+
 
 func update_health():
-	life_bar.value = player_stats.current_health
-	$HealthLable.text = str(player_stats.current_health) + "/" + str(player_stats.max_health)
+	resource_bar.update_health(player_stats.current_health)
+	resource_bar.health_label.text = str(player_stats.current_health) + "/" + str(player_stats.max_health)
 
 
 func update_mana():
-	mana_bar.value = player_stats.current_mana
-	$ManaLable.text = str(player_stats.current_mana) + "/" + str(player_stats.max_mana)
+	resource_bar.update_mana(player_stats.current_mana) 
+	resource_bar.mana_label.text = str(player_stats.current_mana) + "/" + str(player_stats.max_mana)
 
 
 func update_properties():
-	life_bar.max_value = player_stats.max_health
-	mana_bar.max_value = player_stats.max_mana
-	
-	
+	resource_bar.health_bar.max_value = player_stats.max_health
+	resource_bar.mana_bar.max_value = player_stats.max_mana
+
 
 
 func start_slot_cooldown(index):
-	ability_slots.get_child(index).start_cooldown()
+	resource_bar.slots.get_child(index).start_cooldown()
 
 
 func _on_update_resources_timeout():
