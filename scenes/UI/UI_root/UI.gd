@@ -16,8 +16,7 @@ func _ready():
 	update_properties()
 	
 	#inventory.visible = false
-	inventory.add_slots()
-	
+
 
 
 func _input(event):

@@ -31,8 +31,13 @@ folder_colors={
 "res://scenes/": "blue",
 "res://scenes/Components/": "blue",
 "res://scenes/UI/": "green",
+"res://scenes/UI/inventorV2/": "teal",
 "res://shaders/": "red"
 }
+
+[gui]
+
+common/snap_controls_to_pixels=false
 
 [input]
 

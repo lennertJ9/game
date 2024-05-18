@@ -34,7 +34,6 @@ offset_left = -17.0
 offset_top = -97.0
 offset_right = 33.0
 offset_bottom = -47.0
-scale = Vector2(1, 1)
 
 [connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
 [connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]

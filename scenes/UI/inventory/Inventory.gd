@@ -4,40 +4,55 @@ extends Control
 @export var player_inventory: Inventory
 
 @onready var inventory_slots = $NinePatchRect/InventorySlots
+@onready var drag_texture = $DragTexture
+
+
 
 var current_holding_item: InventoryItem
 var current_holding_item_index: int
+var current_holding_item_dropped: bool = true
 
 # draworder probleem te maken met de automatische adding in de tree
 func _ready():
-	pass
+	for slot in $NinePatchRect/InventorySlots.get_children():
+		slot.drag.connect(_on_drag)
+		slot.drop.connect(_on_drop)
+		
+
+func _physics_process(delta):
+	drag_texture.global_position = get_global_mouse_position()
 
 
 
-func _on_drag(item, index):
+func _on_drag(item):
+	
 	current_holding_item = item
-	current_holding_item_index = index
+	$DragTexture.texture = item.item_texture
+	set_physics_process(true)
 
 
 
-func _on_swap(item, index):
-	swap_items(item, index)
+func _on_drop():
+	if !current_holding_item_dropped:
+		print('drop')
+		for slot in inventory_slots.get_children():
+			if slot.hover:
+				print(slot)
+				slot.update_slot(current_holding_item)
+				
+				current_holding_item = null
+				current_holding_item_index = 0
+				
+	current_holding_item_dropped = true
+
+
+
 
 
 
 func update_inventory():
 	for i in player_inventory.inventory_size:
 		inventory_slots.get_child(i).update_slot(player_inventory.items[i])
-
-
-
-func swap_items(item,index):
-	print("swapping")
-	inventory_slots.get_child(index).update_slot(current_holding_item)
-	inventory_slots.get_child(current_holding_item_index).update_slot(item)
-
-
-
 
 
 
@@ -51,8 +66,7 @@ func add_slots():
 			var slot_scene = preload("res://scenes/UI/inventory/inventory_slot/InventorySlot.tscn").instantiate()
 			slot_scene.name = "InventorySlot" + str(i)
 			inventory_slots.add_child(slot_scene)
-			inventory_slots.get_child(i).drag.connect(_on_drag)
-			inventory_slots.get_child(i).swap.connect(_on_swap)
+
 		
 
 
