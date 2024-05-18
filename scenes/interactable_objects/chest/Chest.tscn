@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw04jvgrimv7s"]
+
+[ext_resource type="Script" path="res://scenes/interactable_objects/chest/Chest.gd" id="1_st0lf"]
+[ext_resource type="Texture2D" uid="uid://cte0crv17i20p" path="res://assets/interactable_objects/chest.png" id="2_cg4bb"]
+[ext_resource type="PackedScene" uid="uid://b743uvnxvgiay" path="res://scenes/UI/inventory/Inventory.tscn" id="3_ga1te"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxcdi"]
+size = Vector2(20, 11)
+
+[node name="Chest" type="StaticBody2D"]
+z_index = 2
+input_pickable = true
+script = ExtResource("1_st0lf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cg4bb")
+hframes = 2
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_gxcdi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 12.0
+
+[node name="Inventory" parent="." instance=ExtResource("3_ga1te")]
+visible = false
+offset_left = -17.0
+offset_top = -97.0
+offset_right = 33.0
+offset_bottom = -47.0
+scale = Vector2(1, 1)
+
+[connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
+[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]
+
+[editable path="Inventory"]

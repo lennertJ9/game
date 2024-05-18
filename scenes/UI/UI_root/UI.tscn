@@ -13,23 +13,13 @@ player_stats = ExtResource("2_n6fx7")
 wait_time = 0.5
 autostart = true
 
-[node name="Inventory" parent="." instance=ExtResource("11_rvjgx")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 683.0
-offset_top = 115.0
-offset_right = 683.0
-offset_bottom = 115.0
-
 [node name="ResourceBar" parent="." instance=ExtResource("4_1luyt")]
 offset_left = 874.0
 offset_top = 1049.0
-offset_right = -214.0
-offset_bottom = 361.0
+offset_right = -982.0
+offset_bottom = -71.0
 scale = Vector2(4, 4)
+
+[node name="Inventory" parent="." instance=ExtResource("11_rvjgx")]
 
 [connection signal="timeout" from="UpdateResources" to="." method="_on_update_resources_timeout"]

@@ -101,8 +101,7 @@ func _input(event):
 
 	if event.is_action_pressed("debug"):
 		print("debug")
-		var item = preload("res://resources/inventory_items/consumables/healing_potion.tres")
-		player_inventory.append_item(item,2)
+		
 		
 		
 	

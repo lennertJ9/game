@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://balv4nb1mv4r0"]
+[gd_scene load_steps=29 format=3 uid="uid://balv4nb1mv4r0"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_4qf40"]
 [ext_resource type="Texture2D" uid="uid://cr47hn4dk6kbo" path="res://assets/tilesets/forest_theme/decorations_16x16.png" id="2_xg6e4"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://ntssjasxs8t6" path="res://assets/tilesets/forest_theme/decorations_64x64.png" id="4_vee5r"]
 [ext_resource type="PackedScene" uid="uid://su8br4pp0fhs" path="res://scenes/Monsters/slime/slime.tscn" id="5_hu50d"]
 [ext_resource type="Texture2D" uid="uid://djccq3vs8c7ru" path="res://assets/tilesets/forest_theme/objects_16x16.png" id="5_sh16a"]
+[ext_resource type="Texture2D" uid="uid://cte0crv17i20p" path="res://assets/interactable_objects/chest.png" id="6_hsfoq"]
 [ext_resource type="PackedScene" uid="uid://riaycvu1w5m2" path="res://scenes/UI/UI_root/UI.tscn" id="7_0ug0p"]
 [ext_resource type="PackedScene" uid="uid://cggyi7nueyoya" path="res://scenes/camera/Camera.tscn" id="9_eq5e3"]
+[ext_resource type="PackedScene" uid="uid://bw04jvgrimv7s" path="res://scenes/interactable_objects/chest/Chest.tscn" id="11_62wjl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d24jc"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1403,6 +1405,19 @@ texture = ExtResource("5_sh16a")
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.30769, -8, -8, -8, -8, 0.615385, -4.30769, 0.615385)
 2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fxtay")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srych"]
+texture = ExtResource("6_hsfoq")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_uffqv"]
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 0
@@ -1411,6 +1426,7 @@ sources/0 = SubResource("TileSetAtlasSource_k5pm0")
 sources/1 = SubResource("TileSetAtlasSource_7rywf")
 sources/2 = SubResource("TileSetAtlasSource_lwkrs")
 sources/3 = SubResource("TileSetAtlasSource_40tsy")
+sources/4 = SubResource("TileSetAtlasSource_srych")
 
 [node name="Main" type="Node2D" groups=["world"]]
 y_sort_enabled = true
@@ -1449,3 +1465,6 @@ position = Vector2(143, -258)
 position = Vector2(464, -328)
 
 [node name="Camera" parent="." instance=ExtResource("9_eq5e3")]
+
+[node name="Chest" parent="." instance=ExtResource("11_62wjl")]
+position = Vector2(53, -294)
