@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/interactable_objects/chest/Chest.gd" id="1_st0lf"]
 [ext_resource type="Texture2D" uid="uid://cte0crv17i20p" path="res://assets/interactable_objects/chest.png" id="2_cg4bb"]
-[ext_resource type="PackedScene" uid="uid://b743uvnxvgiay" path="res://scenes/UI/inventory/Inventory.tscn" id="3_ga1te"]
+[ext_resource type="PackedScene" uid="uid://dbiygvsku8k31" path="res://scenes/UI/inventorV2/Inventory.tscn" id="3_xglrx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxcdi"]
 size = Vector2(20, 11)
@@ -28,15 +28,13 @@ offset_top = -8.0
 offset_right = 10.0
 offset_bottom = 12.0
 
-[node name="Inventory" parent="." instance=ExtResource("3_ga1te")]
-visible = false
-offset_left = -17.0
-offset_top = -97.0
-offset_right = 33.0
-offset_bottom = -47.0
+[node name="Inventory" parent="." instance=ExtResource("3_xglrx")]
+offset_left = -74.0
+offset_top = -99.0
+offset_right = 77.0
+offset_bottom = -10.0
+scale = Vector2(1, 1)
 
 [connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
 [connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
 [connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]
-
-[editable path="Inventory"]

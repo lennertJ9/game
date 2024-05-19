@@ -3,20 +3,22 @@ extends StaticBody2D
 
 @onready var sprite_2d = $Sprite2D
 
-var open = false
+var is_open = false
 
+
+func _ready():
+	$Inventory.visible = is_open
+	
 
 
 func _on_control_gui_input(event):
 	if event.is_pressed() and event.button_index==1:
-		for slot in $Inventory/NinePatchRect/InventorySlots.get_children():
-			print(slot.current_item)
-		if open:
+		if is_open:
 			$Inventory.visible = false
-			open = false
+			is_open = false
 		else:
 			$Inventory.visible = true
-			open = true
+			is_open = true
 
 
 func _on_control_mouse_entered():

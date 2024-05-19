@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cro5h6wvawmal" path="res://assets/UI/inventory/inventory_background.png" id="1_83xdo"]
 [ext_resource type="Script" path="res://scenes/UI/inventory/Inventory.gd" id="1_o0wc6"]
-[ext_resource type="Resource" uid="uid://f6evxu85p8mj" path="res://resources/inventory_items/player_inventory.tres" id="2_lwbsr"]
+[ext_resource type="Resource" uid="uid://f6evxu85p8mj" path="res://resources/inventory/player_inventory.tres" id="2_lwbsr"]
 [ext_resource type="PackedScene" uid="uid://c6h4vak6lhrpd" path="res://scenes/UI/inventory/inventory_slot/InventorySlot.tscn" id="4_jgvdr"]
 [ext_resource type="Resource" uid="uid://cu5ymieoyy27f" path="res://resources/inventory_items/consumables/healing_potion.tres" id="5_6qrlt"]
 

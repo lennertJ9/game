@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dl25bp70bio53" path="res://assets/UI/resource_bar/bar_border.png" id="2_2ibij"]
 [ext_resource type="PackedScene" uid="uid://b33mmwu7fmrcf" path="res://scenes/Abilities/Bolt/bolt.tscn" id="3_gvyhi"]
 [ext_resource type="Texture2D" uid="uid://cro4xh8xke6wq" path="res://assets/UI/resource_bar/life.png" id="3_x1pvd"]
-[ext_resource type="Script" path="res://resources/abilities/Ability.gd" id="4_2bfsh"]
+[ext_resource type="Script" path="res://resources/scripts/Ability.gd" id="4_2bfsh"]
 [ext_resource type="Texture2D" uid="uid://c3c1k118b6r1d" path="res://assets/UI/icon/bolt_icon.png" id="4_3nc3y"]
 [ext_resource type="Texture2D" uid="uid://b066eoludk3w2" path="res://assets/UI/resource_bar/energy.png" id="4_7x8ng"]
 [ext_resource type="PackedScene" uid="uid://cwab6h3f6vtm" path="res://scenes/UI/resource_bar/resource_bar_slot/Slot.tscn" id="5_mgsug"]

@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var resource_bar = $ResourceBar
 @onready var inventory = $Inventory
 
+@onready var inventory_manager = $InventoryManager
+
 var is_inventory_open: bool = false
 
 
@@ -16,6 +18,8 @@ func _ready():
 	update_properties()
 	
 	#inventory.visible = false
+
+
 
 
 

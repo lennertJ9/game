@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbiygvsku8k31"]
+[gd_scene load_steps=6 format=3 uid="uid://dbiygvsku8k31"]
 
 [ext_resource type="Texture2D" uid="uid://cro5h6wvawmal" path="res://assets/UI/inventory/inventory_background.png" id="1_w4mnw"]
 [ext_resource type="PackedScene" uid="uid://cbgf5sqwpfbww" path="res://scenes/UI/inventorV2/InventortSlot.tscn" id="2_0typy"]
 [ext_resource type="Script" path="res://scenes/UI/inventorV2/Inventory.gd" id="2_2cmfv"]
 [ext_resource type="Resource" uid="uid://cu5ymieoyy27f" path="res://resources/inventory_items/consumables/healing_potion.tres" id="3_reft4"]
+[ext_resource type="Resource" uid="uid://0oxmdh5hku54" path="res://resources/inventory_items/consumables/mana_potion.tres" id="5_7f450"]
 
 [node name="Inventory" type="NinePatchRect"]
 offset_right = 151.0
@@ -53,6 +54,7 @@ layout_mode = 2
 
 [node name="InventorySlot11" parent="InventorySlots" instance=ExtResource("2_0typy")]
 layout_mode = 2
+inventory_item = ExtResource("5_7f450")
 
 [node name="InventorySlot12" parent="InventorySlots" instance=ExtResource("2_0typy")]
 layout_mode = 2
@@ -77,11 +79,3 @@ layout_mode = 2
 
 [node name="InventorySlot10" parent="InventorySlots" instance=ExtResource("2_0typy")]
 layout_mode = 2
-
-[node name="Preview" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-mouse_filter = 2
-stretch_mode = 2
