@@ -20,7 +20,7 @@ func _ready():
 	connect_chest()
 
 
-
+# verbind het click signal met de inventory_manager
 func connect_chest():
 	for chest in chests.get_children():
 		chest.open_chest.connect(ui.inventory_manager.open_chest)

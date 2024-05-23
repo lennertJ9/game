@@ -28,8 +28,26 @@ anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("5_00ah7")
 
+[node name="PlayerInventory" parent="InventoryManager" instance=ExtResource("4_y5l0k")]
+visible = false
+layout_mode = 0
+offset_left = 1584.0
+offset_top = 550.0
+offset_right = 1735.0
+offset_bottom = 639.0
+inventory_resource = ExtResource("5_qgygm")
+
+[node name="ChestInventory" parent="InventoryManager" instance=ExtResource("4_y5l0k")]
+visible = false
+layout_mode = 0
+offset_left = 796.0
+offset_top = 550.0
+offset_right = 947.0
+offset_bottom = 639.0
+inventory_source = 1
+
 [node name="Preview" type="Control" parent="InventoryManager"]
-z_index = 1
+z_index = 2
 anchors_preset = 0
 mouse_filter = 2
 
@@ -41,22 +59,5 @@ offset_right = -24.0
 offset_bottom = -24.0
 scale = Vector2(5, 5)
 mouse_filter = 2
-
-[node name="PlayerInventory" parent="InventoryManager" instance=ExtResource("4_y5l0k")]
-visible = false
-layout_mode = 0
-offset_left = 1295.0
-offset_top = 400.0
-offset_right = 1446.0
-offset_bottom = 489.0
-inventory_resource = ExtResource("5_qgygm")
-
-[node name="ChestInventory" parent="InventoryManager" instance=ExtResource("4_y5l0k")]
-visible = false
-layout_mode = 0
-offset_left = 550.0
-offset_top = 400.0
-offset_right = 701.0
-offset_bottom = 489.0
 
 [connection signal="timeout" from="UpdateResources" to="." method="_on_update_resources_timeout"]

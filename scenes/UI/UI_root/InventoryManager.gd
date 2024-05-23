@@ -8,21 +8,31 @@ var chest_inventory_resource: Inventory
 @onready var player_inventory = $PlayerInventory
 @onready var chest_inventory = $ChestInventory
 
-
 @onready var preview = $Preview
 @onready var preview_texture = $Preview/PreviewTexture
 
 var drag: bool
 var player_inventory_open: bool
+var chest_inventory_open: bool
+
+var current_dragging_item: InventoryItem
+var current_dragging_index: int
 
 
 func _ready():
 	set_physics_process(false)
 	for slot in player_inventory.inventory_slots.get_children():
+		slot.drag.connect(on_drag)
 		slot.drop.connect(on_drop)
+		slot.swap.connect(on_swap)
+		
 	for slot in chest_inventory.inventory_slots.get_children():
+		slot.drag.connect(on_drag)
 		slot.drop.connect(on_drop)
+		slot.swap.connect(on_swap)
 
+	player_inventory.close_button.connect(close_player_inventory)
+	chest_inventory.close_button.connect(close_chest)
 
 
 func _physics_process(delta):
@@ -32,11 +42,10 @@ func _physics_process(delta):
 func _input(event):
 	if event.is_action_pressed("inventory"):
 		if player_inventory_open:
-			player_inventory.visible = false
-			player_inventory_open = false
+			close_player_inventory()
 		else:
-			player_inventory.visible = true
-			player_inventory_open = true
+			open_player_inventory()
+
 
 	if event is InputEventMouseButton and drag:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
@@ -55,17 +64,39 @@ func make_preview(texture: Texture2D):
 
 
 func open_chest(inventory: Inventory):
-	print("open")
-	chest_inventory.visible = true
-	chest_inventory.load_inventory(inventory)
+	if !chest_inventory_open:
+		chest_inventory_open = true
+		chest_inventory.open()
+		chest_inventory.load_inventory(inventory)
 
 
 func close_chest():
-	print("i need to close")
-	chest_inventory.visible = false
+	if chest_inventory_open:
+		chest_inventory_open = false
+		chest_inventory.close()
+
+
+func open_player_inventory():
+	player_inventory_open = true
+	player_inventory.open()
+
+
+func close_player_inventory():
+	player_inventory_open = false
+	player_inventory.close()
 	
 
+func on_drag(data, index,source):
+	make_preview(data.item_texture)
+	current_dragging_item = data
+	current_dragging_index = index
 
 
-func on_drop():
-	print("drop")
+
+func on_drop(data, index, source):
+	get_child(source).inventory_slots.get_child(index).update_slot(data)
+
+
+
+func on_swap(data, index, source):
+	print("swap")

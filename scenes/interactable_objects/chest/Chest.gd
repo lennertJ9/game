@@ -8,21 +8,16 @@ signal close_chest
 @export var inventory: Inventory
 
 
-var is_open = false
 var player_in_range: bool = false
 
 
-func _ready():
-	print(player_in_range)
+
 
 
 func _on_control_gui_input(event):
 	if event.is_pressed() and event.button_index==1 and player_in_range:
-		if is_open:
-			is_open = false
-		else:
-			open_chest.emit(inventory)
-			is_open = true
+		open_chest.emit(inventory)
+
 
 
 func _on_control_mouse_entered():
@@ -41,5 +36,4 @@ func _on_player_range_body_entered(body):
 
 func _on_player_range_body_exited(body):
 	player_in_range = false
-	is_open = false
 	close_chest.emit()
