@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbiygvsku8k31"]
+[gd_scene load_steps=4 format=3 uid="uid://dbiygvsku8k31"]
 
 [ext_resource type="Texture2D" uid="uid://cro5h6wvawmal" path="res://assets/UI/inventory/inventory_background.png" id="1_w4mnw"]
 [ext_resource type="PackedScene" uid="uid://cbgf5sqwpfbww" path="res://scenes/UI/inventorV2/InventortSlot.tscn" id="2_0typy"]
 [ext_resource type="Script" path="res://scenes/UI/inventorV2/Inventory.gd" id="2_2cmfv"]
-[ext_resource type="Resource" uid="uid://cu5ymieoyy27f" path="res://resources/inventory_items/consumables/healing_potion.tres" id="3_reft4"]
-[ext_resource type="Resource" uid="uid://0oxmdh5hku54" path="res://resources/inventory_items/consumables/mana_potion.tres" id="5_7f450"]
 
 [node name="Inventory" type="NinePatchRect"]
 offset_right = 151.0
@@ -38,7 +36,6 @@ layout_mode = 2
 
 [node name="InventorySlot2" parent="InventorySlots" instance=ExtResource("2_0typy")]
 layout_mode = 2
-inventory_item = ExtResource("3_reft4")
 
 [node name="InventorySlot3" parent="InventorySlots" instance=ExtResource("2_0typy")]
 layout_mode = 2
@@ -52,9 +49,20 @@ layout_mode = 2
 [node name="InventorySlot6" parent="InventorySlots" instance=ExtResource("2_0typy")]
 layout_mode = 2
 
+[node name="InventorySlot7" parent="InventorySlots" instance=ExtResource("2_0typy")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="InventorySlots" instance=ExtResource("2_0typy")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="InventorySlots" instance=ExtResource("2_0typy")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="InventorySlots" instance=ExtResource("2_0typy")]
+layout_mode = 2
+
 [node name="InventorySlot11" parent="InventorySlots" instance=ExtResource("2_0typy")]
 layout_mode = 2
-inventory_item = ExtResource("5_7f450")
 
 [node name="InventorySlot12" parent="InventorySlots" instance=ExtResource("2_0typy")]
 layout_mode = 2
@@ -66,16 +74,4 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="InventorySlot15" parent="InventorySlots" instance=ExtResource("2_0typy")]
-layout_mode = 2
-
-[node name="InventorySlot7" parent="InventorySlots" instance=ExtResource("2_0typy")]
-layout_mode = 2
-
-[node name="InventorySlot8" parent="InventorySlots" instance=ExtResource("2_0typy")]
-layout_mode = 2
-
-[node name="InventorySlot9" parent="InventorySlots" instance=ExtResource("2_0typy")]
-layout_mode = 2
-
-[node name="InventorySlot10" parent="InventorySlots" instance=ExtResource("2_0typy")]
 layout_mode = 2

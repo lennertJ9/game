@@ -2,7 +2,8 @@ extends Node2D
 
 
 @onready var player = $Player
-@onready var ui = $UI
+@onready var ui: UserInterface = $UI
+@onready var chests = $Chests
 
 
 func _ready():
@@ -16,6 +17,13 @@ func _ready():
 	for slot in ui.resource_bar.slots.get_children():
 		slot.ability_order_changed.connect(player.projectile_manager.update_slots)
 
+	connect_chest()
 
+
+
+func connect_chest():
+	for chest in chests.get_children():
+		chest.open_chest.connect(ui.inventory_manager.open_chest)
+		chest.close_chest.connect(ui.inventory_manager.close_chest)
 
 

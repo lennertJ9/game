@@ -1,23 +1,27 @@
 extends StaticBody2D
 
+signal open_chest
+signal close_chest
 
 @onready var sprite_2d = $Sprite2D
+@onready var inventory_chest = $InventoryChest
+@export var inventory: Inventory
+
 
 var is_open = false
+var player_in_range: bool = false
 
 
 func _ready():
-	$Inventory.visible = is_open
-	
+	print(player_in_range)
 
 
 func _on_control_gui_input(event):
-	if event.is_pressed() and event.button_index==1:
+	if event.is_pressed() and event.button_index==1 and player_in_range:
 		if is_open:
-			$Inventory.visible = false
 			is_open = false
 		else:
-			$Inventory.visible = true
+			open_chest.emit(inventory)
 			is_open = true
 
 
@@ -30,9 +34,12 @@ func _on_control_mouse_exited():
 
 
 
-#func _input_event(viewport, event, shape_idx):
-	#if event.is_pressed() and shape_idx == 1:
-		#print("press")
-#
-	#if event == InputEventMouseMotion:
-		#print("sdsds")
+
+func _on_player_range_body_entered(body):
+	player_in_range = true
+
+
+func _on_player_range_body_exited(body):
+	player_in_range = false
+	is_open = false
+	close_chest.emit()

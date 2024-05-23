@@ -1,16 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw04jvgrimv7s"]
+[gd_scene load_steps=6 format=3 uid="uid://bw04jvgrimv7s"]
 
 [ext_resource type="Script" path="res://scenes/interactable_objects/chest/Chest.gd" id="1_st0lf"]
 [ext_resource type="Texture2D" uid="uid://cte0crv17i20p" path="res://assets/interactable_objects/chest.png" id="2_cg4bb"]
-[ext_resource type="PackedScene" uid="uid://dbiygvsku8k31" path="res://scenes/UI/inventorV2/Inventory.tscn" id="3_xglrx"]
+[ext_resource type="Resource" uid="uid://bly4dfm13kf18" path="res://resources/inventory/chest.tres" id="4_uwwoy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxcdi"]
 size = Vector2(20, 11)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7e3ph"]
+radius = 50.01
+
 [node name="Chest" type="StaticBody2D"]
 z_index = 2
+collision_layer = 0
 input_pickable = true
 script = ExtResource("1_st0lf")
+inventory = ExtResource("4_uwwoy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_cg4bb")
@@ -20,7 +25,7 @@ hframes = 2
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_gxcdi")
 
-[node name="Control" type="Control" parent="."]
+[node name="HoverControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -11.0
@@ -28,13 +33,15 @@ offset_top = -8.0
 offset_right = 10.0
 offset_bottom = 12.0
 
-[node name="Inventory" parent="." instance=ExtResource("3_xglrx")]
-offset_left = -74.0
-offset_top = -99.0
-offset_right = 77.0
-offset_bottom = -10.0
-scale = Vector2(1, 1)
+[node name="PlayerRange" type="Area2D" parent="."]
+collision_layer = 0
 
-[connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]
-[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
-[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerRange"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_7e3ph")
+
+[connection signal="gui_input" from="HoverControl" to="." method="_on_control_gui_input"]
+[connection signal="mouse_entered" from="HoverControl" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="HoverControl" to="." method="_on_control_mouse_exited"]
+[connection signal="body_entered" from="PlayerRange" to="." method="_on_player_range_body_entered"]
+[connection signal="body_exited" from="PlayerRange" to="." method="_on_player_range_body_exited"]

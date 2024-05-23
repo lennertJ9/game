@@ -1,11 +1,11 @@
 extends CanvasLayer
-
+class_name UserInterface
 
 @export var player_stats : statistic
 
 
 @onready var resource_bar = $ResourceBar
-@onready var inventory = $Inventory
+
 
 @onready var inventory_manager = $InventoryManager
 
@@ -19,21 +19,6 @@ func _ready():
 	
 	#inventory.visible = false
 
-
-
-
-
-func _input(event):
-	if event.is_action_pressed("inventory"):
-		if is_inventory_open:
-			inventory.visible = false
-			is_inventory_open = false
-		else:
-			inventory.visible = true
-			is_inventory_open = true
-
-	if Input.is_action_just_pressed("debug"):
-		inventory.add_items()
 
 
 

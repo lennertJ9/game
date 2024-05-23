@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=3 format=3 uid="uid://d4arx8hsfai8j"]
+
+[ext_resource type="Script" path="res://resources/scripts/inventory.gd" id="1_17afq"]
+[ext_resource type="Resource" uid="uid://cu5ymieoyy27f" path="res://resources/inventory_items/consumables/healing_potion.tres" id="1_us5yf"]
+
+[resource]
+script = ExtResource("1_17afq")
+items = Array[Resource("res://resources/scripts/inventory_item.gd")]([null, ExtResource("1_us5yf"), null, null, null, null, null, null, null, null, null, null, null, null, null])
+inventory_size = 15
