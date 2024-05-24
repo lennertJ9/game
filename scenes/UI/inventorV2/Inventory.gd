@@ -2,12 +2,11 @@ extends NinePatchRect
 
 
 signal invalid_drop
-signal drop
+
 signal close_button
 
-@export var inventory_source: int
 @export var inventory_resource: Inventory
-
+@export var inventory_source: int
 
 @onready var inventory_slots = $InventorySlots
 @onready var preview = $Control/Preview
@@ -27,8 +26,9 @@ func _can_drop_data(at_position, data):
 
 
 
-#func _drop_data(at_position, data):
-	#inventory_slots.get_child(current_drag_index).update_slot(data)
+func _drop_data(at_position, data):
+	print("invalid")
+	invalid_drop.emit(data)
 
 
 func load_inventory(inventory):
@@ -42,7 +42,6 @@ func load_inventory(inventory):
 
 
 func open():
-	print("open chesttttt")
 	animation_player.play("open")
 	visible = true
 
