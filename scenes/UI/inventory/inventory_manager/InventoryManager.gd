@@ -48,10 +48,7 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("inventory"):
-		if player_inventory_open:
-			close_player_inventory()
-		else:
-			open_player_inventory()
+		open_player_inventory()
 
 
 	if event is InputEventMouseButton and drag:
@@ -86,13 +83,17 @@ func close_chest():
 
 
 func open_player_inventory():
-	player_inventory_open = true
-	player_inventory.open()
+	if !player_inventory_open:
+		player_inventory_open = true
+		player_inventory.open()
+	else:
+		close_player_inventory()
 
 
 func close_player_inventory():
 	player_inventory_open = false
 	player_inventory.close()
+
 
 
 func on_drag(data, index,source): # emit van slot drag functie
@@ -124,7 +125,6 @@ func on_swap(item: InventoryItem, index: int, source: int): # emit van slot drop
 
 
 func update_inventory_resource(item: InventoryItem, index: int, source: int):
-	print("item: ",item, " op index: ",index, " in inventaris: ", source)
 	get_child(source).inventory_resource.items[index] = item
 
 

@@ -5,8 +5,7 @@ class_name UserInterface
 
 
 @onready var resource_bar = $ResourceBar
-
-
+@onready var icon_bar = $IconBar
 @onready var inventory_manager = $InventoryManager
 
 var is_inventory_open: bool = false
@@ -17,7 +16,7 @@ func _ready():
 	update_mana()
 	update_properties()
 	
-	#inventory.visible = false
+	icon_bar.inventory_button.connect(inventory_manager.open_player_inventory)
 
 
 

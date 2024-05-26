@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://dbiygvsku8k31"]
 
-[ext_resource type="Texture2D" uid="uid://cro5h6wvawmal" path="res://assets/UI/inventory/inventory_background.png" id="1_w4mnw"]
-[ext_resource type="PackedScene" uid="uid://cbgf5sqwpfbww" path="res://scenes/UI/inventorV2/InventortSlot.tscn" id="2_0typy"]
-[ext_resource type="Script" path="res://scenes/UI/inventorV2/Inventory.gd" id="2_2cmfv"]
-[ext_resource type="Texture2D" uid="uid://cljmrycaccn0i" path="res://assets/UI/general/button_normal.png" id="4_7x1bl"]
-[ext_resource type="Texture2D" uid="uid://bicerrjasj38o" path="res://assets/UI/general/button_pressed.png" id="5_3o1rj"]
-[ext_resource type="Texture2D" uid="uid://m4xxp6rsb1cu" path="res://assets/UI/general/button_hover.png" id="6_456we"]
+[ext_resource type="Texture2D" uid="uid://cro5h6wvawmal" path="res://assets/UI/inventory/inventory_background.png" id="1_tbaex"]
+[ext_resource type="Script" path="res://scenes/UI/inventory/inventory/Inventory.gd" id="2_ky656"]
+[ext_resource type="PackedScene" uid="uid://cbgf5sqwpfbww" path="res://scenes/UI/inventory/inventory_slot/InventortSlot.tscn" id="3_ds6l0"]
+[ext_resource type="Texture2D" uid="uid://cljmrycaccn0i" path="res://assets/UI/general/button_normal.png" id="4_fyfxd"]
+[ext_resource type="Texture2D" uid="uid://bicerrjasj38o" path="res://assets/UI/general/button_pressed.png" id="5_ft5ol"]
+[ext_resource type="Texture2D" uid="uid://m4xxp6rsb1cu" path="res://assets/UI/general/button_hover.png" id="6_quk87"]
 
 [sub_resource type="Animation" id="Animation_yth78"]
 length = 0.001
@@ -108,12 +108,12 @@ offset_right = 150.0
 offset_bottom = 90.0
 pivot_offset = Vector2(75, 45)
 mouse_filter = 1
-texture = ExtResource("1_w4mnw")
+texture = ExtResource("1_tbaex")
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
-script = ExtResource("2_2cmfv")
+script = ExtResource("2_ky656")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -135,49 +135,49 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 5
 
-[node name="InventorySlot" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot2" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot2" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot3" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot3" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot4" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot4" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot5" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot5" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot6" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot6" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot7" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot7" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot8" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot8" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot9" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot9" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot10" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot10" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot11" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot11" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot12" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot12" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot13" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot13" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot14" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot14" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
-[node name="InventorySlot15" parent="InventorySlots" instance=ExtResource("2_0typy")]
+[node name="InventorySlot15" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="."]
@@ -187,8 +187,8 @@ offset_top = 4.0
 offset_right = 146.0
 offset_bottom = 12.0
 pivot_offset = Vector2(4, 4)
-texture_normal = ExtResource("4_7x1bl")
-texture_pressed = ExtResource("5_3o1rj")
-texture_hover = ExtResource("6_456we")
+texture_normal = ExtResource("4_fyfxd")
+texture_pressed = ExtResource("5_ft5ol")
+texture_hover = ExtResource("6_quk87")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

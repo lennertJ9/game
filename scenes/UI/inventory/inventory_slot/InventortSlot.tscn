@@ -1,7 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbgf5sqwpfbww"]
 
-[ext_resource type="Script" path="res://scenes/UI/inventorV2/InventorySlot.gd" id="1_hkqte"]
+[ext_resource type="Script" path="res://scenes/UI/inventory/inventory_slot/InventorySlot.gd" id="1_hkqte"]
 [ext_resource type="Texture2D" uid="uid://8bpavj5dir1k" path="res://assets/UI/inventory/inventory_slot.png" id="2_xlpoh"]
+
 
 [sub_resource type="Animation" id="Animation_vr4b5"]
 length = 0.001

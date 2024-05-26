@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb1e0rcvwe4qp"]
+
+[ext_resource type="Texture2D" uid="uid://cro5h6wvawmal" path="res://assets/UI/inventory/inventory_background.png" id="1_4ct55"]
+[ext_resource type="Texture2D" uid="uid://vkow4un3uy7x" path="res://assets/UI/general/inventory_button.png" id="2_k84q2"]
+[ext_resource type="Script" path="res://scenes/UI/icon_bar/IconBar.gd" id="2_nfr13"]
+[ext_resource type="Texture2D" uid="uid://dsqewarm3y7n0" path="res://assets/UI/general/inventory_button_hover.png" id="3_wq6rb"]
+
+[node name="IconBar" type="NinePatchRect"]
+custom_minimum_size = Vector2(600, 80)
+offset_right = 600.0
+offset_bottom = 60.0
+texture = ExtResource("1_4ct55")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource("2_nfr13")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 11.0
+offset_top = -27.0
+offset_right = 113.0
+offset_bottom = -11.0
+grow_vertical = 2
+scale = Vector2(3.5, 3.5)
+columns = 7
+
+[node name="InventoryButton" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_k84q2")
+texture_hover = ExtResource("3_wq6rb")
+
+[connection signal="button_up" from="GridContainer/InventoryButton" to="." method="_on_inventory_button_button_up"]
