@@ -7,6 +7,7 @@ extends Node2D
 
 
 func _ready():
+	print("skill")
 	# wanner de healthcomponent health veranderd word
 	player.health_component.health_changed.connect(ui.update_health)
 	player.mana_component.mana_changed.connect(ui.update_mana)
