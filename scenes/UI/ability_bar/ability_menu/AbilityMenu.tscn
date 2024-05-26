@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg58h60sbgxk5"]
+
+[ext_resource type="Script" path="res://scenes/UI/ability_bar/ability_menu/AbilityMenu.gd" id="1_66g6s"]
+[ext_resource type="Texture2D" uid="uid://gpbg2bp4sch8" path="res://assets/UI/ability_menu/ability_menu_background.png" id="1_ux5eu"]
+[ext_resource type="PackedScene" uid="uid://4brgxggmquvh" path="res://scenes/UI/ability_bar/ability_slot/AbilitySlot.tscn" id="2_2ovsq"]
+
+[node name="AbilityMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_66g6s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ux5eu")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 127.0
+offset_bottom = 54.0
+theme_override_constants/h_separation = 6
+columns = 5
+
+[node name="AbilitySlot" parent="GridContainer" instance=ExtResource("2_2ovsq")]
+layout_mode = 2
+
+[node name="AbilitySlot2" parent="GridContainer" instance=ExtResource("2_2ovsq")]
+layout_mode = 2
+
+[node name="AbilitySlot3" parent="GridContainer" instance=ExtResource("2_2ovsq")]
+layout_mode = 2
+
+[node name="AbilitySlot4" parent="GridContainer" instance=ExtResource("2_2ovsq")]
+layout_mode = 2
+
+[node name="AbilitySlot5" parent="GridContainer" instance=ExtResource("2_2ovsq")]
+layout_mode = 2
+
+[node name="AbilitySlot6" parent="GridContainer" instance=ExtResource("2_2ovsq")]
+layout_mode = 2
+
+[node name="AbilitySlot7" parent="GridContainer" instance=ExtResource("2_2ovsq")]
+layout_mode = 2
+
+[node name="AbilitySlot8" parent="GridContainer" instance=ExtResource("2_2ovsq")]
+layout_mode = 2
+
+[node name="AbilitySlot9" parent="GridContainer" instance=ExtResource("2_2ovsq")]
+layout_mode = 2
+
+[node name="AbilitySlot10" parent="GridContainer" instance=ExtResource("2_2ovsq")]
+layout_mode = 2

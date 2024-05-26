@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm4momb7kutmb"
-path="res://.godot/imported/inventory_button.png-6e9b35f5c8e78dce70621f68d84bd0e7.ctex"
+uid="uid://c3c1k118b6r1d"
+path="res://.godot/imported/bolt_icon.png-c5cc6d44931dfd1bbf0f1928f4283fb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/general/inventory_button.png"
-dest_files=["res://.godot/imported/inventory_button.png-6e9b35f5c8e78dce70621f68d84bd0e7.ctex"]
+source_file="res://assets/UI/ability_icons/bolt_icon.png"
+dest_files=["res://.godot/imported/bolt_icon.png-c5cc6d44931dfd1bbf0f1928f4283fb6.ctex"]
 
 [params]
 

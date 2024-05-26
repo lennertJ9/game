@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl5komqxl2tr2"
-path="res://.godot/imported/fireball_icon.png-1648f2c1d327b9d77992b41156724127.ctex"
+uid="uid://j78wq6mvdrql"
+path="res://.godot/imported/ability_Bar_button_hover.png-dc76925694635dcfd9c5e64af2aae9b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/icon/fireball_icon.png"
-dest_files=["res://.godot/imported/fireball_icon.png-1648f2c1d327b9d77992b41156724127.ctex"]
+source_file="res://assets/UI/icon_bar/ability_Bar_button_hover.png"
+dest_files=["res://.godot/imported/ability_Bar_button_hover.png-dc76925694635dcfd9c5e64af2aae9b4.ctex"]
 
 [params]
 

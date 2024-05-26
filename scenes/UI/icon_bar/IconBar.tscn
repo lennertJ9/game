@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb1e0rcvwe4qp"]
+[gd_scene load_steps=7 format=3 uid="uid://bb1e0rcvwe4qp"]
 
 [ext_resource type="Texture2D" uid="uid://cro5h6wvawmal" path="res://assets/UI/inventory/inventory_background.png" id="1_4ct55"]
-[ext_resource type="Texture2D" uid="uid://vkow4un3uy7x" path="res://assets/UI/general/inventory_button.png" id="2_k84q2"]
 [ext_resource type="Script" path="res://scenes/UI/icon_bar/IconBar.gd" id="2_nfr13"]
-[ext_resource type="Texture2D" uid="uid://dsqewarm3y7n0" path="res://assets/UI/general/inventory_button_hover.png" id="3_wq6rb"]
+[ext_resource type="Texture2D" uid="uid://vkow4un3uy7x" path="res://assets/UI/icon_bar/inventory_button.png" id="3_5ovho"]
+[ext_resource type="Texture2D" uid="uid://dsqewarm3y7n0" path="res://assets/UI/icon_bar/inventory_button_hover.png" id="4_ivilb"]
+[ext_resource type="Texture2D" uid="uid://cocvfemslhnc7" path="res://assets/UI/icon_bar/ability_bar_button.png" id="5_vjrdu"]
+[ext_resource type="Texture2D" uid="uid://j78wq6mvdrql" path="res://assets/UI/icon_bar/ability_Bar_button_hover.png" id="6_1cj33"]
 
 [node name="IconBar" type="NinePatchRect"]
 custom_minimum_size = Vector2(600, 80)
@@ -31,7 +33,13 @@ columns = 7
 
 [node name="InventoryButton" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_k84q2")
-texture_hover = ExtResource("3_wq6rb")
+texture_normal = ExtResource("3_5ovho")
+texture_hover = ExtResource("4_ivilb")
+
+[node name="AbilityMenuButton" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_vjrdu")
+texture_hover = ExtResource("6_1cj33")
 
 [connection signal="button_up" from="GridContainer/InventoryButton" to="." method="_on_inventory_button_button_up"]
+[connection signal="button_up" from="GridContainer/AbilityMenuButton" to="." method="_on_ability_menu_button_button_up"]

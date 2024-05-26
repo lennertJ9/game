@@ -1468,6 +1468,7 @@ position = Vector2(464, -328)
 [node name="Camera" parent="." instance=ExtResource("9_eq5e3")]
 
 [node name="Chests" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Chest1" parent="Chests" instance=ExtResource("11_62wjl")]
 position = Vector2(76, -304)

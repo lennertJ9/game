@@ -1,6 +1,7 @@
 extends NinePatchRect
 
 signal inventory_button
+signal ability_menu_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,3 +18,7 @@ func _process(delta):
 
 func _on_inventory_button_button_up():
 	inventory_button.emit()
+
+
+func _on_ability_menu_button_button_up():
+	ability_menu_button.emit()

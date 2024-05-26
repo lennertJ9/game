@@ -73,7 +73,7 @@ func open_chest(inventory: Inventory):
 		chest_inventory_resource = inventory
 		chest_inventory.load_inventory(inventory)
 		chest_inventory.open()
-		
+
 
 
 func close_chest():
@@ -83,17 +83,13 @@ func close_chest():
 
 
 func open_player_inventory():
-	if !player_inventory_open:
-		player_inventory_open = true
-		player_inventory.open()
-	else:
-		close_player_inventory()
+	player_inventory.open()
+	
 
 
 func close_player_inventory():
-	player_inventory_open = false
 	player_inventory.close()
-
+	print("close")
 
 
 func on_drag(data, index,source): # emit van slot drag functie

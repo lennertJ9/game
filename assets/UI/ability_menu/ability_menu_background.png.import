@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3c1k118b6r1d"
-path="res://.godot/imported/bolt_icon.png-b8eec4db0e695185bc2c9a1ea3b2b720.ctex"
+uid="uid://gpbg2bp4sch8"
+path="res://.godot/imported/ability_menu_background.png-a1c8deec61f48ad1a8c872a3f9e26a6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/icon/bolt_icon.png"
-dest_files=["res://.godot/imported/bolt_icon.png-b8eec4db0e695185bc2c9a1ea3b2b720.ctex"]
+source_file="res://assets/UI/ability_menu/ability_menu_background.png"
+dest_files=["res://.godot/imported/ability_menu_background.png-a1c8deec61f48ad1a8c872a3f9e26a6b.ctex"]
 
 [params]
 

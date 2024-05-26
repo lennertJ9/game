@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm4momb7kutmb"
-path="res://.godot/imported/inventory_button.png-6e9b35f5c8e78dce70621f68d84bd0e7.ctex"
+uid="uid://cfsibxcveappc"
+path="res://.godot/imported/ability_Bar_button_hover.png-fb1d3a6d962d89ef3acc959a97366593.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/general/inventory_button.png"
-dest_files=["res://.godot/imported/inventory_button.png-6e9b35f5c8e78dce70621f68d84bd0e7.ctex"]
+source_file="res://assets/UI/general/ability_Bar_button_hover.png"
+dest_files=["res://.godot/imported/ability_Bar_button_hover.png-fb1d3a6d962d89ef3acc959a97366593.ctex"]
 
 [params]
 

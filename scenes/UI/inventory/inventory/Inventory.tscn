@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://cro5h6wvawmal" path="res://assets/UI/inventory/inventory_background.png" id="1_tbaex"]
 [ext_resource type="Script" path="res://scenes/UI/inventory/inventory/Inventory.gd" id="2_ky656"]
 [ext_resource type="PackedScene" uid="uid://cbgf5sqwpfbww" path="res://scenes/UI/inventory/inventory_slot/InventortSlot.tscn" id="3_ds6l0"]
-[ext_resource type="Texture2D" uid="uid://cljmrycaccn0i" path="res://assets/UI/general/button_normal.png" id="4_fyfxd"]
-[ext_resource type="Texture2D" uid="uid://bicerrjasj38o" path="res://assets/UI/general/button_pressed.png" id="5_ft5ol"]
-[ext_resource type="Texture2D" uid="uid://m4xxp6rsb1cu" path="res://assets/UI/general/button_hover.png" id="6_quk87"]
+[ext_resource type="Texture2D" uid="uid://cljmrycaccn0i" path="res://assets/UI/general_buttons/button_normal.png" id="4_fyfxd"]
+[ext_resource type="Texture2D" uid="uid://bicerrjasj38o" path="res://assets/UI/general_buttons/button_pressed.png" id="5_ft5ol"]
+[ext_resource type="Texture2D" uid="uid://m4xxp6rsb1cu" path="res://assets/UI/general_buttons/button_hover.png" id="6_quk87"]
+
 
 [sub_resource type="Animation" id="Animation_yth78"]
 length = 0.001
