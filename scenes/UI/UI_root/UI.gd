@@ -8,6 +8,8 @@ class_name UserInterface
 @onready var icon_bar = $IconBar
 @onready var inventory_manager = $InventoryManager
 @onready var ability_menu = $AbilityMenu
+@onready var preview_manager = $PreviewManager
+@onready var ability_bar = $AbilityBar
 
 var is_inventory_open: bool = false
 var is_ability_bar_open: bool = false
@@ -17,8 +19,9 @@ func _ready():
 	#update_health()
 	#update_mana()
 	#update_properties()
-	icon_bar.ability_menu_button.connect(open_ability_menu)
-	icon_bar.inventory_button.connect(open_inventory)
+	
+	connect_signals()
+	
 
 
 func open_inventory():
@@ -100,4 +103,12 @@ func open_ability_menu():
 #
 
 
-
+func connect_signals():
+	icon_bar.ability_menu_button.connect(open_ability_menu)
+	icon_bar.inventory_button.connect(open_inventory)
+	
+	for slot in ability_bar.slots:
+		slot.drag.connect(preview_manager.make_preview)
+	
+	for slot in ability_menu.slots:
+		slot.drag.connect(preview_manager.make_preview)

@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://dl6hywxdnphu5"]
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://dl6hywxdnphu5"]
 
 [ext_resource type="Script" path="res://resources/scripts/Ability.gd" id="1_r1aw7"]
 [ext_resource type="Texture2D" uid="uid://bl5komqxl2tr2" path="res://assets/UI/ability_icons/fireball_icon.png" id="2_acxp4"]
+[ext_resource type="PackedScene" uid="uid://bls1j3cnorbpe" path="res://scenes/Abilities/fireball/fireball_manager/FireballManager.tscn" id="2_yoc1e"]
 
 [resource]
 script = ExtResource("1_r1aw7")
+manager = ExtResource("2_yoc1e")
 name = "fireball"
 icon = ExtResource("2_acxp4")
 damage = 0

@@ -1,5 +1,5 @@
 extends CharacterBody2D
-#class_name player
+class_name Player
 
 
 signal stats_updated
@@ -27,7 +27,7 @@ signal stats_updated
 
 # ------------- MANAGERS -------------------------
 @onready var status_manager = $StatusManager
-
+@onready var ability_manager = $AbilityManager
 
 
 # -------------- ABILITIES -----------------------
@@ -84,43 +84,27 @@ func _input(event):
 		
 	
 	
-	if event.is_action_pressed("slot_1"):
-		slot_press(0)
 	
-	if event.is_action_pressed("slot_2"):
-		slot_press(1)
-	
-	if event.is_action_pressed("slot_3"):
-		slot_press(2)
-	
-	if event.is_action_pressed("slot_4"):
-		slot_press(3)
-	
-	if event.is_action_pressed("slot_5"):
-		slot_press(4)
-
 	if event.is_action_pressed("debug"):
 		print("debug")
-		
-		
-		
-	
+
+
 
 func slot_press(index):
 	$ProjectileManager.get_child(index).use_ability()
 
 
+
 func update_player_stats():
-	
 	stats_updated.emit()
-	
+
+
 
 func on_player_hit(area):
 	health_component.damage(area.damage)
 	#resource_bar.update_health(health_component.current_health)
 	
 	if area.knockback:
-		
 		status_manager.knockback(area.movement_direction, area.knockback_strength)
 	
 	var shader = $Visuals/Leg.material as ShaderMaterial
@@ -128,8 +112,7 @@ func on_player_hit(area):
 	shader.set_shader_parameter("active", true)
 	await get_tree().create_timer(0.125).timeout
 	shader.set_shader_parameter("active", false)
-	
-		
+
 
 
 func hide_weapon():

@@ -2,6 +2,8 @@ extends Resource
 class_name Ability
 
 
+@export var manager : PackedScene
+
 @export var name : String
 @export var icon : Texture2D
 

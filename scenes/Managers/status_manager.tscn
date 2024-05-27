@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/Managers/status_manager.gd" id="1_mewsu"]
 
-[node name="StatusManager" type="Node2D"]
+[node name="StatusManager" type="Node"]
 script = ExtResource("1_mewsu")
 
 [node name="Timer" type="Timer" parent="."]

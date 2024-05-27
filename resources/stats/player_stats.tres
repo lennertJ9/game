@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_bw12a")
+damage = 0
+attack_speed = 1.0
 max_health = 50
 current_health = 40
 health_regeneration = 1

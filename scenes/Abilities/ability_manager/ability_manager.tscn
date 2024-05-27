@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn74ssxkt4xuf"]
+
+[ext_resource type="Script" path="res://scenes/player/AbilityManager.gd" id="1_7t6oa"]
+
+[node name="AbilityManager" type="Node"]
+script = ExtResource("1_7t6oa")
+
+[node name="Slot1" type="Node" parent="."]
+
+[node name="Slot2" type="Node" parent="."]
+
+[node name="Slot3" type="Node" parent="."]
+
+[node name="Slot4" type="Node" parent="."]
+
+[node name="Slot5" type="Node" parent="."]
+
+[node name="Slot6" type="Node" parent="."]
+
+[node name="AttackSpeedTimer" type="Timer" parent="."]

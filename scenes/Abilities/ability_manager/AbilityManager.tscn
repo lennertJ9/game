@@ -1,10 +1,13 @@
-extends Node2D
+[gd_scene load_steps=2 format=3 uid="uid://6peetawqo4ve"]
+
+[sub_resource type="GDScript" id="GDScript_0p0bv"]
+script/source = "extends Node2D
 
 signal ability_used
 
 
 @onready var cooldown_timer = $Cooldown
-@onready var mana_component = $"../../ManaComponent"
+@onready var mana_component = $\"../../ManaComponent\"
 
 @export var ability_resource : Ability
 
@@ -40,3 +43,13 @@ func update_ability_manager(resource : Ability):
 
 func _on_cooldown_timeout():
 	off_cooldown = true
+"
+
+[node name="AbilityManager" type="Node2D"]
+script = SubResource("GDScript_0p0bv")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.02
+one_shot = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

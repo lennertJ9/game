@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bls1j3cnorbpe"]
+
+[ext_resource type="Script" path="res://scenes/Abilities/fireball/fireball_manager/FireballManager.gd" id="1_3r47e"]
+
+[node name="FireballManager" type="Node2D"]
+script = ExtResource("1_3r47e")

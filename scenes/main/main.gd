@@ -7,15 +7,14 @@ extends Node2D
 
 
 func _ready():
-	print("skill")
+	
 	# wanner de healthcomponent health veranderd word
 	#player.health_component.health_changed.connect(ui.update_health)
 	#player.mana_component.mana_changed.connect(ui.update_mana)
-	
-	
 
 	connect_chest()
-
+	connect_ability_bar()
+	
 
 # verbind het click signal met de inventory_manager
 func connect_chest():
@@ -23,4 +22,8 @@ func connect_chest():
 		chest.open_chest.connect(ui.inventory_manager.open_chest)
 		chest.close_chest.connect(ui.inventory_manager.close_chest)
 
+
+func connect_ability_bar():
+	for slot in ui.ability_bar.slots:
+		slot.drop.connect(player.ability_manager.set_ability)
 

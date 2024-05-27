@@ -1,6 +1,8 @@
 extends Resource
 class_name statistic
 
+@export var damage: int
+@export var attack_speed: float
 
 @export var max_health : int
 @export var current_health : int

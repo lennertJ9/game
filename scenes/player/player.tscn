@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=28 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
 [ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/HitFlashShader.tres" id="2_a8xhc"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ddk5aokqe2ecd" path="res://assets/player/weapon.png" id="8_panfk"]
 [ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/HurtBoxComponent/Hurtbox.tscn" id="9_vq76y"]
 [ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/Components/HealthComponent/HealthComponent.tscn" id="10_aar1u"]
+[ext_resource type="PackedScene" uid="uid://cn74ssxkt4xuf" path="res://scenes/Abilities/ability_manager/ability_manager.tscn" id="10_pf7ap"]
 [ext_resource type="PackedScene" uid="uid://i6cld88cc2u2" path="res://scenes/Managers/status_manager.tscn" id="11_ba7jk"]
 [ext_resource type="PackedScene" uid="uid://7tmrpmqaxrih" path="res://scenes/Components/ManaComponent/ManaComponent.tscn" id="13_og546"]
 
@@ -639,6 +640,8 @@ wait_time = 0.1
 autostart = true
 
 [node name="-----MANAGERS----------" type="Node" parent="."]
+
+[node name="AbilityManager" parent="." instance=ExtResource("10_pf7ap")]
 
 [node name="StatusManager" parent="." instance=ExtResource("11_ba7jk")]
 

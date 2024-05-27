@@ -89,8 +89,7 @@ func open_player_inventory():
 
 func close_player_inventory():
 	player_inventory.close()
-	print("close")
-
+	
 
 func on_drag(data, index,source): # emit van slot drag functie
 	make_preview(data.item_texture)

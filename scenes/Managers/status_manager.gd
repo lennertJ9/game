@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 
 var knockback_source: Vector2

@@ -27,7 +27,6 @@ func _can_drop_data(at_position, data):
 
 
 func _drop_data(at_position, data):
-	print("invalid")
 	invalid_drop.emit(data)
 
 
