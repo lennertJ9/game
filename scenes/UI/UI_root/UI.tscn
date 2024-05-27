@@ -4,8 +4,8 @@
 [ext_resource type="Resource" uid="uid://jdbuxjueoppv" path="res://resources/stats/player_stats.tres" id="2_n6fx7"]
 [ext_resource type="PackedScene" uid="uid://du1p2282kkbto" path="res://scenes/UI/inventory/inventory_manager/inventory_manager.tscn" id="4_g776u"]
 [ext_resource type="PackedScene" uid="uid://bb1e0rcvwe4qp" path="res://scenes/UI/icon_bar/IconBar.tscn" id="5_fa1a6"]
-[ext_resource type="PackedScene" uid="uid://bshwymrhrpeg6" path="res://scenes/UI/ability_bar/AbilityBar.tscn" id="5_hld4j"]
-[ext_resource type="PackedScene" uid="uid://cg58h60sbgxk5" path="res://scenes/UI/ability_bar/ability_menu/AbilityMenu.tscn" id="6_uwnyi"]
+[ext_resource type="PackedScene" uid="uid://bshwymrhrpeg6" path="res://scenes/UI/ability/ability_bar/AbilityBar.tscn" id="5_hld4j"]
+[ext_resource type="PackedScene" uid="uid://cg58h60sbgxk5" path="res://scenes/UI/ability/ability_menu/AbilityMenu.tscn" id="6_uwnyi"]
 
 [node name="UI" type="CanvasLayer" groups=["UI"]]
 script = ExtResource("1_igey8")
@@ -27,33 +27,26 @@ offset_right = 12.0
 offset_bottom = 70.0
 grow_horizontal = 0
 
+[node name="AbilityMenu" parent="." instance=ExtResource("6_uwnyi")]
+visible = false
+offset_left = 483.0
+offset_top = 182.0
+offset_right = 483.0
+offset_bottom = 182.0
+scale = Vector2(5, 5)
+
 [node name="AbilityBar" parent="." instance=ExtResource("5_hld4j")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -82.0
-offset_top = -22.0
-offset_right = 82.0
-offset_bottom = 0.0
+offset_left = -64.0
+offset_top = -72.0
+offset_right = 64.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(5, 5)
-pivot_offset = Vector2(82, 22)
-size_flags_vertical = 4
-
-[node name="AbilityMenu" parent="." instance=ExtResource("6_uwnyi")]
-visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 483.0
-offset_top = 182.0
-offset_right = 483.0
-offset_bottom = 182.0
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(7, 7)
 
 [connection signal="timeout" from="UpdateResources" to="." method="_on_update_resources_timeout"]

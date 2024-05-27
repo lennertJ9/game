@@ -6,5 +6,5 @@
 
 [resource]
 script = ExtResource("1_kyc4m")
-items = Array[Resource("res://resources/scripts/inventory_item.gd")]([ExtResource("2_taox6"), ExtResource("2_taox6"), null, null, ExtResource("2_taox6"), null, ExtResource("2_taox6"), null, ExtResource("1_wq38x"), ExtResource("1_wq38x"), null, null, ExtResource("2_taox6"), null, null])
+items = Array[Resource("res://resources/scripts/inventory_item.gd")]([ExtResource("2_taox6"), ExtResource("2_taox6"), null, null, ExtResource("2_taox6"), null, ExtResource("2_taox6"), null, ExtResource("1_wq38x"), ExtResource("1_wq38x"), null, null, ExtResource("2_taox6"), null, null, null, null, null])
 inventory_size = 0

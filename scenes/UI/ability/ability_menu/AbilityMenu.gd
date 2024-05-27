@@ -1,6 +1,8 @@
 extends Control
 
 
+
+
 func open():
 	visible = true
 

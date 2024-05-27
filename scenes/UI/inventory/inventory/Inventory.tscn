@@ -1,12 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://dbiygvsku8k31"]
 
-[ext_resource type="Texture2D" uid="uid://cro5h6wvawmal" path="res://assets/UI/inventory/inventory_background.png" id="1_tbaex"]
+[ext_resource type="Texture2D" uid="uid://da33t6qit0rkt" path="res://assets/UI/inventory/inventory.png" id="1_47j5g"]
 [ext_resource type="Script" path="res://scenes/UI/inventory/inventory/Inventory.gd" id="2_ky656"]
 [ext_resource type="PackedScene" uid="uid://cbgf5sqwpfbww" path="res://scenes/UI/inventory/inventory_slot/InventortSlot.tscn" id="3_ds6l0"]
 [ext_resource type="Texture2D" uid="uid://cljmrycaccn0i" path="res://assets/UI/general_buttons/button_normal.png" id="4_fyfxd"]
 [ext_resource type="Texture2D" uid="uid://bicerrjasj38o" path="res://assets/UI/general_buttons/button_pressed.png" id="5_ft5ol"]
 [ext_resource type="Texture2D" uid="uid://m4xxp6rsb1cu" path="res://assets/UI/general_buttons/button_hover.png" id="6_quk87"]
-
 
 [sub_resource type="Animation" id="Animation_yth78"]
 length = 0.001
@@ -104,16 +103,12 @@ _data = {
 "open": SubResource("Animation_qs80a")
 }
 
-[node name="Inventory" type="NinePatchRect"]
+[node name="Inventory" type="TextureRect"]
 offset_right = 150.0
 offset_bottom = 90.0
 pivot_offset = Vector2(75, 45)
-mouse_filter = 1
-texture = ExtResource("1_tbaex")
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
+texture = ExtResource("1_47j5g")
+stretch_mode = 2
 script = ExtResource("2_ky656")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -128,13 +123,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -58.0
+offset_left = -63.0
 offset_top = -34.0
-offset_right = 58.0
+offset_right = 57.0
 offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 5
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = -8
+columns = 6
 
 [node name="InventorySlot" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
@@ -181,11 +178,20 @@ layout_mode = 2
 [node name="InventorySlot15" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
 layout_mode = 2
 
+[node name="InventorySlot16" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="InventorySlots" instance=ExtResource("3_ds6l0")]
+layout_mode = 2
+
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 138.0
+offset_left = 131.0
 offset_top = 4.0
-offset_right = 146.0
+offset_right = 139.0
 offset_bottom = 12.0
 pivot_offset = Vector2(4, 4)
 texture_normal = ExtResource("4_fyfxd")

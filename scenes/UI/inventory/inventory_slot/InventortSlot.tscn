@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scenes/UI/inventory/inventory_slot/InventorySlot.gd" id="1_hkqte"]
 [ext_resource type="Texture2D" uid="uid://8bpavj5dir1k" path="res://assets/UI/inventory/inventory_slot.png" id="2_xlpoh"]
 
-
 [sub_resource type="Animation" id="Animation_vr4b5"]
 length = 0.001
 tracks/0/type = "value"
@@ -120,10 +119,10 @@ stretch_mode = 2
 [node name="ItemTexture" type="TextureRect" parent="."]
 layout_direction = 3
 layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 18.0
-offset_bottom = 18.0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 19.0
+offset_bottom = 17.0
 pivot_offset = Vector2(8, 8)
 expand_mode = 1
 stretch_mode = 4

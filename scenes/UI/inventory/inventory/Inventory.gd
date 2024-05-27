@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends TextureRect
 
 
 signal invalid_drop

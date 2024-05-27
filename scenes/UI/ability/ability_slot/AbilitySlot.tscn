@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://4brgxggmquvh"]
+
+[ext_resource type="Script" path="res://scenes/UI/ability/ability_slot/AbilitySlot.gd" id="1_2ocb5"]
+[ext_resource type="Texture2D" uid="uid://bgj3ojpslrgmr" path="res://assets/UI/ability_bar/ability_slot.png" id="2_v7vw1"]
+
+[node name="AbilitySlot" type="Control"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2030.0
+offset_bottom = -1134.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ocb5")
+
+[node name="AbilitySlotBorder" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture = ExtResource("2_v7vw1")
+stretch_mode = 2
+
+[node name="AbilityIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 17.0
+offset_bottom = 17.0

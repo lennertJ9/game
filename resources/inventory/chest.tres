@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("1_0q6o1")
-items = Array[Resource("res://resources/scripts/inventory_item.gd")]([null, null, null, null, null, ExtResource("1_lofjx"), null, null, null, null, ExtResource("1_lofjx"), null, null, null, ExtResource("1_lofjx")])
+items = Array[Resource("res://resources/scripts/inventory_item.gd")]([null, null, null, null, null, ExtResource("1_lofjx"), null, null, null, null, ExtResource("1_lofjx"), null, null, null, ExtResource("1_lofjx"), null, null, null])
 inventory_size = 15
