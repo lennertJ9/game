@@ -1,6 +1,6 @@
 extends Node
 
-var attack_ready: bool = false
+var attack_ready: bool = true
 
 @onready var slot_1 = $Slot1
 @onready var slot_2 = $Slot2
@@ -12,11 +12,19 @@ var attack_ready: bool = false
 
 func set_ability(ability: Ability, index):
 	if ability:
-		if get_child(index).get_child_count() > 0:
-			get_child(index).get_child(0).queue_free()
+		remove_manager(null, index)
 		
 		var ability_manager = ability.manager.instantiate()
+		ability_manager.ability_resource = ability
+		ability_manager.ability_scene = ability.ability_scene
 		get_child(index).add_child(ability_manager)
+
+
+
+func remove_manager(ability: Ability,index): # verwijderd de manager van een bepaalde slot (index)
+	if get_child(index).get_child_count() > 0:
+		get_child(index).get_child(0).queue_free()
+
 
 
 func _input(event):
@@ -25,20 +33,31 @@ func _input(event):
 			slot_1.get_child(0).use()
 		
 		if event.is_action_pressed("slot_2"):
-			slot_1.get_child(0).use()
+			slot_2.get_child(0).use()
 			
 		if event.is_action_pressed("slot_3"):
-			slot_1.get_child(0).use()
+			slot_3.get_child(0).use()
 		
 		if event.is_action_pressed("slot_4"):
-			slot_1.get_child(0).use()
+			slot_4.get_child(0).use()
 		
 		if event.is_action_pressed("slot_5"):
-			slot_1.get_child(0).use()
+			slot_5.get_child(0).use()
 		
 		if event.is_action_pressed("slot_6"):
-			slot_1.get_child(0).use()
-			
-			
+			slot_6.get_child(0).use()
+
+
+
+	
+	
+
+
+
+
+
+
+
+
 # attack ready is de attack speed, niet de cooldown van een ability zelf
 # script toevoegen aan de slots zelf?

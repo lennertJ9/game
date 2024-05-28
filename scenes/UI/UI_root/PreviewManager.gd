@@ -2,10 +2,10 @@ extends TextureRect
 
 var drag = false
 
-func make_preview(preview_texture: Texture2D):
+func make_preview(ability: Ability,index: int):
 	print("make preview")
 	global_position = get_global_mouse_position()
-	texture = preview_texture
+	texture = ability.icon
 	drag = true
 	set_physics_process(true)
 

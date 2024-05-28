@@ -2,16 +2,15 @@ extends Area2D
 
 @export var resource : Resource
 
-var movement_direction = Vector2.RIGHT
-var angle
-var damage = 1
-var speed = 150
+var movement_direction: Vector2
+var damage: int
+var speed: int
 
 func _on_timer_timeout():
 	queue_free()
 
 func _ready():
-	rotation_degrees = angle
+	rotation_degrees = rad_to_deg(movement_direction.angle())
 
 
 func _physics_process(delta):

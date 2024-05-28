@@ -25,5 +25,6 @@ func connect_chest():
 
 func connect_ability_bar():
 	for slot in ui.ability_bar.slots:
+		slot.drag.connect(player.ability_manager.remove_manager)
 		slot.drop.connect(player.ability_manager.set_ability)
 

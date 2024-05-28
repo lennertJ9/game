@@ -12,7 +12,7 @@ signal drop
 
 func _get_drag_data(at_position):
 	if current_ability:
-		drag.emit(current_ability.icon)
+		drag.emit(current_ability, get_index())
 		var data = current_ability
 		update_slot(null)
 		return data
