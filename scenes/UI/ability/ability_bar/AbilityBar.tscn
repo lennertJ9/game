@@ -25,19 +25,25 @@ columns = 6
 
 [node name="AbilitySlot" parent="AbilitySlots" instance=ExtResource("2_pr052")]
 layout_mode = 2
+input_key = "slot_1"
 
 [node name="AbilitySlot2" parent="AbilitySlots" instance=ExtResource("2_pr052")]
 layout_mode = 2
 current_ability = ExtResource("3_y4j8k")
+input_key = "slot_2"
 
 [node name="AbilitySlot3" parent="AbilitySlots" instance=ExtResource("2_pr052")]
 layout_mode = 2
+input_key = "slot_3"
 
 [node name="AbilitySlot4" parent="AbilitySlots" instance=ExtResource("2_pr052")]
 layout_mode = 2
+input_key = "slot_4"
 
 [node name="AbilitySlot5" parent="AbilitySlots" instance=ExtResource("2_pr052")]
 layout_mode = 2
+input_key = "slot_5"
 
 [node name="AbilitySlot6" parent="AbilitySlots" instance=ExtResource("2_pr052")]
 layout_mode = 2
+input_key = "slot_6"

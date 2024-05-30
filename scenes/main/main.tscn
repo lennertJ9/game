@@ -1429,9 +1429,11 @@ sources/2 = SubResource("TileSetAtlasSource_lwkrs")
 sources/3 = SubResource("TileSetAtlasSource_40tsy")
 sources/4 = SubResource("TileSetAtlasSource_srych")
 
-[node name="Main" type="Node2D" groups=["world"]]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("player", "ui") groups=["world"]]
 y_sort_enabled = true
 script = ExtResource("1_4qf40")
+player = NodePath("Player")
+ui = NodePath("UI")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true

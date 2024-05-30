@@ -13,5 +13,5 @@ class_name Ability
 @export var cooldown: float
 @export var mana_cost: int
 
-var is_ready: bool
+@export var is_ready: bool
 

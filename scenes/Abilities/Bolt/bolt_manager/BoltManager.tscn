@@ -6,5 +6,6 @@
 script = ExtResource("1_lstj0")
 
 [node name="AbilityCooldown" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="AbilityCooldown" to="." method="_on_ability_cooldown_timeout"]
