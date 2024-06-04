@@ -72,6 +72,7 @@ func _physics_process(_delta):
 		
 func _input(event):
 	if event.is_action_pressed("right_click"):
+		mouse_click_animation()
 		target = get_global_mouse_position()
 		movement_direction = global_position.direction_to(target)
 		if !speed_status_modifier == 0:
@@ -128,3 +129,10 @@ func play_animation():
 		attack_animations.play("ATTACK_DOWN_2")
 		boolie = true
 
+
+
+func mouse_click_animation():
+	var animation = preload("res://scenes/animations/mouse_click/MouseClick.tscn").instantiate()
+	var world = get_tree().get_first_node_in_group("world")
+	animation.global_position = get_global_mouse_position()
+	world.add_child(animation)
