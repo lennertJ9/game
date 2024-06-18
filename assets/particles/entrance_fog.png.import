@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brhdsdwp3k608"
-path="res://.godot/imported/assets_32x32.png-9930d5dc50c18e95e616bce97718ab96.ctex"
+uid="uid://bmhmbv4bgrjc6"
+path="res://.godot/imported/entrance_fog.png-abddaf76f7e6d021fc303079f3fcd7b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/forest_theme/assets_32x32.png"
-dest_files=["res://.godot/imported/assets_32x32.png-9930d5dc50c18e95e616bce97718ab96.ctex"]
+source_file="res://assets/particles/entrance_fog.png"
+dest_files=["res://.godot/imported/entrance_fog.png-abddaf76f7e6d021fc303079f3fcd7b2.ctex"]
 
 [params]
 

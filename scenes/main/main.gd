@@ -4,14 +4,12 @@ extends Node2D
 @export var player: Player
 @export var ui: UserInterface 
 @onready var chests = $Chests
+@onready var scene_transition = $SceneTransition
+
 
 
 func _ready():
 	
-	# wanner de healthcomponent health veranderd word
-	#player.health_component.health_changed.connect(ui.update_health)
-	#player.mana_component.mana_changed.connect(ui.update_mana)
-
 	connect_chest()
 	connect_ability_bar()
 	
@@ -28,3 +26,8 @@ func connect_ability_bar():
 		slot.drag.connect(player.ability_manager.remove_manager)
 		slot.drop.connect(player.ability_manager.set_ability)
 	player.ability_manager.ability_use.connect(ui.ability_bar.start_cooldown)
+
+
+
+func _on_exit_1_body_entered(body):
+	MapManager.change_map(MapManager.elder_wood)

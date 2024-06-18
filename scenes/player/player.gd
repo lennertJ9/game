@@ -135,4 +135,4 @@ func mouse_click_animation():
 	var animation = preload("res://scenes/animations/mouse_click/MouseClick.tscn").instantiate()
 	var world = get_tree().get_first_node_in_group("world")
 	animation.global_position = get_global_mouse_position()
-	world.add_child(animation)
+	get_parent().add_child(animation)

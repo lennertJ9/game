@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bin1sijj8x64v"]
+
+[ext_resource type="Texture2D" uid="uid://bmhmbv4bgrjc6" path="res://assets/particles/entrance_fog.png" id="1_ok6rj"]
+
+[sub_resource type="Gradient" id="Gradient_nnowa"]
+offsets = PackedFloat32Array(0, 0.590491, 0.989264)
+colors = PackedColorArray(0.784314, 1, 1, 0, 0.784314, 1, 1, 0.490196, 0.784314, 1, 1, 0)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Fog" type="CPUParticles2D" parent="."]
+position = Vector2(20, 0)
+amount = 40
+lifetime = 2.0
+speed_scale = 0.4
+lifetime_randomness = 0.2
+texture = ExtResource("1_ok6rj")
+emission_shape = 3
+emission_rect_extents = Vector2(30, 1)
+direction = Vector2(0, -1)
+spread = 2.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+linear_accel_max = 50.0
+color_ramp = SubResource("Gradient_nnowa")
