@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlw74pnqn7ryt"
-path="res://.godot/imported/Screenshot 2024-06-18 185141.png-ec60740a8a65d57eea517c7f82edf82b.ctex"
+uid="uid://5n0tv3mrsuax"
+path="res://.godot/imported/tiles_16x16.png-69851f129101d0d306566a7117e1924b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Screenshot 2024-06-18 185141.png"
-dest_files=["res://.godot/imported/Screenshot 2024-06-18 185141.png-ec60740a8a65d57eea517c7f82edf82b.ctex"]
+source_file="res://assets/tiles/forest/tiles_16x16.png"
+dest_files=["res://.godot/imported/tiles_16x16.png-69851f129101d0d306566a7117e1924b.ctex"]
 
 [params]
 

@@ -3,7 +3,6 @@ extends TextureRect
 var drag = false
 
 func make_preview(ability: Ability,index: int):
-	print("make preview")
 	global_position = get_global_mouse_position()
 	texture = ability.icon
 	drag = true

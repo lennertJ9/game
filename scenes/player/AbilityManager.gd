@@ -4,6 +4,8 @@ signal ability_use
 
 var boltresource = preload("res://resources/abilities/magic_bolt.tres")
 var attack_ready: bool = true
+@onready var attack_speed_timer = $AttackSpeedTimer
+
 
 @onready var slot_1 = $Slot1
 @onready var slot_2 = $Slot2
@@ -12,6 +14,13 @@ var attack_ready: bool = true
 @onready var slot_5 = $Slot5
 @onready var slot_6 = $Slot6
 
+
+func _ready():
+	var player_stats: statistic = preload("res://resources/stats/player_stats.tres")
+	attack_speed_timer.wait_time = player_stats.attack_speed
+	
+	
+	
 
 func set_ability(ability: Ability, index):
 	if ability:
@@ -42,35 +51,42 @@ func remove_manager(ability: Ability,index): # verwijderd de manager van een bep
 
 func _input(event):
 	if attack_ready:
+		
+		
+		
 		if event.is_action_pressed("slot_1") and slot_1.get_child(0):
+			attack_ready = false
+			attack_speed_timer.start()
 			slot_1.get_child(0).use()
 		
 		if event.is_action_pressed("slot_2") and slot_2.get_child(0):
+			attack_ready = false
+			attack_speed_timer.start()
 			slot_2.get_child(0).use()
 			
 		if event.is_action_pressed("slot_3") and slot_3.get_child(0):
+			attack_ready = false
+			attack_speed_timer.start()
 			slot_3.get_child(0).use()
 		
 		if event.is_action_pressed("slot_4") and slot_4.get_child(0):
+			attack_ready = false
+			attack_speed_timer.start()
 			slot_4.get_child(0).use()
 		
 		if event.is_action_pressed("slot_5") and slot_5.get_child(0):
+			attack_ready = false
+			attack_speed_timer.start()
 			slot_5.get_child(0).use()
 		
 		if event.is_action_pressed("slot_6") and slot_6.get_child(0):
+			attack_ready = false
+			attack_speed_timer.start()
 			slot_6.get_child(0).use()
 
 
 
+
+func _on_attack_speed_timer_timeout():
+	attack_ready = true
 	
-	
-
-
-
-
-
-
-
-
-# attack ready is de attack speed, niet de cooldown van een ability zelf
-# script toevoegen aan de slots zelf?

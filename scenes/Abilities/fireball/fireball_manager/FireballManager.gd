@@ -18,7 +18,8 @@ func _ready():
 
 
 func use(): # checkt voor cooldown, add de ability als child, in de wereld
-	if is_off_cooldown:
+	if ability_resource.is_ready:
+		ability_use.emit(ability_resource, current_index)
 		start_cooldown()
 		var ability = make_ability()
 		add_child(ability)
@@ -26,8 +27,9 @@ func use(): # checkt voor cooldown, add de ability als child, in de wereld
 
 
 func make_ability() -> Node2D: # maakt de ability klaar om in de wereld gezet te worden, zet de proporties
+	print("make, ability resourcce -->", ability_resource)
 	var ability = ability_scene.instantiate()
-	ability.damage = 1
+	ability.damage = ability_resource.damage
 	ability.speed = ability_resource.speed
 	ability.global_position = get_tree().get_first_node_in_group("player").global_position
 	ability.movement_direction = get_tree().get_first_node_in_group("player").global_position.direction_to(get_global_mouse_position())
@@ -36,18 +38,14 @@ func make_ability() -> Node2D: # maakt de ability klaar om in de wereld gezet te
 
 
 func start_cooldown():
-	is_off_cooldown = false
+	ability_resource.is_ready = false
 	ability_cooldown.wait_time = ability_resource.cooldown
 	ability_cooldown.start()
 
 
-
 func _on_ability_cooldown_timeout():
-	is_off_cooldown = true
+	ability_resource.is_ready = true
 
 
 
-#func _input(event):
-	#if event.is_action_pressed(input_slot):
-		#print("presssss21s")
 

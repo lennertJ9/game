@@ -13,6 +13,6 @@ name = "bolt"
 icon = ExtResource("3_f7nok")
 damage = 0
 speed = 250
-cooldown = 0.9
+cooldown = 0.1
 mana_cost = 10
 is_ready = true

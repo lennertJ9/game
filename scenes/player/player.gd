@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-
+# tip voor later, signal manager (autoload mss )onderaan de tree die signalen verbind tussen nodes
 signal stats_updated
 
 
@@ -51,6 +51,7 @@ var boolie = true
 func _ready():
 	hurt_box.hit.connect(on_player_hit)
 	update_player_stats()
+	connect_signals()
 	
 
 
@@ -83,16 +84,8 @@ func _input(event):
 			else:
 				visuals.scale.x = 1
 		
-	
-	
-	
 	if event.is_action_pressed("debug"):
 		print("debug")
-
-
-
-func slot_press(index):
-	$ProjectileManager.get_child(index).use_ability()
 
 
 
@@ -136,3 +129,13 @@ func mouse_click_animation():
 	var world = get_tree().get_first_node_in_group("world")
 	animation.global_position = get_global_mouse_position()
 	get_parent().add_child(animation)
+
+
+func connect_signals():
+	var UI = get_tree().get_first_node_in_group("UI")
+	for slot in UI.ability_bar.slots:
+		slot.drag.connect(ability_manager.remove_manager)
+		slot.drop.connect(ability_manager.set_ability)
+	ability_manager.ability_use.connect(UI.ability_bar.start_cooldown)
+	
+

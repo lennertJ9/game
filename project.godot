@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 MapManager="*res://scenes/globals/map_manager/MapManager.tscn"
+Globalsignal="*res://test/globalsignal.gd"
 
 [display]
 

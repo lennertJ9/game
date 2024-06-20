@@ -13,6 +13,6 @@ name = "fireball"
 icon = ExtResource("2_acxp4")
 damage = 0
 speed = 200
-cooldown = 5.0
+cooldown = 0.2
 mana_cost = 2
 is_ready = false
