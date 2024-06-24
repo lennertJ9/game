@@ -14,6 +14,14 @@ func stun(time):
 	owner.speed_status_modifier = 1.0
 
 
+func pause():
+	owner.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func un_pause():
+	owner.process_mode = Node.PROCESS_MODE_INHERIT
+
+
 func knockback(source: Vector2, strength):
 	knockback_source = source.normalized()
 	knockback_strength = strength

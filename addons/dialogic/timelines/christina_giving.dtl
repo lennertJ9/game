@@ -1,0 +1,4 @@
+join christina center
+christina: Hello...
+christina: I'm Christina
+[signal arg="end_dialogue"]

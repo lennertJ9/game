@@ -18,7 +18,7 @@ func change_map(map_path,x,y):
 	await animation_player.animation_finished
 	
 	var map = map_path.instantiate()
-	get_tree().get_root().get_child(2).free() # mss queue free idk
+	get_tree().get_root().get_child(3).free() # mss queue free idk
 	get_tree().get_root().add_child(map)
 	map.get_node("Player").global_position = Vector2(x,y)
 	animation_player.play("trans_out")

@@ -68,9 +68,9 @@ func _physics_process(_delta):
 		move_and_slide()
 	else:
 		$AnimationPlayer.play("IDLE")
-		
-		
-		
+
+
+
 func _input(event):
 	if event.is_action_pressed("right_click"):
 		mouse_click_animation()

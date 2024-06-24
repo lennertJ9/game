@@ -668,6 +668,7 @@ autostart = true
 [node name="-----MANAGERS----------" type="Node" parent="."]
 
 [node name="AbilityManager" parent="." instance=ExtResource("10_el3lh")]
+process_mode = 3
 
 [node name="StatusManager" parent="." instance=ExtResource("11_l5sc5")]
 
