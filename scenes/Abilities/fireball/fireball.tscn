@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvkplnu5eo316"]
 
-[ext_resource type="Script" path="res://scenes/Abilities/fireball/fireball.gd" id="1_p4d2b"]
+[ext_resource type="Script" path="res://scenes/abilities/fireball/fireball.gd" id="1_p4d2b"]
 [ext_resource type="Texture2D" uid="uid://bsqwrtbun8lfi" path="res://assets/abilities/fireball.png" id="2_pfnq8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5oc0h"]

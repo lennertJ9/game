@@ -1,22 +1,22 @@
 [gd_scene load_steps=28 format=3 uid="uid://dywg1dlia21m4"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_5lnvd"]
-[ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/HitFlashShader.tres" id="2_a8xhc"]
-[ext_resource type="Texture2D" uid="uid://c8o4n6pdcjsh0" path="res://assets/player/player_legs.png" id="2_aufhp"]
-[ext_resource type="Resource" uid="uid://jdbuxjueoppv" path="res://resources/stats/player_stats.tres" id="2_g1s7t"]
-[ext_resource type="Resource" uid="uid://ct0nm74ye6hvu" path="res://resources/inventory/player_inventory.tres" id="3_dastq"]
-[ext_resource type="Texture2D" uid="uid://c2kgbta0kdgnu" path="res://assets/player/player_body.png" id="3_x2jjb"]
-[ext_resource type="Texture2D" uid="uid://c1hu4fyc15ksc" path="res://assets/player/shadow.png" id="3_xs3l0"]
-[ext_resource type="Texture2D" uid="uid://tij6tessec61" path="res://assets/player/player_head.png" id="6_fmvws"]
-[ext_resource type="Texture2D" uid="uid://dfv380fsd06b3" path="res://assets/weapons/blue_crystal.png" id="9_1e3xg"]
-[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/Components/HurtBoxComponent/Hurtbox.tscn" id="9_vq76y"]
-[ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/Components/HealthComponent/HealthComponent.tscn" id="10_aar1u"]
-[ext_resource type="PackedScene" uid="uid://cn74ssxkt4xuf" path="res://scenes/Abilities/ability_manager/ability_manager.tscn" id="10_pf7ap"]
-[ext_resource type="PackedScene" uid="uid://i6cld88cc2u2" path="res://scenes/Managers/status_manager.tscn" id="11_ba7jk"]
-[ext_resource type="PackedScene" uid="uid://7tmrpmqaxrih" path="res://scenes/Components/ManaComponent/ManaComponent.tscn" id="13_og546"]
+[ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_a2tdh"]
+[ext_resource type="Resource" uid="uid://jdbuxjueoppv" path="res://resources/stats/player_stats.tres" id="2_hvpdv"]
+[ext_resource type="Resource" uid="uid://ct0nm74ye6hvu" path="res://resources/inventory/player_inventory.tres" id="3_guvfk"]
+[ext_resource type="Texture2D" uid="uid://c1hu4fyc15ksc" path="res://assets/entities/player/shadow.png" id="4_d8wdj"]
+[ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/HitFlashShader.tres" id="5_f5kij"]
+[ext_resource type="Texture2D" uid="uid://c8o4n6pdcjsh0" path="res://assets/entities/player/player_legs.png" id="6_mhnbt"]
+[ext_resource type="Texture2D" uid="uid://c2kgbta0kdgnu" path="res://assets/entities/player/player_body.png" id="7_wcyxa"]
+[ext_resource type="Texture2D" uid="uid://tij6tessec61" path="res://assets/entities/player/player_head.png" id="8_trbrm"]
+[ext_resource type="Texture2D" uid="uid://dfv380fsd06b3" path="res://assets/weapons/blue_crystal.png" id="9_4h1ff"]
+[ext_resource type="PackedScene" uid="uid://cn74ssxkt4xuf" path="res://scenes/abilities/ability_manager/ability_manager.tscn" id="10_el3lh"]
+[ext_resource type="PackedScene" uid="uid://i6cld88cc2u2" path="res://scenes/Managers/status_manager.tscn" id="11_l5sc5"]
+[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/components/HurtBoxComponent/Hurtbox.tscn" id="12_ibgx5"]
+[ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/components/HealthComponent/HealthComponent.tscn" id="13_fe0ip"]
+[ext_resource type="PackedScene" uid="uid://7tmrpmqaxrih" path="res://scenes/components/ManaComponent/ManaComponent.tscn" id="14_x1bvg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb5ct"]
-radius = 4.0
+radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_17uwg"]
 radius = 5.0
@@ -49,7 +49,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.35, 0.5, 0.65),
 "transitions": PackedFloat32Array(0.3, 0.7, 1),
 "update": 0,
-"values": [Vector2(-1, -3), Vector2(-1, -2), Vector2(-1, -3)]
+"values": [Vector2(-1, -4), Vector2(-1, -3), Vector2(-1, -4)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -61,7 +61,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.35, 0.5, 0.65),
 "transitions": PackedFloat32Array(0.3, 0.7, 1),
 "update": 0,
-"values": [Vector2(0, -12), Vector2(0, -11), Vector2(0, -12)]
+"values": [Vector2(0, -13), Vector2(0, -12), Vector2(0, -13)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -70,10 +70,10 @@ tracks/3/path = NodePath("Visuals/Leg:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.35),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -2)]
+"values": [Vector2(0, -3), Vector2(0, -3)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -187,9 +187,9 @@ tracks/0/path = NodePath("Visuals/Leg:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.175, 0.275, 0.4, 0.475, 0.55, 0.625),
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.25, 0.35, 0.425, 0.5, 0.575),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 2,
+"update": 1,
 "values": [7, 0, 1, 2, 3, 4, 5, 6]
 }
 tracks/1/type = "value"
@@ -199,7 +199,7 @@ tracks/1/path = NodePath("Visuals/Head:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.075),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
@@ -211,58 +211,58 @@ tracks/2/path = NodePath("Visuals/Leg:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.175, 0.3, 0.4, 0.475, 0.55, 0.625),
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.25, 0.35, 0.425, 0.5, 0.575),
 "transitions": PackedFloat32Array(1, 0.5, 0.8, 0.6, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -3), Vector2(0, 0), Vector2(0, -3), Vector2(0, -5), Vector2(0, -3), Vector2(0, 0), Vector2(0, -3), Vector2(0, -4)]
+"values": [Vector2(0, -4), Vector2(0, -3), Vector2(0, -5), Vector2(0, -7), Vector2(0, -4), Vector2(0, -2), Vector2(0, -3), Vector2(0, -6)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Visuals/Body:position")
+tracks/3/path = NodePath("Visuals/Head:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.175, 0.3, 0.4, 0.475, 0.55, 0.625),
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.25, 0.35, 0.425, 0.5, 0.575),
 "transitions": PackedFloat32Array(1, 0.5, 0.8, 0.6, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-1, -4), Vector2(-1, -1), Vector2(-1, -4), Vector2(-1, -6), Vector2(-1, -4), Vector2(-1, -1), Vector2(-1, -4), Vector2(-1, -5)]
+"values": [Vector2(0, -14), Vector2(0, -13), Vector2(0, -15), Vector2(0, -17), Vector2(0, -14), Vector2(0, -12), Vector2(0, -13), Vector2(0, -16)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Visuals/Head:position")
+tracks/4/path = NodePath("Visuals/Shadow:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.175, 0.3, 0.4, 0.475, 0.55, 0.625),
-"transitions": PackedFloat32Array(1, 0.5, 0.8, 0.6, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -13), Vector2(0, -10), Vector2(0, -13), Vector2(0, -15), Vector2(0, -13), Vector2(0, -10), Vector2(0, -13), Vector2(0, -14)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Visuals/Shadow:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.05, 0.3, 0.6),
+"times": PackedFloat32Array(0, 0.15, 0.375),
 "transitions": PackedFloat32Array(0.2, 2, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Visuals/Body:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.175, 0.3, 0.4, 0.475, 0.55, 0.625),
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Visuals/Body:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.25, 0.35, 0.425, 0.5, 0.575),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [7, 0, 1, 2, 3, 4, 5, 6]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Visuals/Body:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.25, 0.35, 0.425, 0.5, 0.575),
+"transitions": PackedFloat32Array(1, 0.5, 0.8, 0.6, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -5), Vector2(-1, -4), Vector2(-1, -6), Vector2(-1, -8), Vector2(-1, -5), Vector2(-1, -3), Vector2(-1, -4), Vector2(-1, -7)]
 }
 
 [sub_resource type="Animation" id="Animation_3xpqm"]
@@ -617,35 +617,31 @@ _data = {
 z_index = 2
 collision_mask = 17
 motion_mode = 1
-script = ExtResource("1_5lnvd")
-stats = ExtResource("2_g1s7t")
-player_inventory = ExtResource("3_dastq")
-
-[node name="CollisionPlayer" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_wb5ct")
+script = ExtResource("1_a2tdh")
+stats = ExtResource("2_hvpdv")
+player_inventory = ExtResource("3_guvfk")
 
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Shadow" type="Sprite2D" parent="Visuals"]
-texture = ExtResource("3_xs3l0")
+position = Vector2(0, -3)
+texture = ExtResource("4_d8wdj")
 
 [node name="Leg" type="Sprite2D" parent="Visuals"]
-material = ExtResource("2_a8xhc")
-texture = ExtResource("2_aufhp")
+material = ExtResource("5_f5kij")
+texture = ExtResource("6_mhnbt")
 hframes = 8
 
 [node name="Body" type="Sprite2D" parent="Visuals"]
-material = ExtResource("2_a8xhc")
+material = ExtResource("5_f5kij")
 position = Vector2(-1, -1)
-texture = ExtResource("3_x2jjb")
+texture = ExtResource("7_wcyxa")
 hframes = 8
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
-material = ExtResource("2_a8xhc")
+material = ExtResource("5_f5kij")
 position = Vector2(0, -10)
-texture = ExtResource("6_fmvws")
+texture = ExtResource("8_trbrm")
 hframes = 2
 frame = 1
 
@@ -657,8 +653,13 @@ position = Vector2(2, -2)
 [node name="Weapon" type="Sprite2D" parent="Visuals/WeaponSlot"]
 z_index = 2
 rotation = -6.28319
-texture = ExtResource("9_1e3xg")
+texture = ExtResource("9_4h1ff")
 offset = Vector2(5, -4)
+
+[node name="CollisionPlayer" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_wb5ct")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -666,22 +667,22 @@ autostart = true
 
 [node name="-----MANAGERS----------" type="Node" parent="."]
 
-[node name="AbilityManager" parent="." instance=ExtResource("10_pf7ap")]
+[node name="AbilityManager" parent="." instance=ExtResource("10_el3lh")]
 
-[node name="StatusManager" parent="." instance=ExtResource("11_ba7jk")]
+[node name="StatusManager" parent="." instance=ExtResource("11_l5sc5")]
 
 [node name="----COMPONENTS-------" type="Node" parent="."]
 
-[node name="HurtBoxComponent" parent="." instance=ExtResource("9_vq76y")]
+[node name="HurtBoxComponent" parent="." instance=ExtResource("12_ibgx5")]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
 position = Vector2(-0.5, -8)
 shape = SubResource("CapsuleShape2D_17uwg")
 
-[node name="HealthComponent" parent="." instance=ExtResource("10_aar1u")]
+[node name="HealthComponent" parent="." instance=ExtResource("13_fe0ip")]
 
-[node name="ManaComponent" parent="." instance=ExtResource("13_og546")]
+[node name="ManaComponent" parent="." instance=ExtResource("14_x1bvg")]
 
 [node name="----ANIMATIONS---------" type="Node" parent="."]
 
@@ -689,7 +690,7 @@ shape = SubResource("CapsuleShape2D_17uwg")
 libraries = {
 "": SubResource("AnimationLibrary_bc3sj")
 }
-speed_scale = 0.9
+speed_scale = 0.8
 
 [node name="AttackAnimations" type="AnimationPlayer" parent="."]
 libraries = {

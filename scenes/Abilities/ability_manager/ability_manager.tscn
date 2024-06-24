@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cn74ssxkt4xuf"]
 
-[ext_resource type="Script" path="res://scenes/player/AbilityManager.gd" id="1_7t6oa"]
+[ext_resource type="Script" path="res://scenes/entities/player/AbilityManager.gd" id="1_isahi"]
 
 [node name="AbilityManager" type="Node"]
-script = ExtResource("1_7t6oa")
+script = ExtResource("1_isahi")
 
 [node name="Slot1" type="Node" parent="."]
 

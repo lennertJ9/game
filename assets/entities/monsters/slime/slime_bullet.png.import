@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddk5aokqe2ecd"
-path="res://.godot/imported/weapon.png-1f67f194ba7578b55856aeaecb050337.ctex"
+uid="uid://bni2q41nqax35"
+path="res://.godot/imported/slime_bullet.png-b3f3516ff5c98dea62887d4e07acfede.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/weapon.png"
-dest_files=["res://.godot/imported/weapon.png-1f67f194ba7578b55856aeaecb050337.ctex"]
+source_file="res://assets/entities/monsters/slime/slime_bullet.png"
+dest_files=["res://.godot/imported/slime_bullet.png-b3f3516ff5c98dea62887d4e07acfede.ctex"]
 
 [params]
 

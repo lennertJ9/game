@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Ability" load_steps=5 format=3 uid="uid://bolbionv4wv0o"]
 
 [ext_resource type="Script" path="res://resources/scripts/Ability.gd" id="1_7q33w"]
-[ext_resource type="PackedScene" uid="uid://b33mmwu7fmrcf" path="res://scenes/Abilities/Bolt/bolt.tscn" id="1_yat8i"]
-[ext_resource type="PackedScene" uid="uid://cxvwbe2qxxb6q" path="res://scenes/Abilities/Bolt/bolt_manager/BoltManager.tscn" id="2_xbjog"]
+[ext_resource type="PackedScene" uid="uid://b33mmwu7fmrcf" path="res://scenes/abilities/Bolt/bolt.tscn" id="1_yat8i"]
+[ext_resource type="PackedScene" uid="uid://cxvwbe2qxxb6q" path="res://scenes/abilities/Bolt/bolt_manager/BoltManager.tscn" id="2_xbjog"]
 [ext_resource type="Texture2D" uid="uid://c3c1k118b6r1d" path="res://assets/UI/ability_icons/bolt_icon.png" id="3_f7nok"]
 
 [resource]

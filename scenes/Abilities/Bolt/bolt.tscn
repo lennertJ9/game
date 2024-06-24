@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b33mmwu7fmrcf"]
 
-[ext_resource type="Script" path="res://scenes/Abilities/Bolt/bolt.gd" id="1_vfogj"]
+[ext_resource type="Script" path="res://scenes/abilities/Bolt/bolt.gd" id="1_vfogj"]
 [ext_resource type="Texture2D" uid="uid://c5txj1ig3exi0" path="res://assets/abilities/Bolt.png" id="2_fh4ug"]
+
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v0qrq"]
 

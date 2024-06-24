@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_4qf40"]
 [ext_resource type="TileSet" uid="uid://bai2g040pgxn8" path="res://assets/tilesets/forest_tileset.tres" id="2_exbge"]
-[ext_resource type="PackedScene" uid="uid://dywg1dlia21m4" path="res://scenes/player/player.tscn" id="3_nyilr"]
-[ext_resource type="PackedScene" uid="uid://su8br4pp0fhs" path="res://scenes/Monsters/slime/slime.tscn" id="5_hu50d"]
+[ext_resource type="PackedScene" uid="uid://dywg1dlia21m4" path="res://scenes/entities/player/player.tscn" id="4_h6hvg"]
+[ext_resource type="PackedScene" uid="uid://su8br4pp0fhs" path="res://scenes/entities/monsters/slime/slime.tscn" id="5_eckmy"]
 [ext_resource type="PackedScene" uid="uid://riaycvu1w5m2" path="res://scenes/UI/UI_root/UI.tscn" id="7_0ug0p"]
 [ext_resource type="PackedScene" uid="uid://cggyi7nueyoya" path="res://scenes/camera/Camera.tscn" id="9_eq5e3"]
 [ext_resource type="PackedScene" uid="uid://bin1sijj8x64v" path="res://scenes/miscellaneous/fog/Fog.tscn" id="11_8da80"]
@@ -32,12 +32,12 @@ layer_2/tile_data = PackedInt32Array(1114169, 131073, 0, -589797, 2, 0, -851922,
 
 [node name="UI" parent="." instance=ExtResource("7_0ug0p")]
 
-[node name="Player" parent="." instance=ExtResource("3_nyilr")]
+[node name="Player" parent="." instance=ExtResource("4_h6hvg")]
 position = Vector2(740, -8)
 
 [node name="------------------------------------" type="Node" parent="."]
 
-[node name="Slime" parent="." instance=ExtResource("5_hu50d")]
+[node name="Slime" parent="." instance=ExtResource("5_eckmy")]
 position = Vector2(555, 30)
 
 [node name="Camera" parent="." instance=ExtResource("9_eq5e3")]
@@ -55,7 +55,7 @@ inventory = ExtResource("12_gpevk")
 
 [node name="Fog" parent="." instance=ExtResource("11_8da80")]
 z_index = 2
-position = Vector2(768, 11)
+position = Vector2(776, 15)
 
 [node name="Exit1" type="Area2D" parent="."]
 position = Vector2(782, -10)

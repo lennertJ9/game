@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw0vf8bpfjp02"
-path="res://.godot/imported/player_reference.png-da29a58b71056d167e8d9c4fc7c0ecb5.ctex"
+uid="uid://cuykxppwq32u6"
+path="res://.godot/imported/head.png-29b74b1daba78156164d653f3e1e77cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/player_reference.png"
-dest_files=["res://.godot/imported/player_reference.png-da29a58b71056d167e8d9c4fc7c0ecb5.ctex"]
+source_file="res://assets/entities/npc/christina/head.png"
+dest_files=["res://.godot/imported/head.png-29b74b1daba78156164d653f3e1e77cb.ctex"]
 
 [params]
 

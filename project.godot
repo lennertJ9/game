@@ -35,9 +35,9 @@ folder_colors={
 "res://assets/": "yellow",
 "res://resources/": "purple",
 "res://scenes/": "blue",
-"res://scenes/Components/": "blue",
 "res://scenes/UI/": "green",
 "res://scenes/UI/inventory/": "green",
+"res://scenes/components/": "blue",
 "res://shaders/": "red"
 }
 

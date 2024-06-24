@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1ipanatm85dc"]
 
-[ext_resource type="Script" path="res://scenes/Monsters/slime_dummy/slime_dummy.gd" id="1_87xvo"]
-[ext_resource type="Texture2D" uid="uid://ssi7nwwh8udr" path="res://assets/monsters/slime/slime.png" id="2_uvppg"]
+[ext_resource type="Script" path="res://scenes/entities/monsters/slime_dummy/slime_dummy.gd" id="1_87xvo"]
+[ext_resource type="Texture2D" uid="uid://ssi7nwwh8udr" path="res://assets/entities/monsters/slime/slime.png" id="2_uvppg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iemrp"]
 radius = 7.07107
