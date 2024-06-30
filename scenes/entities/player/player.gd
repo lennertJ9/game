@@ -58,6 +58,7 @@ func _ready():
 func _process(delta):
 	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
 	var target_position = global_position + Vector2(0,-4) + direction_to_mouse * 7
+	
 
 
 func _physics_process(_delta):
@@ -138,4 +139,6 @@ func connect_signals():
 		slot.drop.connect(ability_manager.set_ability)
 	ability_manager.ability_use.connect(UI.ability_bar.start_cooldown)
 	
+
+
 

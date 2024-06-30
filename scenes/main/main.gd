@@ -7,9 +7,8 @@ extends Node2D
 @onready var scene_transition = $SceneTransition
 
 
-
+ 
 func _ready():
-	
 	connect_chest()
 	
 	
@@ -25,7 +24,6 @@ func connect_chest():
 
 
 func _on_exit_1_body_entered(body):
-	
 	MapManager.change_map(MapManager.elder_wood,-120,60)
 	
 

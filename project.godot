@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 MapManager="*res://scenes/globals/map_manager/MapManager.tscn"
-Globalsignal="*res://test/globalsignal.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
@@ -30,7 +29,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "christina_giving": "res://addons/dialogic/timelines/christina_giving.dtl"
 }
-layout/style_list=["res://assets/entities/npc/christina/New_File.tres"]
+layout/style_list=["res://addons/dialogic/styles/default_style.tres"]
 layout/default_style="res://assets/entities/npc/christina/New_File.tres"
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"

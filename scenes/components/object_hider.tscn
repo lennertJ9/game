@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxys8tl6ps32x"]
+
+[ext_resource type="Script" path="res://scenes/components/object_hider.gd" id="1_q1h1m"]
+
+[node name="RayCast2D" type="RayCast2D"]
+collision_mask = 64
+hit_from_inside = true
+script = ExtResource("1_q1h1m")

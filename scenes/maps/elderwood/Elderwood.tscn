@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://lqsrtjau3q8q"]
 
 [ext_resource type="Script" path="res://scenes/maps/elderwood/Elderwood.gd" id="1_atpht"]
-[ext_resource type="TileSet" uid="uid://bai2g040pgxn8" path="res://assets/tilesets/forest_tileset.tres" id="1_r70ol"]
+[ext_resource type="TileSet" uid="uid://bai2g040pgxn8" path="res://resources/tilemap/forest_tileset.tres" id="1_r70ol"]
 [ext_resource type="PackedScene" uid="uid://cggyi7nueyoya" path="res://scenes/camera/Camera.tscn" id="3_4uryc"]
 [ext_resource type="PackedScene" uid="uid://dywg1dlia21m4" path="res://scenes/entities/player/player.tscn" id="4_m5x6j"]
 [ext_resource type="PackedScene" uid="uid://riaycvu1w5m2" path="res://scenes/UI/UI_root/UI.tscn" id="5_hcr6g"]
@@ -45,7 +45,7 @@ shape = SubResource("RectangleShape2D_g3kk6")
 z_index = 2
 position = Vector2(-182, 73)
 
-[node name="NPC" type="Node2D" parent="."]
+[node name="Christina-NPC" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="Christina" parent="." instance=ExtResource("7_8qgx7")]
