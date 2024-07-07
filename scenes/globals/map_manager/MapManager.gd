@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var color_rect = $ColorRect
 
 
-const main = preload("res://scenes/main/main.tscn")
+const main = preload("res://scenes/maps/main/main.tscn")
 const elder_wood = preload("res://scenes/maps/elderwood/Elderwood.tscn")
 
 func _ready():
@@ -12,7 +12,6 @@ func _ready():
 
 
 func change_map(map_path,x,y):
-	
 	color_rect.show()
 	animation_player.play("trans_in")
 	await animation_player.animation_finished

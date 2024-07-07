@@ -20,7 +20,7 @@ func _process(delta):
 	time += delta * INGAME_TO_REAL_MINUTE_DURATION * ingame_speed
 	var value = (sin(time - PI / 2) + 1.0) / 2.0
 	color = gradient_sample.gradient.sample(value)
-	print(value)
+	
 	
 
 

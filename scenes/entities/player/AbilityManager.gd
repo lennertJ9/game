@@ -24,7 +24,7 @@ func _ready():
 
 func set_ability(ability: Ability, index):
 	if ability:
-		print("set")
+		
 		remove_manager(null, index)
 		
 		var ability_manager = ability.manager.instantiate()

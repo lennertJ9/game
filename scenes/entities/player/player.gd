@@ -86,7 +86,7 @@ func _input(event):
 				visuals.scale.x = 1
 		
 	if event.is_action_pressed("debug"):
-		print("debug")
+		pass
 
 
 

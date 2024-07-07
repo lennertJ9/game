@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="game"
-run/main_scene="res://scenes/main/main.tscn"
+run/main_scene="res://scenes/maps/main/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -69,6 +69,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 folder_colors={
 "res://assets/": "yellow",
+"res://other/": "gray",
 "res://resources/": "purple",
 "res://scenes/": "blue",
 "res://scenes/UI/": "green",
@@ -156,6 +157,11 @@ Interact={
 2d_physics/layer_4="enemy_projectiles"
 2d_physics/layer_5="objects"
 2d_physics/layer_6="npc"
+
+[limbo_ai]
+
+behavior_tree/behavior_tree_default_dir="res://addons/limboAI/ai/trees"
+behavior_tree/user_task_dir_1="res://addons/limboAI/ai/tasks"
 
 [rendering]
 

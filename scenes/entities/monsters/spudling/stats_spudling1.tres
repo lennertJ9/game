@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="statistic" load_steps=2 format=3 uid="uid://d3u5jbdk5nfsm"]
+
+[ext_resource type="Script" path="res://resources/scripts/statistic.gd" id="1_cxkn7"]
+
+[resource]
+script = ExtResource("1_cxkn7")
+damage = 0
+attack_speed = 0.0
+max_health = 10
+current_health = 0
+health_regeneration = 0
+max_mana = 0
+current_mana = 0
+mana_regeneration = 0
+movement_speed = 35

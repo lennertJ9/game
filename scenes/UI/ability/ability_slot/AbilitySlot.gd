@@ -66,7 +66,7 @@ func _drop_data(at_position, data):
 
 func start_cooldown(time: float):
 	set_process(true)
-	print("start ui cooldown")
+
 	progress_bar.max_value = time 
 	$CooldownTimer.wait_time = time 
 	$CooldownTimer.start()

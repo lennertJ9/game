@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1s3jgqnt7rq4"]
+
+[ext_resource type="Script" path="res://scenes/States/wander/wander.gd" id="1_6bnba"]
+
+[node name="Wander" type="Node"]
+script = ExtResource("1_6bnba")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

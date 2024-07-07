@@ -1,0 +1,35 @@
+[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://dkswlwmhbevvv"]
+
+[ext_resource type="Script" path="res://addons/limboAI/ai/tasks/choose_random_position.gd" id="1_0tlwg"]
+[ext_resource type="Script" path="res://addons/limboAI/ai/tasks/move_to_position.gd" id="2_fyedq"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_sujab"]
+
+[sub_resource type="BTAction" id="BTAction_14koa"]
+script = ExtResource("1_0tlwg")
+range_min_in_dir = 45.0
+range_max_in_dir = 120.0
+position_var = &"pos"
+dir_var = &"dir"
+
+[sub_resource type="BTAction" id="BTAction_k0i1g"]
+script = ExtResource("2_fyedq")
+target_pos_var = &"pos"
+dir_var = &"dir"
+speed_var = 40
+tolerance = 10
+
+[sub_resource type="BTSequence" id="BTSequence_ysv4m"]
+custom_name = "Random Move Sequence"
+children = [SubResource("BTAction_14koa"), SubResource("BTAction_k0i1g")]
+
+[sub_resource type="BTSequence" id="BTSequence_v5q2d"]
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_yjf5g"]
+
+[sub_resource type="BTSelector" id="BTSelector_6ug6b"]
+children = [SubResource("BTSequence_ysv4m"), SubResource("BTSequence_v5q2d"), SubResource("BTPlayAnimation_yjf5g")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_sujab")
+root_task = SubResource("BTSelector_6ug6b")
