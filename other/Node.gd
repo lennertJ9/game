@@ -10,6 +10,7 @@ func _ready():
 	change_state(starting_state)
 
 
+
 func change_state(new_state: Node):
 	if current_state:
 		current_state.exit()

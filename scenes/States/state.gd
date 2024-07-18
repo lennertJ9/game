@@ -1,7 +1,7 @@
 extends Node
 class_name state
 
-var active: bool = false
+var is_active: bool = false
 
 
 func _ready():
@@ -10,16 +10,18 @@ func _ready():
 
 
 func enter():
-	active = true
-	set_physics_process(true)
+	is_active = true
 	initialize()
+	set_physics_process(true)
+	set_process(true)
 
 
 
 func exit():
-	active = false
-	set_physics_process(false)
+	is_active = false
 	finalize()
+	set_physics_process(false)
+	set_process(false)
 
 
 

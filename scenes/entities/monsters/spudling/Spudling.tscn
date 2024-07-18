@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bsfqhhls8libd"]
+[gd_scene load_steps=15 format=3 uid="uid://bsfqhhls8libd"]
 
 [ext_resource type="Script" path="res://scenes/entities/monsters/spudling/Spudling.gd" id="1_vkuoo"]
 [ext_resource type="Texture2D" uid="uid://c1hu4fyc15ksc" path="res://assets/entities/player/shadow.png" id="2_epy3g"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://brdjv46l6h37f" path="res://assets/entities/monsters/spudling/spudling.png" id="2_i4ri1"]
 [ext_resource type="PackedScene" uid="uid://dn3mrqnfwulw4" path="res://scenes/States/manager/state_manager.tscn" id="5_ps0lj"]
 [ext_resource type="PackedScene" uid="uid://c1s3jgqnt7rq4" path="res://scenes/States/wander/wander.tscn" id="6_8ohnv"]
+[ext_resource type="PackedScene" uid="uid://bysecojds0nyp" path="res://scenes/States/flee/Flee.tscn" id="7_tmd2h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uiob5"]
 radius = 7.0
@@ -125,7 +126,10 @@ radius = 61.0737
 
 [node name="Spudling" type="CharacterBody2D" node_paths=PackedStringArray("animation_player")]
 z_index = 2
+collision_layer = 4
+collision_mask = 23
 motion_mode = 1
+wall_min_slide_angle = 2.42077
 script = ExtResource("1_vkuoo")
 stats = ExtResource("2_ft04d")
 animation_player = NodePath("AnimationPlayer")
@@ -155,7 +159,6 @@ speed_scale = 1.25
 one_shot = true
 
 [node name="DangerArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -163,10 +166,20 @@ collision_mask = 2
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_oyliy")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+path_postprocessing = 1
+debug_enabled = true
+
 [node name="StateManager" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("5_ps0lj")]
 starting_state = NodePath("Wander")
 
 [node name="Wander" parent="StateManager" instance=ExtResource("6_8ohnv")]
+
+[node name="Flee" parent="StateManager" instance=ExtResource("7_tmd2h")]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 100)
 
 [connection signal="timeout" from="RandomVelocity" to="." method="_on_random_velocity_timeout"]
 [connection signal="area_entered" from="DangerArea" to="." method="_on_danger_area_area_entered"]
