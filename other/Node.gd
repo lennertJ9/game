@@ -7,7 +7,8 @@ var current_state: state
 
 
 func _ready():
-	change_state(starting_state)
+	if starting_state:
+		change_state(starting_state)
 
 
 

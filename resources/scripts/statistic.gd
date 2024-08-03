@@ -1,5 +1,5 @@
 extends Resource
-class_name statistic
+class_name Stats
 
 @export var damage: int
 @export var attack_speed: float

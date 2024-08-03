@@ -3,7 +3,7 @@ extends Node2D
 signal mana_changed
 
 
-var stats : statistic
+var stats : Stats
 
 @onready var regenerate_timer = $RegenerateTimer
 

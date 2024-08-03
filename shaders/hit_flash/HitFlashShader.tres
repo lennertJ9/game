@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c1hk8eir2wunl"]
 
-[ext_resource type="Shader" path="res://shaders/hit_flash.gdshader" id="1_jp522"]
+[ext_resource type="Shader" path="res://shaders/hit_flash/hit_flash.gdshader" id="1_jp522"]
 
 [resource]
 shader = ExtResource("1_jp522")

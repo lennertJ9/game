@@ -5,7 +5,7 @@ class_name Player
 signal stats_updated
 
 
-@export var stats : statistic
+@export var stats : Stats
 @export var player_inventory : Inventory
 
 # -------------- ANIMATIONS ---------------------------------
@@ -134,11 +134,12 @@ func mouse_click_animation():
 
 func connect_signals():
 	var UI = get_tree().get_first_node_in_group("UI")
+	
 	for slot in UI.ability_bar.slots:
 		slot.drag.connect(ability_manager.remove_manager)
 		slot.drop.connect(ability_manager.set_ability)
 	ability_manager.ability_use.connect(UI.ability_bar.start_cooldown)
-	
+
 
 
 

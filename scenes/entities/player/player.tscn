@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://jdbuxjueoppv" path="res://resources/stats/player_stats.tres" id="2_hvpdv"]
 [ext_resource type="Resource" uid="uid://ct0nm74ye6hvu" path="res://resources/inventory/player_inventory.tres" id="3_guvfk"]
 [ext_resource type="Texture2D" uid="uid://c1hu4fyc15ksc" path="res://assets/entities/player/shadow.png" id="4_d8wdj"]
-[ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/HitFlashShader.tres" id="5_f5kij"]
+[ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/hit_flash/HitFlashShader.tres" id="5_2snsg"]
 [ext_resource type="Texture2D" uid="uid://c8o4n6pdcjsh0" path="res://assets/entities/player/player_legs.png" id="6_mhnbt"]
 [ext_resource type="Texture2D" uid="uid://c2kgbta0kdgnu" path="res://assets/entities/player/player_body.png" id="7_wcyxa"]
 [ext_resource type="Texture2D" uid="uid://tij6tessec61" path="res://assets/entities/player/player_head.png" id="8_trbrm"]
@@ -624,22 +624,22 @@ player_inventory = ExtResource("3_guvfk")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Shadow" type="Sprite2D" parent="Visuals"]
-position = Vector2(0, -3)
+position = Vector2(0, -1)
 texture = ExtResource("4_d8wdj")
 
 [node name="Leg" type="Sprite2D" parent="Visuals"]
-material = ExtResource("5_f5kij")
+material = ExtResource("5_2snsg")
 texture = ExtResource("6_mhnbt")
 hframes = 8
 
 [node name="Body" type="Sprite2D" parent="Visuals"]
-material = ExtResource("5_f5kij")
+material = ExtResource("5_2snsg")
 position = Vector2(-1, -1)
 texture = ExtResource("7_wcyxa")
 hframes = 8
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
-material = ExtResource("5_f5kij")
+material = ExtResource("5_2snsg")
 position = Vector2(0, -10)
 texture = ExtResource("8_trbrm")
 hframes = 2

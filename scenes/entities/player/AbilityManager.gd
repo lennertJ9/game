@@ -16,7 +16,7 @@ var attack_ready: bool = true
 
 
 func _ready():
-	var player_stats: statistic = preload("res://resources/stats/player_stats.tres")
+	var player_stats: Stats = preload("res://resources/stats/player_stats.tres")
 	attack_speed_timer.wait_time = player_stats.attack_speed
 	
 	

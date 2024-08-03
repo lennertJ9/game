@@ -166,3 +166,4 @@ behavior_tree/user_task_dir_1="res://addons/limboAI/ai/tasks"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+viewport/hdr_2d=true

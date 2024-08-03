@@ -1,7 +1,7 @@
 extends CanvasLayer
 class_name UserInterface
 
-@export var player_stats : statistic
+@export var player_stats : Stats
 
 
 @onready var resource_bar = $ResourceBar

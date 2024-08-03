@@ -7,6 +7,7 @@ func _physics_process(delta):
 
 
 func initialize():
+	await get_tree().physics_frame
 	get_random_direction()
 	$Timer.start()
 

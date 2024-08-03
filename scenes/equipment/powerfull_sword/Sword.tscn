@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://cisx0nfj6jefy"]
+
+[ext_resource type="Texture2D" uid="uid://muuhpp43lqrh" path="res://scenes/equipment/powerfull_sword/sword.png" id="1_qqnip"]
+[ext_resource type="Texture2D" uid="uid://ds6ygjxqab7d" path="res://scenes/equipment/powerfull_sword/sword_normal_map.png" id="2_7jad8"]
+[ext_resource type="Texture2D" uid="uid://ygl1evumncfv" path="res://scenes/equipment/powerfull_sword/tree.png" id="3_3kqdm"]
+[ext_resource type="Texture2D" uid="uid://prxra6ijc5vm" path="res://scenes/equipment/powerfull_sword/treemap.png" id="4_bdgwq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fqy00"]
+diffuse_texture = ExtResource("1_qqnip")
+normal_texture = ExtResource("2_7jad8")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tynw7"]
+diffuse_texture = ExtResource("3_3kqdm")
+normal_texture = ExtResource("4_bdgwq")
+
+[sub_resource type="Gradient" id="Gradient_gkoly"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.807843, 0.8, 0.137255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_umo0x"]
+gradient = SubResource("Gradient_gkoly")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0.235043, 0.722222)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sword" type="Sprite2D" parent="."]
+position = Vector2(-66, -43)
+texture = SubResource("CanvasTexture_fqy00")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-108, -2)
+texture = SubResource("CanvasTexture_tynw7")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-87, -81)
+scale = Vector2(5, 5)
+color = Color(0.831373, 0.815686, 0.831373, 1)
+energy = 4.95
+texture = SubResource("GradientTexture2D_umo0x")

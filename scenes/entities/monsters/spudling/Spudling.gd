@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var stats: statistic
+@export var stats: Stats
 @export var animation_player: AnimationPlayer
 
 @onready var sprite = $Sprite

@@ -3,7 +3,7 @@ extends Node2D
 signal health_changed
 
 
-var stats : statistic
+var stats : Stats
 
 #var max_health: int
 #var current_health: int
