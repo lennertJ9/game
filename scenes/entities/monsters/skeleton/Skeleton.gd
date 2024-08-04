@@ -5,8 +5,17 @@ extends CharacterBody2D
 
 @onready var animation_player = $AnimationPlayer
 
-func _ready():
-	pass
+@onready var state_manager: StateManager = $StateManager
+@onready var wander: state = $StateManager/Wander
+@onready var chase: state = $StateManager/Chase
+@onready var attack = $StateManager/Attack
+
+
+@onready var nav_agent = $NavigationAgent2D
+
+
+
+
 
 func check_sprite_direction(direction: Vector2):
 	if direction.x < 0:
@@ -26,11 +35,13 @@ func _input(event):
 
 
 
-func _on_area_2d_mouse_entered():
-	print("mouse entered")
-	$SwordAnimation.play("engage")
-	await $SwordAnimation.animation_finished
-	var current_time = $AnimationPlayer.current_animation_position
-	$SwordAnimation.play("enage_idle")
-	$SwordAnimation.advance(current_time)
-	
+func _on_area_2d_body_entered(body):
+	chase.target = body
+	state_manager.change_state(chase)
+
+
+
+func _on_attack_range_body_entered(body):
+	state_manager.change_state(attack)
+	await animation_player.animation_finished
+	state_manager.change_state(chase)
