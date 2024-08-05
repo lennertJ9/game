@@ -96,7 +96,7 @@ func update_player_stats():
 
 
 func on_player_hit(area):
-	health_component.damage(area.damage)
+	#health_component.damage(area.damage)
 	#resource_bar.update_health(health_component.current_health)
 	
 	if area.knockback:

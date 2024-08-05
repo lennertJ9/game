@@ -10,8 +10,9 @@ extends CharacterBody2D
 @onready var chase: state = $StateManager/Chase
 @onready var attack = $StateManager/Attack
 
-
 @onready var nav_agent = $NavigationAgent2D
+
+@onready var sword_hit_box = $Visuals/Sword/SwordHitBox
 
 
 

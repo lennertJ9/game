@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://cqc6w4fv3mt8h" path="res://resources/stats/monster_stat.tres" id="2_xm2hu"]
 [ext_resource type="Shader" path="res://shaders/hit_flash/hit_flash.gdshader" id="3_v2x0p"]
 [ext_resource type="PackedScene" uid="uid://dn3mrqnfwulw4" path="res://scenes/States/manager/state_manager.tscn" id="4_a3fx4"]
-[ext_resource type="PackedScene" path="res://scenes/States/wander/wander_state.tscn" id="5_oue4e"]
+[ext_resource type="PackedScene" uid="uid://c1s3jgqnt7rq4" path="res://scenes/States/wander/wander.tscn" id="5_oue4e"]
 [ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/components/HurtBoxComponent/Hurtbox.tscn" id="6_bvjyg"]
 [ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/components/HealthComponent/HealthComponent.tscn" id="7_8dl5p"]
 [ext_resource type="PackedScene" path="res://scenes/States/attack_state.tscn" id="8_wy64y"]

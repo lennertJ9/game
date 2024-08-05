@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b5kgj8xiiuw5n"]
+[gd_scene load_steps=35 format=3 uid="uid://b5kgj8xiiuw5n"]
 
 [ext_resource type="Script" path="res://scenes/entities/monsters/skeleton/Skeleton.gd" id="1_emeii"]
 [ext_resource type="Texture2D" uid="uid://d4msq0t3ql2nr" path="res://assets/entities/monsters/skeleton/skeleton_shadow.png" id="1_hcvo3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://q8g6af5tf65i" path="res://assets/entities/monsters/skeleton/skeleton_head_normalmap.png" id="4_dystu"]
 [ext_resource type="PackedScene" uid="uid://dn3mrqnfwulw4" path="res://scenes/States/manager/state_manager.tscn" id="5_sfs48"]
 [ext_resource type="PackedScene" uid="uid://c1s3jgqnt7rq4" path="res://scenes/States/wander/wander.tscn" id="6_o2tfn"]
+[ext_resource type="Script" path="res://scenes/entities/monsters/skeleton/SwordHurtBox.gd" id="7_56ynj"]
 [ext_resource type="Texture2D" uid="uid://qkxsmwtaj6k1" path="res://assets/entities/monsters/skeleton/skeleton_sword.png" id="7_xvpd5"]
 [ext_resource type="Texture2D" uid="uid://c3twtvvwov4x2" path="res://assets/entities/monsters/skeleton/skeleton_sword_normalmap.png" id="8_eq813"]
 [ext_resource type="PackedScene" uid="uid://bo8wlubggmo72" path="res://scenes/States/chase/Chase.tscn" id="11_cr5x3"]
@@ -35,7 +36,14 @@ gradient = SubResource("Gradient_ic1kg")
 
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_jgn6w"]
 
+[sub_resource type="Curve" id="Curve_cxeqn"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_hjqek"]
+curve = SubResource("Curve_cxeqn")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wne2y"]
 lifetime_randomness = 1.0
@@ -51,6 +59,9 @@ linear_accel_curve = SubResource("CurveTexture_hjqek")
 scale_max = 1.5
 color_ramp = SubResource("GradientTexture1D_1u6sp")
 turbulence_noise_strength = 14.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_reavj"]
+size = Vector2(6.5, 13)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8fi7v"]
 diffuse_texture = ExtResource("3_4tdtx")
@@ -154,6 +165,59 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cljnk"]
+resource_name = "attack"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.07, 0.1, 0.14, 0.18, 0.21, 0.26, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1),
+"update": 0,
+"values": [Vector2(-7, -17), Vector2(-7, -17), Vector2(2, -20), Vector2(8, -17), Vector2(10, -13), Vector2(12, -9), Vector2(12, -3), Vector2(8, 1), Vector2(3, 2), Vector2(-1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.07, 0.1, 0.14, 0.18, 0.21, 0.26, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1),
+"update": 0,
+"values": [-0.593412, -0.593412, -0.210221, 0.387655, 0.641454, 1.10851, 1.61188, 2.30095, 2.84942, 3.50086]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sword:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.21),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Sword/GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05, 0.21),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_l5w7x"]
@@ -286,59 +350,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [-1.74533, -1.8326, -1.74533, -1.8326]
-}
-
-[sub_resource type="Animation" id="Animation_cljnk"]
-resource_name = "attack"
-length = 0.3
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Sword:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.04, 0.07, 0.1, 0.14, 0.18, 0.21, 0.28),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1),
-"update": 0,
-"values": [Vector2(-7, -17), Vector2(-7, -17), Vector2(2, -20), Vector2(8, -17), Vector2(10, -13), Vector2(12, -9), Vector2(12, -3), Vector2(8, 1), Vector2(3, 2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/Sword:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.04, 0.07, 0.1, 0.14, 0.18, 0.21, 0.28),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1),
-"update": 0,
-"values": [-0.593412, -0.593412, -0.210221, 0.387655, 0.641454, 1.10851, 1.61188, 2.30095, 2.84942]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/Sword:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.21),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Visuals/Sword/GPUParticles2D:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.05, 0.21),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iugme"]
@@ -486,6 +497,15 @@ rotation = -1.46957
 emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_wne2y")
+
+[node name="SwordHitBox" type="Area2D" parent="Visuals/Sword"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("7_56ynj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/Sword/SwordHitBox"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_reavj")
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
 position = Vector2(0, -12)

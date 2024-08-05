@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var stats : statistic
+@export var stats : Stats
 
 @export var movement_direction: Vector2 
 @export var current_direction: Vector2
