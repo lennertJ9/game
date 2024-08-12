@@ -2,9 +2,8 @@ extends Area2D
 
 @export var resource : Resource
 
-
-var movement_direction: Vector2
 var damage: int
+var movement_direction: Vector2
 var speed: int
 
 
@@ -26,3 +25,9 @@ func _physics_process(delta):
 
 func remove_bullet():
 	queue_free()
+
+
+
+
+
+

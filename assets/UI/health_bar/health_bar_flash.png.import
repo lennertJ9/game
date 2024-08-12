@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqikkslpcmrih"
-path="res://.godot/imported/normalmap tree.png-48afd9783d9309a669d64a8780e3cfd8.ctex"
+uid="uid://b0v5485o2nri6"
+path="res://.godot/imported/health_bar_flash.png-2b47abbe1f35dc9bf40d3e7bef98515c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/JUNK/normalmap tree.png"
-dest_files=["res://.godot/imported/normalmap tree.png-48afd9783d9309a669d64a8780e3cfd8.ctex"]
+source_file="res://assets/UI/health_bar/health_bar_flash.png"
+dest_files=["res://.godot/imported/health_bar_flash.png-2b47abbe1f35dc9bf40d3e7bef98515c.ctex"]
 
 [params]
 

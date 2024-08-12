@@ -21,5 +21,6 @@ func start_cooldown(time: float): # deze functie is niet nodig, daarom pass
 	pass
 
 
+
 func _input(event):
 	pass

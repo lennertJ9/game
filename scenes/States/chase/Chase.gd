@@ -6,14 +6,13 @@ var agent: NavigationAgent2D
 var desired_velocity
 
 func initialize():
-	print("start chase state")
 	owner.animation_player.play("running")
 	agent = owner.nav_agent
 	$Timer.start()
 
 
 func finalize():
-	print("end chase state")
+	pass
 
 
 

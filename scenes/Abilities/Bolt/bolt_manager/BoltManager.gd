@@ -5,7 +5,7 @@ signal ability_use
 
 @export var ability_scene: PackedScene
 @export var ability_resource: Ability
-
+@export var player_stats: Stats
 @onready var ability_cooldown = $AbilityCooldown
 
 var is_off_cooldown: bool = false
@@ -29,7 +29,7 @@ func use(): # checkt voor cooldown, add de ability als child, in de wereld
 
 func make_ability() -> Node2D: # maakt de ability klaar om in de wereld gezet te worden, zet de proporties
 	var ability = ability_scene.instantiate()
-	ability.damage = ability_resource.damage
+	ability.damage = player_stats.damage * ability_resource.damage_ratio
 	ability.speed = ability_resource.speed
 	ability.global_position = get_tree().get_first_node_in_group("player").global_position
 	ability.movement_direction = get_tree().get_first_node_in_group("player").global_position.direction_to(get_global_mouse_position())

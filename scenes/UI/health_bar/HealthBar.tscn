@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctto2lmosqku"]
+
+[ext_resource type="Texture2D" uid="uid://gs60nicupl0c" path="res://assets/UI/health_bar/health_bar_under.png" id="1_1ehg0"]
+[ext_resource type="Texture2D" uid="uid://4ftjefq1uk5m" path="res://assets/UI/health_bar/health_bar1.png" id="2_f0xk6"]
+[ext_resource type="Script" path="res://scenes/UI/health_bar/HealthBar.gd" id="3_5rdvh"]
+[ext_resource type="Texture2D" uid="uid://d0kmhulaan1k8" path="res://assets/UI/health_bar/health_bar_progress.png" id="3_fo0ar"]
+[ext_resource type="Texture2D" uid="uid://b0v5485o2nri6" path="res://assets/UI/health_bar/health_bar_flash.png" id="5_mdbhq"]
+
+[sub_resource type="Animation" id="Animation_mvo2s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_gnc5n"]
+resource_name = "heal"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(8.1, 8.1), Vector2(8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_icpdp"]
+resource_name = "hit"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 2, 2, 1),
+"update": 0,
+"values": [Vector2(180, 50), Vector2(180, 48), Vector2(180, 52), Vector2(180, 50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c2gqh"]
+_data = {
+"RESET": SubResource("Animation_mvo2s"),
+"heal": SubResource("Animation_gnc5n"),
+"hit": SubResource("Animation_icpdp")
+}
+
+[node name="HealthBar" type="TextureProgressBar"]
+offset_left = 180.0
+offset_top = 50.0
+offset_right = 237.0
+offset_bottom = 66.0
+scale = Vector2(8.05, 8.05)
+pivot_offset = Vector2(24, 8)
+value = 100.0
+texture_over = ExtResource("2_f0xk6")
+texture_progress = ExtResource("3_fo0ar")
+texture_progress_offset = Vector2(3, 0)
+tint_over = Color(1, 0.968627, 0.968627, 1)
+script = ExtResource("3_5rdvh")
+
+[node name="FlashBar" type="TextureProgressBar" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+value = 94.0
+texture_under = ExtResource("1_1ehg0")
+texture_progress = ExtResource("5_mdbhq")
+texture_progress_offset = Vector2(3, 0)
+tint_progress = Color(1, 1, 1, 0.588235)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c2gqh")
+}
+
+[node name="HitFlashTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="HitFlashTimer" to="." method="_on_timer_timeout"]

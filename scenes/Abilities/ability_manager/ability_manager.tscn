@@ -5,18 +5,6 @@
 [node name="AbilityManager" type="Node"]
 script = ExtResource("1_isahi")
 
-[node name="Slot1" type="Node" parent="."]
-
-[node name="Slot2" type="Node" parent="."]
-
-[node name="Slot3" type="Node" parent="."]
-
-[node name="Slot4" type="Node" parent="."]
-
-[node name="Slot5" type="Node" parent="."]
-
-[node name="Slot6" type="Node" parent="."]
-
 [node name="AttackSpeedTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true

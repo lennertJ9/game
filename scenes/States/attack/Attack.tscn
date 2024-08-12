@@ -4,3 +4,10 @@
 
 [node name="Attack" type="Node"]
 script = ExtResource("1_heh6f")
+
+[node name="AttackSpeedTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 1.2
+one_shot = true
+
+[connection signal="timeout" from="AttackSpeedTimer" to="." method="_on_attack_speed_timer_timeout"]

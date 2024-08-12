@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://riaycvu1w5m2"]
+[gd_scene load_steps=9 format=3 uid="uid://riaycvu1w5m2"]
 
 [ext_resource type="Script" path="res://scenes/UI/UI_root/UI.gd" id="1_igey8"]
 [ext_resource type="Resource" uid="uid://jdbuxjueoppv" path="res://resources/stats/player_stats.tres" id="2_n6fx7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bshwymrhrpeg6" path="res://scenes/UI/ability/ability_bar/AbilityBar.tscn" id="5_hld4j"]
 [ext_resource type="PackedScene" uid="uid://cg58h60sbgxk5" path="res://scenes/UI/ability/ability_menu/AbilityMenu.tscn" id="6_uwnyi"]
 [ext_resource type="Script" path="res://scenes/UI/UI_root/PreviewManager.gd" id="7_d6ih7"]
+[ext_resource type="PackedScene" uid="uid://ctto2lmosqku" path="res://scenes/UI/health_bar/HealthBar.tscn" id="8_eyni7"]
 
 [node name="UI" type="CanvasLayer" groups=["UI"]]
 script = ExtResource("1_igey8")
@@ -52,5 +53,8 @@ offset_left = 1431.0
 offset_top = 25.0
 offset_right = 2031.0
 offset_bottom = 105.0
+
+[node name="HealthBar" parent="." instance=ExtResource("8_eyni7")]
+scale = Vector2(8, 8)
 
 [connection signal="timeout" from="UpdateResources" to="." method="_on_update_resources_timeout"]

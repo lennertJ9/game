@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://i6cld88cc2u2"]
 
-[ext_resource type="Script" path="res://scenes/Managers/status_manager.gd" id="1_mewsu"]
+[ext_resource type="Script" path="res://scenes/components/status_component/status_manager.gd" id="1_f0q1i"]
 
 [node name="StatusManager" type="Node"]
-script = ExtResource("1_mewsu")
+script = ExtResource("1_f0q1i")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3

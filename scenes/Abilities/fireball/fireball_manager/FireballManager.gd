@@ -8,7 +8,7 @@ signal ability_use
 @onready var ability_cooldown = $AbilityCooldown
 
 var is_off_cooldown: bool = false
-var input_slot = "slot_1"
+#var input_slot = "slot_1"
 var current_index
 
 

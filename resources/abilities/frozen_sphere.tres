@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=5 format=3 uid="uid://c1u4kt71f8b2j"]
+
+[ext_resource type="PackedScene" uid="uid://bufe5q7khf7oq" path="res://scenes/abilities/ice_sphere/ICESPHERE.tscn" id="1_btwey"]
+[ext_resource type="Script" path="res://resources/abilities/Ability.gd" id="1_s2vk5"]
+[ext_resource type="PackedScene" uid="uid://c4m5cot2i8iha" path="res://scenes/abilities/ice_sphere/ice_sphere_manager/FrozenSphereManager.tscn" id="1_wqklv"]
+[ext_resource type="Texture2D" uid="uid://d1nowjj1bb58u" path="res://assets/UI/ability_icons/frozen_sphere.png" id="2_3m242"]
+
+[resource]
+script = ExtResource("1_s2vk5")
+manager = ExtResource("1_wqklv")
+ability_scene = ExtResource("1_btwey")
+name = "frozen sphere"
+icon = ExtResource("2_3m242")
+damage = 0
+damage_ratio = 0.0
+speed = 0
+cooldown = 1.0
+mana_cost = 0
+is_ready = false

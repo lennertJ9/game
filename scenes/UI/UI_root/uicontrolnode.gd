@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _drop_data(at_position, data):
-	print(data)
+	pass
 
 
 func _can_drop_data(at_position, data):

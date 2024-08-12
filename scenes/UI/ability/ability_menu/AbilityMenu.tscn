@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg58h60sbgxk5"]
+[gd_scene load_steps=6 format=3 uid="uid://cg58h60sbgxk5"]
 
 [ext_resource type="Script" path="res://scenes/UI/ability/ability_menu/AbilityMenu.gd" id="1_140sw"]
 [ext_resource type="Texture2D" uid="uid://gpbg2bp4sch8" path="res://assets/UI/ability_menu/ability_menu_background.png" id="2_fwn4j"]
 [ext_resource type="PackedScene" uid="uid://4brgxggmquvh" path="res://scenes/UI/ability/ability_slot/AbilitySlot.tscn" id="3_fapc2"]
 [ext_resource type="Script" path="res://scenes/UI/ability/ability_menu/ability_menu_slot.gd" id="4_hwh1u"]
-[ext_resource type="Resource" uid="uid://bolbionv4wv0o" path="res://resources/abilities/magic_bolt.tres" id="5_5p1mm"]
-[ext_resource type="Resource" uid="uid://dl6hywxdnphu5" path="res://resources/abilities/fireball.tres" id="5_jp3qi"]
+[ext_resource type="Resource" uid="uid://c1u4kt71f8b2j" path="res://resources/abilities/frozen_sphere.tres" id="7_bl1qb"]
 
 [node name="AbilityMenu" type="TextureRect"]
 offset_right = 40.0
@@ -25,25 +24,30 @@ columns = 6
 [node name="AbilitySlot" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
-current_ability = ExtResource("5_5p1mm")
+input_key = null
 
 [node name="AbilitySlot2" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
-current_ability = ExtResource("5_jp3qi")
+input_key = null
 
 [node name="AbilitySlot3" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
+current_ability = ExtResource("7_bl1qb")
+input_key = null
 
 [node name="AbilitySlot4" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
+input_key = null
 
 [node name="AbilitySlot5" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
+input_key = null
 
 [node name="AbilitySlot6" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
+input_key = null

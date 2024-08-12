@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-MapManager="*res://scenes/globals/map_manager/MapManager.tscn"
+MapManager="*res://scenes/Managers/map_manager/MapManager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
@@ -60,6 +60,8 @@ window/size/viewport_height=1152
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="res://assets/UI/mouse_cursor/mouse_cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(3, 5)
+mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
 [editor_plugins]
 

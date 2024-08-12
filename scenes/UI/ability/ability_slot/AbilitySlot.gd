@@ -15,8 +15,6 @@ signal drop
 
 func _ready():
 	if current_ability:
-		
-		
 		progress_bar.texture_under = current_ability.icon
 		progress_bar.texture_progress = current_ability.icon
 	set_process(false)
@@ -60,13 +58,13 @@ func _can_drop_data(at_position, data):
 func _drop_data(at_position, data):
 	update_slot(data)
 	drop.emit(data, get_index())
-	start_cooldown(current_ability.cooldown)
+	
 
 
 
 func start_cooldown(time: float):
 	set_process(true)
-
+	print("startttttt")
 	progress_bar.max_value = time 
 	$CooldownTimer.wait_time = time 
 	$CooldownTimer.start()

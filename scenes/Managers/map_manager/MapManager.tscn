@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://du04y7xl2v0op"]
 
-[ext_resource type="Script" path="res://scenes/globals/map_manager/MapManager.gd" id="1_wcq43"]
+[ext_resource type="Script" path="res://scenes/Managers/map_manager/MapManager.gd" id="1_wcq43"]
 
 [sub_resource type="Animation" id="Animation_g7ero"]
 length = 0.001
@@ -67,8 +67,3 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_mmcsk")
 }
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "loading"

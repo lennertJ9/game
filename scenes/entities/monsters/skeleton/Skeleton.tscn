@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b5kgj8xiiuw5n"]
+[gd_scene load_steps=40 format=3 uid="uid://b5kgj8xiiuw5n"]
 
 [ext_resource type="Script" path="res://scenes/entities/monsters/skeleton/Skeleton.gd" id="1_emeii"]
 [ext_resource type="Texture2D" uid="uid://d4msq0t3ql2nr" path="res://assets/entities/monsters/skeleton/skeleton_shadow.png" id="1_hcvo3"]
@@ -6,13 +6,16 @@
 [ext_resource type="Resource" uid="uid://08g527ehmhgg" path="res://resources/stats/skeleton_stats.tres" id="2_fwqhw"]
 [ext_resource type="Texture2D" uid="uid://cdra1lmu2mvk0" path="res://assets/entities/monsters/skeleton/skeleton_head.png" id="3_4tdtx"]
 [ext_resource type="Texture2D" uid="uid://q8g6af5tf65i" path="res://assets/entities/monsters/skeleton/skeleton_head_normalmap.png" id="4_dystu"]
+[ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/hit_flash/HitFlashShader.tres" id="4_wlv4f"]
 [ext_resource type="PackedScene" uid="uid://dn3mrqnfwulw4" path="res://scenes/States/manager/state_manager.tscn" id="5_sfs48"]
 [ext_resource type="PackedScene" uid="uid://c1s3jgqnt7rq4" path="res://scenes/States/wander/wander.tscn" id="6_o2tfn"]
-[ext_resource type="Script" path="res://scenes/entities/monsters/skeleton/SwordHurtBox.gd" id="7_56ynj"]
+[ext_resource type="PackedScene" uid="uid://mroqafay5632" path="res://scenes/components/hitbox_component/HitBoxComponent.tscn" id="7_ppsh8"]
 [ext_resource type="Texture2D" uid="uid://qkxsmwtaj6k1" path="res://assets/entities/monsters/skeleton/skeleton_sword.png" id="7_xvpd5"]
 [ext_resource type="Texture2D" uid="uid://c3twtvvwov4x2" path="res://assets/entities/monsters/skeleton/skeleton_sword_normalmap.png" id="8_eq813"]
 [ext_resource type="PackedScene" uid="uid://bo8wlubggmo72" path="res://scenes/States/chase/Chase.tscn" id="11_cr5x3"]
 [ext_resource type="PackedScene" uid="uid://dq1xh7g6gkunl" path="res://scenes/States/attack/Attack.tscn" id="12_l8aj0"]
+[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/components/hurtbox_component/Hurtbox.tscn" id="15_cdota"]
+[ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/components/health_component/HealthComponent.tscn" id="16_4bbny"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a424g"]
 radius = 4.0
@@ -60,8 +63,8 @@ scale_max = 1.5
 color_ramp = SubResource("GradientTexture1D_1u6sp")
 turbulence_noise_strength = 14.2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_reavj"]
-size = Vector2(6.5, 13)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jegdn"]
+size = Vector2(5, 13)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8fi7v"]
 diffuse_texture = ExtResource("3_4tdtx")
@@ -166,10 +169,22 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Visuals/Sword/SwordHitBox:monitorable")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_cljnk"]
 resource_name = "attack"
-length = 0.3
+length = 0.35
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -178,10 +193,10 @@ tracks/0/path = NodePath("Visuals/Sword:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.04, 0.07, 0.1, 0.14, 0.18, 0.21, 0.26, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1),
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.07, 0.1, 0.14, 0.18, 0.21, 0.26, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-7, -17), Vector2(-7, -17), Vector2(2, -20), Vector2(8, -17), Vector2(10, -13), Vector2(12, -9), Vector2(12, -3), Vector2(8, 1), Vector2(3, 2), Vector2(-1, 1)]
+"values": [Vector2(-7, -17), Vector2(-7, -17), Vector2(2, -20), Vector2(8, -17), Vector2(10, -13), Vector2(12, -9), Vector2(12, -3), Vector2(11, 3), Vector2(4, 6), Vector2(-1, 1), Vector2(-7, -17)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -190,10 +205,10 @@ tracks/1/path = NodePath("Visuals/Sword:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.04, 0.07, 0.1, 0.14, 0.18, 0.21, 0.26, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1),
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.07, 0.1, 0.14, 0.18, 0.21, 0.26, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1),
 "update": 0,
-"values": [-0.593412, -0.593412, -0.210221, 0.387655, 0.641454, 1.10851, 1.61188, 2.30095, 2.84942, 3.50086]
+"values": [-0.593412, -0.593412, -0.210221, 0.387655, 0.641454, 1.10851, 1.61188, 2.30095, 2.84942, 3.50086, -0.593412]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -202,10 +217,10 @@ tracks/2/path = NodePath("Visuals/Sword:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.21),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.14, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 4.43828, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -215,6 +230,18 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0.05, 0.21),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Sword/SwordHitBox:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -386,6 +413,107 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-13, -15)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sword:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Sword/SwordHitBox:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Sword/GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hdwee"]
+resource_name = "attack"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.29, 0.32, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-6, -16), Vector2(9, -15), Vector2(13, -7), Vector2(10, 2), Vector2(6, 7), Vector2(-3, 3), Vector2(-7, -1), Vector2(-9, -9), Vector2(-8, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.29, 0.33, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.699682, 0.775478, 1.35515, 2.25807, 2.58494, 3.64461, 4.08258, 5.14639, 5.57523]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sword:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.17, 0.24),
+"transitions": PackedFloat32Array(2.2974, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Sword/SwordHitBox:monitorable")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Sword/GPUParticles2D:emitting")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_j7f4c"]
 resource_name = "enage_idle"
@@ -449,16 +577,23 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_178oh"]
 _data = {
 "RESET": SubResource("Animation_xv5ne"),
+"attack": SubResource("Animation_hdwee"),
 "enage_idle": SubResource("Animation_j7f4c"),
 "engage": SubResource("Animation_fiyy7")
 }
 
-[node name="Skeleton" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb4kp"]
+size = Vector2(12.5, 17)
+
+[node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("hurt_box_component", "health_component")]
 z_index = 2
 collision_layer = 4
 collision_mask = 21
+motion_mode = 1
 script = ExtResource("1_emeii")
 stats = ExtResource("2_fwqhw")
+hurt_box_component = NodePath("HurtBoxComponent")
+health_component = NodePath("HealthComponent")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -3)
@@ -482,6 +617,7 @@ position = Vector2(0, -2)
 texture = ExtResource("1_hcvo3")
 
 [node name="Body" type="Sprite2D" parent="Visuals"]
+material = ExtResource("4_wlv4f")
 position = Vector2(1, -1)
 texture = ExtResource("2_dfi7x")
 offset = Vector2(0, -10)
@@ -498,16 +634,18 @@ emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_wne2y")
 
-[node name="SwordHitBox" type="Area2D" parent="Visuals/Sword"]
+[node name="SwordHitBox" parent="Visuals/Sword" instance=ExtResource("7_ppsh8")]
 collision_layer = 8
-collision_mask = 0
-script = ExtResource("7_56ynj")
+damage_ratio = 1.5
+knockback = true
+knockback_strength = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/Sword/SwordHitBox"]
-position = Vector2(-0.5, -1)
-shape = SubResource("RectangleShape2D_reavj")
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_jegdn")
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
+material = ExtResource("4_wlv4f")
 position = Vector2(0, -12)
 texture = SubResource("CanvasTexture_8fi7v")
 
@@ -533,12 +671,20 @@ starting_state = NodePath("Wander")
 
 [node name="Attack" parent="StateManager" instance=ExtResource("12_l8aj0")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
+
+[node name="HurtBoxComponent" parent="." instance=ExtResource("15_cdota")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+position = Vector2(1, -8.5)
+shape = SubResource("RectangleShape2D_vb4kp")
+debug_color = Color(0, 0.701961, 0.0784314, 0.419608)
+
+[node name="HealthComponent" parent="." instance=ExtResource("16_4bbny")]
 
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_area_2d_body_entered"]
 [connection signal="mouse_entered" from="DetectionRange" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]

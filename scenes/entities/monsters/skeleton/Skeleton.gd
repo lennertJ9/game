@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var stats: Stats
 
 @onready var animation_player = $AnimationPlayer
+@onready var sword_animation = $SwordAnimation
 
 @onready var state_manager: StateManager = $StateManager
 @onready var wander: state = $StateManager/Wander
@@ -13,6 +14,10 @@ extends CharacterBody2D
 @onready var nav_agent = $NavigationAgent2D
 
 @onready var sword_hit_box = $Visuals/Sword/SwordHitBox
+
+@export var hurt_box_component: Node2D
+@export var health_component: Node
+
 
 
 
@@ -28,11 +33,7 @@ func check_sprite_direction(direction: Vector2):
 func _input(event):
 	if event.is_action_pressed("debug"):
 		print("debug")
-		var anim: Animation = animation_player.get_animation("running")
-		var track = anim.find_track("Visuals/Sword:rotation",Animation.TYPE_VALUE)
-		print(track)
-		anim.track_set_enabled(track, false)
-
+		animation_player.play("attack")
 
 
 
@@ -44,5 +45,20 @@ func _on_area_2d_body_entered(body):
 
 func _on_attack_range_body_entered(body):
 	state_manager.change_state(attack)
-	await animation_player.animation_finished
+
+
+
+func basic_attack():
+	$SwordAnimation.play("attack")
+
+
+func _on_attack_range_body_exited(body):
 	state_manager.change_state(chase)
+
+
+func hit_flash():
+	var shader = $Visuals/Body.material as ShaderMaterial
+	shader.set_shader_parameter("amount", .8)
+	shader.set_shader_parameter("active", true)
+	await get_tree().create_timer(0.125).timeout
+	shader.set_shader_parameter("active", false)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dywg1dlia21m4"]
+[gd_scene load_steps=27 format=3 uid="uid://dywg1dlia21m4"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_a2tdh"]
 [ext_resource type="Resource" uid="uid://jdbuxjueoppv" path="res://resources/stats/player_stats.tres" id="2_hvpdv"]
@@ -10,17 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://tij6tessec61" path="res://assets/entities/player/player_head.png" id="8_trbrm"]
 [ext_resource type="Texture2D" uid="uid://dfv380fsd06b3" path="res://assets/weapons/blue_crystal.png" id="9_4h1ff"]
 [ext_resource type="PackedScene" uid="uid://cn74ssxkt4xuf" path="res://scenes/abilities/ability_manager/ability_manager.tscn" id="10_el3lh"]
-[ext_resource type="PackedScene" uid="uid://i6cld88cc2u2" path="res://scenes/Managers/status_manager.tscn" id="11_l5sc5"]
-[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/components/HurtBoxComponent/Hurtbox.tscn" id="12_ibgx5"]
-[ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/components/HealthComponent/HealthComponent.tscn" id="13_fe0ip"]
-[ext_resource type="PackedScene" uid="uid://7tmrpmqaxrih" path="res://scenes/components/ManaComponent/ManaComponent.tscn" id="14_x1bvg"]
+[ext_resource type="PackedScene" uid="uid://i6cld88cc2u2" path="res://scenes/components/status_component/status_manager.tscn" id="11_praa1"]
+[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/components/hurtbox_component/Hurtbox.tscn" id="12_bu8i5"]
+[ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/components/health_component/HealthComponent.tscn" id="12_magsr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb5ct"]
 radius = 5.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_17uwg"]
-radius = 5.0
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rheub"]
+size = Vector2(15, 19)
 
 [sub_resource type="Animation" id="Animation_1aq37"]
 resource_name = "IDLE"
@@ -124,7 +122,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, -1)]
+"values": [Vector2(-1, -4)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -136,7 +134,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -10)]
+"values": [Vector2(0, -13)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -148,7 +146,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, -3)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -613,13 +611,20 @@ _data = {
 "RESET": SubResource("Animation_ca0u8")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hurt_box_component", "health_component", "status_component") groups=["player"]]
 z_index = 2
 collision_mask = 17
 motion_mode = 1
 script = ExtResource("1_a2tdh")
 stats = ExtResource("2_hvpdv")
 player_inventory = ExtResource("3_guvfk")
+hurt_box_component = NodePath("COMPONENTS/HurtBoxComponent")
+health_component = NodePath("COMPONENTS/HealthComponent")
+status_component = NodePath("COMPONENTS/StatusComponent")
+
+[node name="CollisionPlayer" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_wb5ct")
 
 [node name="Visuals" type="Node2D" parent="."]
 
@@ -629,18 +634,19 @@ texture = ExtResource("4_d8wdj")
 
 [node name="Leg" type="Sprite2D" parent="Visuals"]
 material = ExtResource("5_2snsg")
+position = Vector2(0, -3)
 texture = ExtResource("6_mhnbt")
 hframes = 8
 
 [node name="Body" type="Sprite2D" parent="Visuals"]
 material = ExtResource("5_2snsg")
-position = Vector2(-1, -1)
+position = Vector2(-1, -4)
 texture = ExtResource("7_wcyxa")
 hframes = 8
 
 [node name="Head" type="Sprite2D" parent="Visuals"]
 material = ExtResource("5_2snsg")
-position = Vector2(0, -10)
+position = Vector2(0, -13)
 texture = ExtResource("8_trbrm")
 hframes = 2
 frame = 1
@@ -656,46 +662,35 @@ rotation = -6.28319
 texture = ExtResource("9_4h1ff")
 offset = Vector2(5, -4)
 
-[node name="CollisionPlayer" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_wb5ct")
+[node name="COMPONENTS" type="Node2D" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
+[node name="HurtBoxComponent" parent="COMPONENTS" instance=ExtResource("12_bu8i5")]
+position = Vector2(0, -13)
 
-[node name="-----MANAGERS----------" type="Node" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="COMPONENTS/HurtBoxComponent"]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_rheub")
 
-[node name="AbilityManager" parent="." instance=ExtResource("10_el3lh")]
-process_mode = 3
+[node name="StatusComponent" parent="COMPONENTS" instance=ExtResource("11_praa1")]
 
-[node name="StatusManager" parent="." instance=ExtResource("11_l5sc5")]
+[node name="HealthComponent" parent="COMPONENTS" instance=ExtResource("12_magsr")]
 
-[node name="----COMPONENTS-------" type="Node" parent="."]
+[node name="ANIMATIONS" type="Node" parent="."]
 
-[node name="HurtBoxComponent" parent="." instance=ExtResource("12_ibgx5")]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
-position = Vector2(-0.5, -8)
-shape = SubResource("CapsuleShape2D_17uwg")
-
-[node name="HealthComponent" parent="." instance=ExtResource("13_fe0ip")]
-
-[node name="ManaComponent" parent="." instance=ExtResource("14_x1bvg")]
-
-[node name="----ANIMATIONS---------" type="Node" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ANIMATIONS"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_bc3sj")
 }
 speed_scale = 0.8
 
-[node name="AttackAnimations" type="AnimationPlayer" parent="."]
+[node name="AttackAnimations" type="AnimationPlayer" parent="ANIMATIONS"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_poquf")
 }
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="MANAGERS" type="Node" parent="."]
+
+[node name="AbilityManager" parent="MANAGERS" instance=ExtResource("10_el3lh")]
+process_mode = 3
