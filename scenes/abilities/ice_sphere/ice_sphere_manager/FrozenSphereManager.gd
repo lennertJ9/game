@@ -19,8 +19,8 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed(input):
 		use()
-		ability_used.emit(2.0)
-		
+		ability_used.emit(cooldown)
+
 
 
 func use():

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi0e78k8d534e"]
+
+[ext_resource type="Script" path="res://scenes/abilities/DotEffect/dot_manager/DotManager.gd" id="1_03qod"]
+[ext_resource type="PackedScene" uid="uid://dtgixevxnbk2w" path="res://scenes/abilities/DotEffect/DotAbility.tscn" id="2_d52tn"]
+
+[node name="DotManager" type="Node2D"]
+script = ExtResource("1_03qod")
+ability_scene = ExtResource("2_d52tn")

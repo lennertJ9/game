@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://d03rdg0r6xq7w"]
 
 [ext_resource type="Script" path="res://scenes/testscenes/testscene.gd" id="1_blohx"]
-[ext_resource type="PackedScene" uid="uid://c4m5cot2i8iha" path="res://scenes/abilities/ice_sphere/ice_sphere_manager/FrozenSphereManager.tscn" id="2_hlm61"]
 [ext_resource type="PackedScene" uid="uid://b5kgj8xiiuw5n" path="res://scenes/entities/monsters/skeleton/Skeleton.tscn" id="2_swrdh"]
+[ext_resource type="PackedScene" uid="uid://bi0e78k8d534e" path="res://scenes/abilities/DotEffect/dot_manager/DotManager.tscn" id="3_6nwek"]
 
 [node name="Testscene" type="Node2D"]
 y_sort_enabled = true
@@ -11,8 +11,8 @@ script = ExtResource("1_blohx")
 [node name="Skeleton" parent="." instance=ExtResource("2_swrdh")]
 position = Vector2(175, -1)
 
-[node name="FrozenSphereManager" parent="." instance=ExtResource("2_hlm61")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(103, 13)
 zoom = Vector2(5, 5)
+
+[node name="DotManager" parent="." instance=ExtResource("3_6nwek")]
