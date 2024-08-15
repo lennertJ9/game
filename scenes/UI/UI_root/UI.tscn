@@ -18,6 +18,10 @@ wait_time = 0.5
 autostart = true
 
 [node name="InventoryManager" parent="." instance=ExtResource("4_g776u")]
+offset_left = 1375.0
+offset_top = 413.0
+offset_right = 1375.0
+offset_bottom = 413.0
 
 [node name="AbilityMenu" parent="." instance=ExtResource("6_uwnyi")]
 visible = false

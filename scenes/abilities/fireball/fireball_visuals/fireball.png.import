@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5txj1ig3exi0"
-path="res://.godot/imported/Bolt.png-616fa9b9e59d76118df7bdd5d9215ca0.ctex"
+uid="uid://bsqwrtbun8lfi"
+path="res://.godot/imported/fireball.png-296affd88161e905106210b36b72f1e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/Bolt.png"
-dest_files=["res://.godot/imported/Bolt.png-616fa9b9e59d76118df7bdd5d9215ca0.ctex"]
+source_file="res://scenes/abilities/fireball/fireball_visuals/fireball.png"
+dest_files=["res://.godot/imported/fireball.png-296affd88161e905106210b36b72f1e8.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjp6qn2rfcepr"
-path="res://.godot/imported/ice_sphere_particles.png-795dd3e2a6ff4730a88683226c362cbf.ctex"
+path="res://.godot/imported/ice_sphere_particles.png-1ac1424cf93200acdf2c06081a316d8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ice_sphere/ice_sphere_particles.png"
-dest_files=["res://.godot/imported/ice_sphere_particles.png-795dd3e2a6ff4730a88683226c362cbf.ctex"]
+source_file="res://scenes/abilities/ice_sphere/frozen_sphere_visuals/ice_sphere_particles.png"
+dest_files=["res://.godot/imported/ice_sphere_particles.png-1ac1424cf93200acdf2c06081a316d8f.ctex"]
 
 [params]
 

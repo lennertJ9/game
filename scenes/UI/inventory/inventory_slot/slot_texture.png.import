@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1dnt1rkiwneh"
-path="res://.godot/imported/ice_sphere_head.png-9f5b82617cfd44a08312ece5d683f785.ctex"
+uid="uid://cg1xa5i7ygs15"
+path="res://.godot/imported/slot_texture.png-397349c25168654904f9ec98fc8e8adc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ice_sphere/ice_sphere_head.png"
-dest_files=["res://.godot/imported/ice_sphere_head.png-9f5b82617cfd44a08312ece5d683f785.ctex"]
+source_file="res://scenes/UI/inventory/inventory_slot/slot_texture.png"
+dest_files=["res://.godot/imported/slot_texture.png-397349c25168654904f9ec98fc8e8adc.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://bufe5q7khf7oq"]
 
-[ext_resource type="Texture2D" uid="uid://b1dnt1rkiwneh" path="res://assets/abilities/ice_sphere/ice_sphere_head.png" id="1_jt386"]
+[ext_resource type="Texture2D" uid="uid://b1dnt1rkiwneh" path="res://scenes/abilities/ice_sphere/frozen_sphere_visuals/ice_sphere_head.png" id="1_jt386"]
 [ext_resource type="Script" path="res://scenes/abilities/ice_sphere/ICESPHERE.gd" id="1_xlg6v"]
-[ext_resource type="Texture2D" uid="uid://dea457smb3uqf" path="res://assets/abilities/ice_sphere/particle2.png" id="4_it2gq"]
+[ext_resource type="Texture2D" uid="uid://dea457smb3uqf" path="res://scenes/abilities/ice_sphere/frozen_sphere_visuals/particle2.png" id="4_it2gq"]
 [ext_resource type="PackedScene" uid="uid://mroqafay5632" path="res://scenes/components/hitbox_component/HitBoxComponent.tscn" id="4_r0rdh"]
 
 [sub_resource type="Gradient" id="Gradient_2kqeq"]

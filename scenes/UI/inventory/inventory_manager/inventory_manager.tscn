@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/UI/inventory/inventory_manager/InventoryManager.gd" id="1_cnfwq"]
 [ext_resource type="PackedScene" uid="uid://dbiygvsku8k31" path="res://scenes/UI/inventory/inventory/Inventory.tscn" id="2_m6gbb"]
-[ext_resource type="Resource" uid="uid://ct0nm74ye6hvu" path="res://resources/inventory/player_inventory.tres" id="3_on4t4"]
+[ext_resource type="Resource" uid="uid://cffbnwft2vudv" path="res://resources/inventory/player_inventory.tres" id="3_on4t4"]
 
 [node name="InventoryManager" type="Control"]
 layout_mode = 3
@@ -13,19 +13,17 @@ script = ExtResource("1_cnfwq")
 [node name="PlayerInventory" parent="." instance=ExtResource("2_m6gbb")]
 visible = false
 layout_mode = 0
-offset_left = 1584.0
-offset_top = 550.0
-offset_right = 1735.0
-offset_bottom = 639.0
+offset_right = 128.0
+offset_bottom = 82.0
 inventory_resource = ExtResource("3_on4t4")
 
 [node name="ChestInventory" parent="." instance=ExtResource("2_m6gbb")]
 visible = false
 layout_mode = 0
-offset_left = 796.0
-offset_top = 550.0
-offset_right = 947.0
-offset_bottom = 639.0
+offset_left = 240.0
+offset_top = 81.0
+offset_right = 391.0
+offset_bottom = 170.0
 inventory_source = 1
 
 [node name="Preview" type="Control" parent="."]

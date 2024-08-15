@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_a2tdh"]
 [ext_resource type="Resource" uid="uid://jdbuxjueoppv" path="res://resources/stats/player_stats.tres" id="2_hvpdv"]
-[ext_resource type="Resource" uid="uid://ct0nm74ye6hvu" path="res://resources/inventory/player_inventory.tres" id="3_guvfk"]
+[ext_resource type="Resource" uid="uid://cffbnwft2vudv" path="res://resources/inventory/player_inventory.tres" id="3_guvfk"]
 [ext_resource type="Texture2D" uid="uid://c1hu4fyc15ksc" path="res://assets/entities/player/shadow.png" id="4_d8wdj"]
 [ext_resource type="Material" uid="uid://c1hk8eir2wunl" path="res://shaders/hit_flash/HitFlashShader.tres" id="5_2snsg"]
 [ext_resource type="Texture2D" uid="uid://c8o4n6pdcjsh0" path="res://assets/entities/player/player_legs.png" id="6_mhnbt"]

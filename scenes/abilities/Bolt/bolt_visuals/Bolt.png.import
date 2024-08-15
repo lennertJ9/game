@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dea457smb3uqf"
-path="res://.godot/imported/particle2.png-c0929899d617a4cc62501f84c63c3759.ctex"
+uid="uid://c5txj1ig3exi0"
+path="res://.godot/imported/Bolt.png-a1ca9bc590ed161b37260753ef7fa5fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/abilities/ice_sphere/particle2.png"
-dest_files=["res://.godot/imported/particle2.png-c0929899d617a4cc62501f84c63c3759.ctex"]
+source_file="res://scenes/abilities/Bolt/bolt_visuals/Bolt.png"
+dest_files=["res://.godot/imported/Bolt.png-a1ca9bc590ed161b37260753ef7fa5fc.ctex"]
 
 [params]
 
