@@ -21,7 +21,7 @@ func _physics_process(delta):
 
 
 func initialize():
-	print("enter flee")
+	
 	await get_tree().physics_frame
 	owner.animation_player.speed_scale = 2
 
@@ -35,7 +35,7 @@ func initialize():
 
 
 func finalize():
-	print("end state flee")
+
 	$Timer.stop()
 	owner.animation_player.speed_scale = 1.25
 	

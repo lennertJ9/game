@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvpyu7gn3w55o"]
+
+[ext_resource type="Script" path="res://scenes/UI/inventory/inventory_slot/InventorySlot.gd" id="1_4ni8t"]
+[ext_resource type="Texture2D" uid="uid://cg1xa5i7ygs15" path="res://scenes/UI/inventory/inventory_slot/textures/slot_texture.png" id="2_f2hgx"]
+
+[node name="InventorySlot" type="Control"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2030.0
+offset_bottom = -1134.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ni8t")
+
+[node name="SlotTexture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+texture = ExtResource("2_f2hgx")
+stretch_mode = 2
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+stretch_mode = 2
+
+[node name="AmountLabel" type="Label" parent="."]
+modulate = Color(0.65098, 0.572549, 0.466667, 1)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 12.0
+offset_right = 41.0
+offset_bottom = 28.0
+scale = Vector2(0.3, 0.3)
+text = "0"
+horizontal_alignment = 2

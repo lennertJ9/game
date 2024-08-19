@@ -22,7 +22,6 @@ func _ready():
 
 
 func change_health(amount: int):
-	print(amount)
 	if amount > value:
 		heal_animation()
 		value = amount

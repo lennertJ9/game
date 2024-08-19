@@ -1,59 +1,82 @@
 extends Control
 
 signal drag
-signal drop
 signal swap
+signal drop
+signal stack
+signal update_resource
 
-@export var inventory_item: InventoryItem
 
-@onready var slot_texture = $SlotTexture
 @onready var item_texture = $ItemTexture
+@onready var amount_label = $AmountLabel
 
-var source: int
+var item: InventoryItem
+var item_amount: int
 
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
-	if inventory_item:
-		item_texture.texture = inventory_item.item_texture
-	source = get_parent().get_parent().inventory_source
+	if item:
+		update_slot(item)
+	else:
+		update_slot(null)
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
-func update_slot(item: InventoryItem):
-	if item:
-		inventory_item = item
-		item_texture.texture = item.item_texture
-		$AnimationPlayer.play("big_drop")
+func update_slot(inventory_item: InventoryItem):
+	if inventory_item:
+		item = inventory_item
+		item_texture.texture = inventory_item.texture
+		update_resource.emit(inventory_item, get_index())
+		update_label(inventory_item)
 	else:
-		inventory_item = null
+		item = null
 		item_texture.texture = null
+		update_resource.emit(null, get_index())
+		update_label(null)
+
 
 
 func _get_drag_data(at_position):
-	$AnimationPlayer.play("drop")
-	if inventory_item:
-		var data = inventory_item
-		update_slot(null)
-		drag.emit(data, get_index(),source)
+	if item:
+		var data = item
+		drag.emit(data, self)
+		var user_interface = get_tree().get_first_node_in_group("UI")
+		user_interface.preview_manager.make_preview(data.texture)
 		return data
 
 
+
 func _can_drop_data(at_position, data):
-	$AnimationPlayer.play("drop")
 	if data is InventoryItem:
 		return true
 
 
 
 func _drop_data(at_position, data):
-	if inventory_item:
-		swap.emit(inventory_item, get_index(), source)
+	if item:
+		if item.name == data.name and item.stackable:
+			stack.emit(item,self)
+		else:
+			swap.emit(item,self)
 	else:
-		drop.emit(data, get_index(), source)
-		
-	
+		drop.emit(data,self)
+
+
+
+func update_label(inventory_item: InventoryItem):
+	if inventory_item:
+		amount_label.text = str(inventory_item.quantity)
+		amount_label.visible = true
+	else:
+		amount_label.visible = false
+
+
+
+func _gui_input(event):
+	var health_component: HealthComponent = get_tree().get_first_node_in_group("player").health_component
+	if event.is_action_pressed("right_click") and item:
+		item.use(health_component)
+
 
 

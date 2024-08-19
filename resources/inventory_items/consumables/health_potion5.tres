@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://dfnf1nu34nr75"]
+
+[ext_resource type="Script" path="res://resources/inventory_items/consumables/scripts/consumable.gd" id="1_3s6rj"]
+[ext_resource type="Texture2D" uid="uid://84g3batbt37n" path="res://assets/items/consumables/healing_potion.png" id="2_uywd5"]
+
+[resource]
+script = ExtResource("1_3s6rj")
+recovered_health = 50
+recovered_mana = 0
+name = "health potion"
+texture = ExtResource("2_uywd5")
+stackable = true
+quantity = 1

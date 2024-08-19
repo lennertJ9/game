@@ -1,9 +1,8 @@
 [gd_resource type="Resource" script_class="Inventory" load_steps=3 format=3 uid="uid://cffbnwft2vudv"]
 
-[ext_resource type="Resource" uid="uid://cu5ymieoyy27f" path="res://resources/inventory_items/consumables/healing_potion.tres" id="1_unlqc"]
-[ext_resource type="Script" path="res://resources/inventory/inventory.gd" id="2_02gri"]
+[ext_resource type="Script" path="res://resources/inventory/scripts/inventory.gd" id="1_ek4y1"]
+[ext_resource type="Resource" uid="uid://dfnf1nu34nr75" path="res://resources/inventory_items/consumables/health_potion5.tres" id="1_nxigm"]
 
 [resource]
-script = ExtResource("2_02gri")
-items = Array[Resource("res://resources/inventory/inventory_item.gd")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ExtResource("1_unlqc"), null, null, null, null, null, null, null, null])
-inventory_size = 0
+script = ExtResource("1_ek4y1")
+items = Array[Resource("res://resources/inventory_items/scripts/inventory_item.gd")]([ExtResource("1_nxigm"), null, null, null, null, null])

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://66piq0vvug0b"]
+
+[ext_resource type="PackedScene" uid="uid://bfafvgffhj7lv" path="res://scenes/UI/inventory/inventory/inventoryV2.tscn" id="1_3on5n"]
+[ext_resource type="Script" path="res://scenes/UI/inventory/inventory_manager/InventoryManager.gd" id="1_aj031"]
+[ext_resource type="Resource" uid="uid://dhdba8wfvv7sm" path="res://resources/inventory/chest1.tres" id="2_rhilb"]
+[ext_resource type="Resource" uid="uid://cffbnwft2vudv" path="res://resources/inventory/player_inventory.tres" id="3_7cojq"]
+
+[node name="InventoryManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1035.0
+offset_bottom = -673.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+script = ExtResource("1_aj031")
+
+[node name="Inventory" parent="." instance=ExtResource("1_3on5n")]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 107.6
+offset_right = 325.0
+offset_bottom = 158.6
+inventory_resource = ExtResource("3_7cojq")
+
+[node name="Chest" parent="." instance=ExtResource("1_3on5n")]
+visible = false
+layout_mode = 0
+offset_left = 151.2
+offset_top = 76.2
+offset_right = 211.2
+offset_bottom = 127.2
+inventory_resource = ExtResource("2_rhilb")

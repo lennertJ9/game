@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c3twtvvwov4x2" path="res://assets/entities/monsters/skeleton/skeleton_sword_normalmap.png" id="8_eq813"]
 [ext_resource type="PackedScene" uid="uid://bo8wlubggmo72" path="res://scenes/States/chase/Chase.tscn" id="11_cr5x3"]
 [ext_resource type="PackedScene" uid="uid://dq1xh7g6gkunl" path="res://scenes/States/attack/Attack.tscn" id="12_l8aj0"]
-[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/components/hurtbox_component/Hurtbox.tscn" id="15_cdota"]
+[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/components/hurtbox_component/HurtboxComponent.tscn" id="15_cdota"]
 [ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/components/health_component/HealthComponent.tscn" id="16_4bbny"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a424g"]

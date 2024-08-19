@@ -8,3 +8,7 @@ func _ready():
 
 
 
+
+
+func _on_timer_timeout():
+	queue_free()

@@ -1,130 +1,88 @@
 extends Control
 
 
-@onready var player_inventory = $PlayerInventory
-@onready var chest_inventory = $ChestInventory
-@onready var preview = $Preview
-@onready var preview_texture = $Preview/PreviewTexture
+@onready var inventory: InventoryUI = $Inventory
+@onready var chest: InventoryUI = $Chest
 
-var player_inventory_resource: Inventory
-var chest_inventory_resource: Inventory
+var is_inventory_open: bool = false
+var dragging: bool = false
+var dragging_item: InventoryItem
+var dragging_slot: Control                          
+var preview: TextureRect
 
-var drag: bool
-var player_inventory_open: bool
-var chest_inventory_open: bool
-
-var current_dragging_item: InventoryItem
-var current_dragging_index: int
-var current_dragging_source: int
 
 
 func _ready():
-	set_physics_process(false)
+	inventory.visible = false
+	chest.visible = false
 	
-	player_inventory_resource = player_inventory.inventory_resource
-	
-	
-	for slot in player_inventory.inventory_slots.get_children():
+	set_process(false)
+	for slot in inventory.slots.get_children():
 		slot.drag.connect(on_drag)
 		slot.drop.connect(on_drop)
+		slot.stack.connect(on_stack)
 		slot.swap.connect(on_swap)
 		
-	for slot in chest_inventory.inventory_slots.get_children():
+	for slot in chest.slots.get_children():
 		slot.drag.connect(on_drag)
 		slot.drop.connect(on_drop)
+		slot.stack.connect(on_stack)
 		slot.swap.connect(on_swap)
 
-	player_inventory.close_button.connect(close_player_inventory)
-	player_inventory.invalid_drop.connect(invalid_drop)
-	
-	chest_inventory.close_button.connect(close_chest)
-	chest_inventory.invalid_drop.connect(invalid_drop)
 
 
+func open():
+	if is_inventory_open:
+		inventory.visible = false
+		is_inventory_open = false
+	else:
+		inventory.visible = true
+		is_inventory_open = true
 
-func _physics_process(delta):
-	preview.position = lerp(preview.position,get_global_mouse_position(), 15*delta)
+
 
 
 func _input(event):
-	if event.is_action_pressed("inventory"):
-		open_player_inventory()
-
-
-	if event is InputEventMouseButton and drag:
-		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-			set_physics_process(false)
-			preview_texture.texture = null
-			drag = false
+	if event.is_action_pressed("debug"):
+		pass
 
 
 
-func make_preview(texture: Texture2D):
-	preview.position = get_global_mouse_position()
-	drag = true
-	preview_texture.texture = texture
-	set_physics_process(true)
+func on_drag(inventory_item: InventoryItem, slot: Control):
+	slot.update_slot(null)
+	dragging = true
+	dragging_item = inventory_item
+	dragging_slot = slot
 
 
 
-func open_chest(inventory: Inventory):
-	if !chest_inventory_open:
-		chest_inventory_open = true
-		chest_inventory_resource = inventory
-		chest_inventory.load_inventory(inventory)
-		chest_inventory.open()
+
+func on_drop(inventory_item: InventoryItem, slot: Control):
+	slot.update_slot(inventory_item)
+	remove_child(preview)
+	dragging = false
+	dragging_item = null
+	dragging_slot = null
 
 
 
-func close_chest():
-	if chest_inventory_open:
-		chest_inventory_open = false
-		chest_inventory.close()
+func on_stack(inventory_item: InventoryItem, slot: Control):
+	inventory_item.quantity += dragging_item.quantity
+	slot.update_slot(inventory_item)
 
 
-func open_player_inventory():
-	player_inventory.open()
+
+func on_swap(inventory_item: InventoryItem, slot: Control):
+	dragging_slot.update_slot(inventory_item)
+	slot.update_slot(dragging_item)
 	
 
 
-func close_player_inventory():
-	player_inventory.close()
-	
-
-func on_drag(data, index,source): # emit van slot drag functie
-	make_preview(data.item_texture)
-	current_dragging_item = data
-	current_dragging_index = index
-	current_dragging_source = source
+func _can_drop_data(at_position, data):
+	return true
 
 
 
-func on_drop(item: InventoryItem, index: int, source: int): # emit van slot drop functie
-	var drop_slot = get_child(source).inventory_slots.get_child(index)
-	drop_slot.update_slot(item)
-	update_inventory_resource(item, index, source)
-	update_inventory_resource(null, current_dragging_index, current_dragging_source)
-
-
-
-func on_swap(item: InventoryItem, index: int, source: int): # emit van slot drop functie
-	var drop_slot = get_child(source).inventory_slots.get_child(index) # slot waar we droppen
-	var drag_slot = get_child(current_dragging_source).inventory_slots.get_child(current_dragging_index) # slot waarvan we draggen
-	
-	drop_slot.update_slot(current_dragging_item)
-	update_inventory_resource(current_dragging_item, index, source)
-	
-	drag_slot.update_slot(item)
-	update_inventory_resource(item, current_dragging_index, current_dragging_source)
-
-
-
-func update_inventory_resource(item: InventoryItem, index: int, source: int):
-	get_child(source).inventory_resource.items[index] = item
-
-
-func invalid_drop(item: InventoryItem):
-	var slot = get_child(current_dragging_source).inventory_slots.get_child(current_dragging_index)
-	slot.update_slot(item)
-	update_inventory_resource(item, current_dragging_index, current_dragging_source)
-
+func _drop_data(at_position, data):
+	if dragging_slot:
+		dragging_slot.update_slot(dragging_item)

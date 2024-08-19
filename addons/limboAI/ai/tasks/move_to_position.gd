@@ -14,7 +14,7 @@ func _tick(_delta: float) -> Status:
 	
 	if agent.global_position.distance_to(target_pos) < tolerance:
 		agent.move(dir,0)
-		print("reachezd")
+	
 		return SUCCESS
 	else:
 		agent.move(dir, speed_var)

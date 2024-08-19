@@ -8,6 +8,7 @@ class_name ability_menu_slot
 func _get_drag_data(at_position):
 	if current_ability:
 		drag.emit(current_ability, get_index())
+		get_tree().get_first_node_in_group("UI").preview_manager.make_preview(current_ability.icon)
 		return current_ability
 
 

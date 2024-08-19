@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4m5cot2i8iha"]
+
+[ext_resource type="Script" path="res://scenes/abilities/frozen_sphere/frozen_sphere_manager/FrozenSphereManager.gd" id="1_ylcqe"]
+[ext_resource type="PackedScene" uid="uid://bufe5q7khf7oq" path="res://scenes/abilities/frozen_sphere/ICESPHERE.tscn" id="2_78vhy"]
+
+[node name="FrozenSphereManager" type="Node2D"]
+script = ExtResource("1_ylcqe")
+ability_scene = ExtResource("2_78vhy")
+
+[node name="AbilityCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="AbilityCooldown" to="." method="_on_ability_cooldown_timeout"]

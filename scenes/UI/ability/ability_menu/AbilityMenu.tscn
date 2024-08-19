@@ -1,53 +1,106 @@
 [gd_scene load_steps=6 format=3 uid="uid://cg58h60sbgxk5"]
 
 [ext_resource type="Script" path="res://scenes/UI/ability/ability_menu/AbilityMenu.gd" id="1_140sw"]
-[ext_resource type="Texture2D" uid="uid://gpbg2bp4sch8" path="res://assets/UI/ability_menu/ability_menu_background.png" id="2_fwn4j"]
+[ext_resource type="Texture2D" uid="uid://cih0v0uwm4opt" path="res://scenes/UI/inventory/inventory/textures/inventory_background.png" id="1_kxwd4"]
 [ext_resource type="PackedScene" uid="uid://4brgxggmquvh" path="res://scenes/UI/ability/ability_slot/AbilitySlot.tscn" id="3_fapc2"]
 [ext_resource type="Script" path="res://scenes/UI/ability/ability_menu/ability_menu_slot.gd" id="4_hwh1u"]
 [ext_resource type="Resource" uid="uid://c1u4kt71f8b2j" path="res://resources/abilities/frozen_sphere.tres" id="7_bl1qb"]
 
-[node name="AbilityMenu" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_fwn4j")
+[node name="AbilityMenu" type="NinePatchRect"]
+offset_right = 137.0
+offset_bottom = 78.0
+texture = ExtResource("1_kxwd4")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 script = ExtResource("1_140sw")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 128.0
-offset_bottom = 70.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -31.0
+offset_right = 59.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/h_separation = 2
 columns = 6
 
 [node name="AbilitySlot" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
-input_key = null
 
 [node name="AbilitySlot2" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
-input_key = null
 
 [node name="AbilitySlot3" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
 current_ability = ExtResource("7_bl1qb")
-input_key = null
 
 [node name="AbilitySlot4" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
-input_key = null
 
 [node name="AbilitySlot5" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
-input_key = null
 
 [node name="AbilitySlot6" parent="GridContainer" instance=ExtResource("3_fapc2")]
 layout_mode = 2
 script = ExtResource("4_hwh1u")
-input_key = null
+
+[node name="AbilitySlot7" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot8" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot9" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot10" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot11" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot12" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot13" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot14" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot15" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot16" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot17" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")
+
+[node name="AbilitySlot18" parent="GridContainer" instance=ExtResource("3_fapc2")]
+layout_mode = 2
+script = ExtResource("4_hwh1u")

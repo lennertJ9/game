@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="game"
-run/main_scene="res://scenes/maps/main/main.tscn"
+run/main_scene="res://scenes/maps/glimmering_grove/GlimmeringGrove.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -75,7 +75,7 @@ folder_colors={
 "res://resources/": "purple",
 "res://scenes/": "blue",
 "res://scenes/UI/": "green",
-"res://scenes/UI/inventory/": "green",
+"res://scenes/UI/inventory/": "yellow",
 "res://scenes/components/": "blue",
 "res://shaders/": "red"
 }
@@ -149,6 +149,11 @@ dialogic_default_action={
 Interact={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194447,"key_label":0,"unicode":57,"echo":false,"script":null)
+]
+}
+ability_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":79,"key_label":0,"unicode":111,"echo":false,"script":null)
 ]
 }
 

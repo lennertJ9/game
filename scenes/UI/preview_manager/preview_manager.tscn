@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpc5c4qnwgr7a"]
+
+[ext_resource type="Script" path="res://scenes/UI/user_interface/PreviewManager.gd" id="1_ht4vq"]
+
+[node name="PreviewManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_ht4vq")

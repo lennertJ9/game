@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://mroqafay5632" path="res://scenes/components/hitbox_component/HitBoxComponent.tscn" id="2_ur3ni"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ix7x"]
-radius = 38.0
+radius = 60.0
 
 [node name="DotAbility" type="Node2D"]
 script = ExtResource("1_qjkxb")
@@ -17,3 +17,9 @@ dot_interval = 0.33
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
 shape = SubResource("CircleShape2D_3ix7x")
 debug_color = Color(0.152941, 0.14902, 0.317647, 0.419608)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -21,7 +21,7 @@ class_name Player
 
 # -------------- COMPONENTS --------------------
 @export var hurt_box_component: Node2D
-@export var health_component: Node
+@export var health_component: HealthComponent
 @export var status_component: Node
 
 
@@ -39,7 +39,7 @@ var boolie = true
 
 func _ready():
 	update_player_stats()
-	connect_signals()
+	#connect_signals()
 	
 
 
@@ -114,9 +114,8 @@ func connect_signals():
 	var UI = get_tree().get_first_node_in_group("UI")
 	
 	for slot in UI.ability_bar.slots:
-		
 		slot.drop.connect(ability_manager.set_ability)
-	#ability_manager.ability_use.connect(UI.ability_bar.start_cooldown)
+	
 
 
 

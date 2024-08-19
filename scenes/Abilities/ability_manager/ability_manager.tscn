@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cn74ssxkt4xuf"]
 
-[ext_resource type="Script" path="res://scenes/entities/player/AbilityManager.gd" id="1_isahi"]
+[ext_resource type="Script" path="res://scenes/abilities/ability_manager/AbilityManager.gd" id="1_wh886"]
 
 [node name="AbilityManager" type="Node"]
-script = ExtResource("1_isahi")
+script = ExtResource("1_wh886")
 
 [node name="AttackSpeedTimer" type="Timer" parent="."]
 wait_time = 0.1

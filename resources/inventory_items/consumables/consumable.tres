@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="consumable" load_steps=2 format=3 uid="uid://dgrnujwv63qk5"]
-
-[ext_resource type="Script" path="res://resources/inventory_items/consumables/consumable.gd" id="1_ieesu"]
-
-
-[resource]
-script = ExtResource("1_ieesu")
-item_name = ""
-item_type = ""

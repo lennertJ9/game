@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/maps/elderwood/Elderwood.gd" id="1_atpht"]
 [ext_resource type="TileSet" uid="uid://bai2g040pgxn8" path="res://resources/tilemap/forest_tileset.tres" id="1_r70ol"]
 [ext_resource type="PackedScene" uid="uid://cggyi7nueyoya" path="res://scenes/camera/Camera.tscn" id="3_4uryc"]
+[ext_resource type="PackedScene" uid="uid://riaycvu1w5m2" path="res://scenes/UI/user_interface/user_interface.tscn" id="3_yc3gg"]
 [ext_resource type="PackedScene" uid="uid://dywg1dlia21m4" path="res://scenes/entities/player/player.tscn" id="4_m5x6j"]
-[ext_resource type="PackedScene" uid="uid://riaycvu1w5m2" path="res://scenes/UI/UI_root/UI.tscn" id="5_hcr6g"]
 [ext_resource type="PackedScene" uid="uid://bin1sijj8x64v" path="res://scenes/miscellaneous/fog/Fog.tscn" id="6_n8bh0"]
 [ext_resource type="PackedScene" uid="uid://dprgt5xrujxtu" path="res://scenes/entities/npc/christina/Christina.tscn" id="7_8qgx7"]
 
@@ -26,7 +26,7 @@ layer_2/y_sort_enabled = true
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(-196601, 4, 0, 262156, 5, 0, 4, 65538, 0, -65526, 65538, 0, 10, 65538, 0, -196608, 65539, 0, -327665, 65539, 0, -65509, 65539, 0, -393188, 131075, 0, -196571, 131075, 0, 327717, 3, 0, 524315, 65539, 0, 589834, 3, 0, 983038, 131075, 0, 589822, 65539, 0, 655362, 65539, 0, -1048565, 3, 1, -917507, 3, 1, -1048590, 3, 1, -917515, 3, 1, -524302, 3, 1, -524276, 65538, 0, 65528, 65538, 0, -655367, 65538, 0, 655348, 3, 1, 524271, 3, 1, 589801, 3, 1, 1179636, 3, 1, 1441774, 3, 1, 1245161, 3, 1, 1245198, 3, 1, 1310767, 3, 1, 393265, 3, 1, -589777, 3, 1, -982998, 3, 1, -720867, 3, 1)
 
-[node name="UI" parent="." instance=ExtResource("5_hcr6g")]
+[node name="UI" parent="." instance=ExtResource("3_yc3gg")]
 
 [node name="Player" parent="." instance=ExtResource("4_m5x6j")]
 position = Vector2(-120, 60)
@@ -50,7 +50,5 @@ y_sort_enabled = true
 
 [node name="Christina" parent="." instance=ExtResource("7_8qgx7")]
 position = Vector2(33, 20)
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

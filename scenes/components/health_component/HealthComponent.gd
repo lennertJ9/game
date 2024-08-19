@@ -1,4 +1,5 @@
 extends Node
+class_name HealthComponent
 
 signal health_changed
 
@@ -16,6 +17,6 @@ func damage(amount):
 	stats.current_health -= amount
 	if stats.current_health < 0:
 		stats.current_health = 0
-		print("died")
+
 	
 	health_changed.emit(stats.current_health)

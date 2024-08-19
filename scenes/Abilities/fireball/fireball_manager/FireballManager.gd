@@ -27,7 +27,7 @@ func use(): # checkt voor cooldown, add de ability als child, in de wereld
 
 
 func make_ability() -> Node2D: # maakt de ability klaar om in de wereld gezet te worden, zet de proporties
-	print("make, ability resourcce -->", ability_resource)
+	
 	var ability = ability_scene.instantiate()
 	ability.damage = ability_resource.damage
 	ability.speed = ability_resource.speed

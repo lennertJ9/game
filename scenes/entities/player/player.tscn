@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dfv380fsd06b3" path="res://assets/weapons/blue_crystal.png" id="9_4h1ff"]
 [ext_resource type="PackedScene" uid="uid://cn74ssxkt4xuf" path="res://scenes/abilities/ability_manager/ability_manager.tscn" id="10_el3lh"]
 [ext_resource type="PackedScene" uid="uid://i6cld88cc2u2" path="res://scenes/components/status_component/status_manager.tscn" id="11_praa1"]
-[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/components/hurtbox_component/Hurtbox.tscn" id="12_bu8i5"]
+[ext_resource type="PackedScene" uid="uid://bvvyfxv83le51" path="res://scenes/components/hurtbox_component/HurtboxComponent.tscn" id="12_bu8i5"]
 [ext_resource type="PackedScene" uid="uid://4qv2wudjusch" path="res://scenes/components/health_component/HealthComponent.tscn" id="12_magsr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wb5ct"]

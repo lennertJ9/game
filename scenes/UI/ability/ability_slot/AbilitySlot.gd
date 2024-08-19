@@ -6,7 +6,7 @@ signal drag
 signal drop
 
 @export var current_ability: Ability
-@export var input_key: String
+var input_key: String
 
 @onready var progress_bar = $ProgressBar
 
@@ -23,15 +23,7 @@ func _ready():
 
 func _process(delta):
 	progress_bar.value = $CooldownTimer.time_left
-	
-	
 
-func _get_drag_data(at_position):
-	if current_ability:
-		drag.emit(current_ability, get_index())
-		var data = current_ability
-		update_slot(null)
-		return data
 
 
 
@@ -49,6 +41,16 @@ func update_slot(ability: Ability):
 
 
 
+func _get_drag_data(at_position):
+	if current_ability:
+		var data = current_ability
+		drag.emit(data, get_index())
+		update_slot(null)
+		get_tree().get_first_node_in_group("UI").preview_manager.make_preview(data.icon)
+		return data
+
+
+
 func _can_drop_data(at_position, data):
 	if data is Ability:
 		return true
@@ -59,8 +61,7 @@ func _drop_data(at_position, data):
 	update_slot(data)
 	drop.emit(data, get_index())
 	
-
-
+	
 
 func start_cooldown(time: float):
 	set_process(true)
@@ -74,10 +75,6 @@ func start_cooldown(time: float):
 func _on_cooldown_timer_timeout():
 	progress_bar.value = 0.0 # op 0.0 zetten want soms blijft er voor een of andere reden 0.2 over?
 	set_process(false)
-
-
-
-
 
 
 

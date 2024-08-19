@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://c13hfyxpyffy6"]
+
+[ext_resource type="Script" path="res://resources/abilities/Ability.gd" id="1_7hfj7"]
+[ext_resource type="Texture2D" uid="uid://dfv380fsd06b3" path="res://assets/weapons/blue_crystal.png" id="1_tdmkd"]
+[ext_resource type="PackedScene" uid="uid://bi0e78k8d534e" path="res://scenes/abilities/DotEffect/dot_manager/DotManager.tscn" id="2_sy4e5"]
+
+[resource]
+script = ExtResource("1_7hfj7")
+name = "dot ability"
+icon = ExtResource("1_tdmkd")
+manager = ExtResource("2_sy4e5")
