@@ -8,15 +8,15 @@ class_name Player
 @export var player_inventory : Inventory
 
 # -------------- ANIMATIONS ---------------------------------
-@onready var animation_player = $"ANIMATIONS/AnimationPlayer"
-@onready var attack_animations = $"ANIMATIONS/AttackAnimations"
+@onready var animation_player: AnimationPlayer = $"ANIMATIONS/AnimationPlayer"
+@onready var attack_animations: AnimationPlayer = $"ANIMATIONS/AttackAnimations"
 
 
 # -------------- VISUALS -----------------
-@onready var visuals = $Visuals
-@onready var run_dust = $Visuals/RunDust
-@onready var hand_left = $Visuals/HandLeft
-@onready var weapon = $Visuals/Weapon
+@onready var visuals: Node2D = $Visuals
+@onready var run_dust: Sprite2D = $Visuals/RunDust
+@onready var hand_left: Sprite2D = $Visuals/HandLeft
+@onready var weapon: Sprite2D = $Visuals/Weapon
 
 
 # -------------- COMPONENTS --------------------
@@ -26,30 +26,27 @@ class_name Player
 
 
 # ------------- MANAGERS -------------------------
-@onready var ability_manager = $MANAGERS/AbilityManager
+@onready var ability_manager: Node = $MANAGERS/AbilityManager
 
 
 # walking system
 var movement_direction: Vector2
 var current_direction: Vector2
 var speed_status_modifier: float = 1.0
-var target = Vector2.ZERO
-var boolie = true
+var target: Vector2 = Vector2.ZERO
+var boolie: bool = true
 
 
-func _ready():
-	update_player_stats()
-	#connect_signals()
+
+
+
+func _process(delta: float) -> void:
+	var direction_to_mouse: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	var target_position: Vector2 = global_position + Vector2(0,-4) + direction_to_mouse * 7
 	
 
 
-func _process(delta):
-	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
-	var target_position = global_position + Vector2(0,-4) + direction_to_mouse * 7
-	
-
-
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 	velocity = movement_direction * stats.movement_speed * speed_status_modifier
 	
 	if position.distance_to(target) > 1:
@@ -59,7 +56,7 @@ func _physics_process(_delta):
 	
 
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
 		mouse_click_animation()
 		target = get_global_mouse_position()
@@ -73,13 +70,10 @@ func _input(event):
 				visuals.scale.x = 1
 
 
-func update_player_stats():
-	pass
 
 
-
-func hit_flash():
-	var shader = $Visuals/Leg.material as ShaderMaterial
+func hit_flash() -> void:
+	var shader: ShaderMaterial = $Visuals/Leg.material as ShaderMaterial
 	shader.set_shader_parameter("amount", .8)
 	shader.set_shader_parameter("active", true)
 	await get_tree().create_timer(0.125).timeout
@@ -87,35 +81,16 @@ func hit_flash():
 
 
 
-func hide_weapon():
-	attack_animations.play('HIDE_WEAPON')
-	
 
-func play_animation():
-	if boolie:
-		attack_animations.play("ATTACK_DOWN")
-		boolie = false
-		
-	else:
-		attack_animations.play("ATTACK_DOWN_2")
-		boolie = true
-
-
-
-func mouse_click_animation():
-	var animation = preload("res://scenes/animations/mouse_click/MouseClick.tscn").instantiate()
-	var world = get_tree().get_first_node_in_group("world")
+func mouse_click_animation() -> void:
+	var animation: Node = preload("res://scenes/animations/mouse_click/MouseClick.tscn").instantiate()
+	var world: Node = get_tree().get_first_node_in_group("world")
 	animation.global_position = get_global_mouse_position() + Vector2(0,0)
 	get_parent().add_child(animation)
 
 
 
-func connect_signals():
-	var UI = get_tree().get_first_node_in_group("UI")
-	
-	for slot in UI.ability_bar.slots:
-		slot.drop.connect(ability_manager.set_ability)
-	
+
 
 
 

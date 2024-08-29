@@ -15,8 +15,8 @@ func _ready():
 
 
 
-func set_ability(ability: Ability, index):
-	print("set")
+func set_ability(ability: Ability, index, slot:Control):
+	print("set ability: ", ability, " on slot index", index)
 	if ability:
 		check(ability)
 		var ui: UserInterface = get_tree().get_first_node_in_group("UI")
@@ -29,7 +29,7 @@ func set_ability(ability: Ability, index):
 
 
 
-func check(ability: Ability):
+func check(ability: Ability): #checken voor duplicates
 	var ui: UserInterface = get_tree().get_first_node_in_group("UI")
 	for manager in get_children():
 		if manager.name == ability.name:

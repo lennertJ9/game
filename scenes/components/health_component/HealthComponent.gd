@@ -6,13 +6,13 @@ signal health_changed
 var stats: Stats
 
 
-func _ready():
+func _ready() -> void:
 	stats = owner.stats
 	owner.hurt_box_component.hit.connect(damage)
 
 
 
-func damage(amount):
+func damage(amount: int) -> void:
 	owner.hit_flash()
 	stats.current_health -= amount
 	if stats.current_health < 0:

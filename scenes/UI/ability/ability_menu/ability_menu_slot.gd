@@ -5,23 +5,24 @@ class_name ability_menu_slot
 #func _ready():
 	#pass
 
-func _get_drag_data(at_position):
+func _get_drag_data(at_position: Vector2) -> Variant:
 	if current_ability:
 		drag.emit(current_ability, get_index())
 		get_tree().get_first_node_in_group("UI").preview_manager.make_preview(current_ability.icon)
 		return current_ability
+	else:
+		return null
 
 
-
-func _can_drop_data(at_position, data):
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return false
 
 
 
-func start_cooldown(time: float): # deze functie is niet nodig, daarom pass
+func start_cooldown(time: float) -> void: # deze functie is niet nodig, daarom pass
 	pass
 
 
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	pass

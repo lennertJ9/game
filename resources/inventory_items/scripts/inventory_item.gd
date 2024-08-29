@@ -10,7 +10,5 @@ class_name InventoryItem
 @export var quantity: int
 
 
-func _init():
-	print("init")
 
 

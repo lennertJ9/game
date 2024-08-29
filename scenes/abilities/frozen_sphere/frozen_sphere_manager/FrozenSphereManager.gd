@@ -8,7 +8,7 @@ signal ability_used
 @onready var ability_cooldown = $AbilityCooldown
 
 var is_ready: bool = false
-var cooldown: float = 2.5
+var cooldown: float = 0.5
 var input: String 
 
 var explosion_damage_ratio: float = 1.5
@@ -20,7 +20,6 @@ var player_damage: int
 func _ready():
 	player_damage = get_tree().get_first_node_in_group("player").stats.damage
 	ability_cooldown.wait_time = cooldown
-	print("emit the cooldown")
 	await get_tree().physics_frame
 	
 	ability_used.emit(cooldown) # ui timer starten

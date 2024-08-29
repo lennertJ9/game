@@ -8,12 +8,12 @@ signal drop
 @export var current_ability: Ability
 var input_key: String
 
-@onready var progress_bar = $ProgressBar
+@onready var progress_bar: Control = $ProgressBar
 
 
 
 
-func _ready():
+func _ready() -> void:
 	if current_ability:
 		progress_bar.texture_under = current_ability.icon
 		progress_bar.texture_progress = current_ability.icon
@@ -21,7 +21,7 @@ func _ready():
 
 
 
-func _process(delta):
+func _process(delta: float) -> void:
 	progress_bar.value = $CooldownTimer.time_left
 
 
@@ -29,7 +29,7 @@ func _process(delta):
 
 
 
-func update_slot(ability: Ability):
+func update_slot(ability: Ability) -> void:
 	if ability:
 		current_ability = ability
 		progress_bar.texture_under = current_ability.icon
@@ -41,43 +41,44 @@ func update_slot(ability: Ability):
 
 
 
-func _get_drag_data(at_position):
+func _get_drag_data(at_position: Vector2) -> Variant:
 	if current_ability:
-		var data = current_ability
-		drag.emit(data, get_index())
-		update_slot(null)
+		var data: Ability = current_ability
+		drag.emit(data, get_index(),self)
 		get_tree().get_first_node_in_group("UI").preview_manager.make_preview(data.icon)
 		return data
+	else:
+		return null
 
 
 
-func _can_drop_data(at_position, data):
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool :
 	if data is Ability:
 		return true
+	else:
+		return false
 
 
 
-func _drop_data(at_position, data):
-	update_slot(data)
-	drop.emit(data, get_index())
-	
-	
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	drop.emit(data, get_index(),self)
 
-func start_cooldown(time: float):
+
+
+func start_cooldown(time: float) -> void:
 	set_process(true)
-	print("startttttt")
 	progress_bar.max_value = time 
 	$CooldownTimer.wait_time = time 
 	$CooldownTimer.start()
 
 
 
-func _on_cooldown_timer_timeout():
+func _on_cooldown_timer_timeout() -> void:
 	progress_bar.value = 0.0 # op 0.0 zetten want soms blijft er voor een of andere reden 0.2 over?
 	set_process(false)
 
 
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	if current_ability:
 		drop.emit(current_ability, get_index())
