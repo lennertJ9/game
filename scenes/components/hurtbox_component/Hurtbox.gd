@@ -44,8 +44,11 @@ func _on_area_exited(area):
 	
 	colliding_hitboxes.erase(area)
 	
+<<<<<<< Updated upstream:scenes/components/hurtbox_component/Hurtbox.gd
 
 
 func _input(event):
 	if event.is_action_pressed("slot_1"):
 		print(colliding_hitboxes)
+=======
+>>>>>>> Stashed changes:scenes/components/hurtbox_component/HurtboxComponent.gd

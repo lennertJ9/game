@@ -31,7 +31,6 @@ class_name Player
 
 # walking system
 var movement_direction: Vector2
-var current_direction: Vector2
 var speed_status_modifier: float = 1.0
 var target = Vector2.ZERO
 var boolie = true
@@ -43,6 +42,7 @@ func _ready():
 	
 
 
+<<<<<<< Updated upstream
 func _process(delta):
 	var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
 	var target_position = global_position + Vector2(0,-4) + direction_to_mouse * 7
@@ -66,11 +66,42 @@ func _input(event):
 		movement_direction = position.direction_to(target)
 		if !speed_status_modifier == 0:
 			animation_player.play("RUN") 
+=======
+func _physics_process(_delta: float) -> void:
+	get_input()
+	move_and_slide()
+
+
+func get_input():
+	
+	var input_direction: Vector2 = Input.get_vector("left","right","up","down")
+	if input_direction.length() > 0:
+		movement_direction = input_direction
+	
+	if input_direction.x != 0:
+		animation_player.play("RUN_SIDE")
+	elif input_direction.y > 0:
+			animation_player.play("RUN_DOWN")
+	elif input_direction.y < 0:
+		animation_player.play("RUN_UP")
+>>>>>>> Stashed changes
 		
-			if movement_direction.x < 0:
-				visuals.scale.x = -1
-			else:
-				visuals.scale.x = 1
+	else:
+		if movement_direction.x != 0:
+			animation_player.play("IDLE_SIDE")
+		elif movement_direction.y > 0:
+			animation_player.play("IDLE_DOWN")
+		elif movement_direction.y < 0:
+			animation_player.play("IDLE_UP")
+	
+	
+	if input_direction.x > 0:
+		visuals.scale.x = 1
+	elif input_direction.x < 0:
+		visuals.scale.x = -1
+		
+	velocity = input_direction * stats.movement_speed
+
 
 
 func update_player_stats():
@@ -107,6 +138,7 @@ func mouse_click_animation():
 	var world = get_tree().get_first_node_in_group("world")
 	animation.global_position = get_global_mouse_position() + Vector2(0,0)
 	get_parent().add_child(animation)
+<<<<<<< Updated upstream
 
 
 
@@ -124,3 +156,5 @@ func connect_signals():
 
 
 
+=======
+>>>>>>> Stashed changes

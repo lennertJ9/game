@@ -45,7 +45,3 @@ func start_cooldown():
 
 func _on_ability_cooldown_timeout():
 	ability_resource.is_ready = true
-
-
-
-

@@ -673,8 +673,11 @@ starting_state = NodePath("Wander")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
+avoidance_enabled = true
+radius = 50.0
 
 [node name="HurtBoxComponent" parent="." instance=ExtResource("15_cdota")]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
@@ -688,3 +691,4 @@ debug_color = Color(0, 0.701961, 0.0784314, 0.419608)
 [connection signal="mouse_entered" from="DetectionRange" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

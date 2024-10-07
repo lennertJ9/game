@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var color_rect = $ColorRect
 
 
-const main = preload("res://scenes/maps/main/main.tscn")
+
 const elder_wood = preload("res://scenes/maps/elderwood/Elderwood.tscn")
 
 func _ready():

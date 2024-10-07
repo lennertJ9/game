@@ -10,6 +10,7 @@ class_name Inventory
 signal inventory_changed
 
 @export var items: Array[InventoryItem]
+<<<<<<< Updated upstream:resources/inventory/inventory.gd
 @export var inventory_size: int
 
 
@@ -20,3 +21,5 @@ signal inventory_changed
 
 
 
+=======
+>>>>>>> Stashed changes:resources/inventory/scripts/inventory.gd

@@ -11,6 +11,3 @@ func _input(event):
 		if get_child_count() > 3:
 			get_child(-1).queue_free()
 			remove_child(get_child(-1))
-
-
-

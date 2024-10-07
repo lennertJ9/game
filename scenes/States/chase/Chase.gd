@@ -24,15 +24,20 @@ func _physics_process(delta):
 		if owner.animation_player.current_animation != "running":
 			owner.animation_player.play("running")
 		calculate_direction()
-		
+	print(owner.velocity)
 	owner.move_and_slide()
-	
+
 
 
 
 func calculate_direction():
 		var next_path_position = agent.get_next_path_position()
-		owner.velocity = owner.global_position.direction_to(next_path_position) * owner.stats.movement_speed
+		
+		if agent.avoidance_enabled:
+			owner.velocity = owner.global_position.direction_to(next_path_position) * owner.stats.movement_speed
+			
+		else:
+			owner.velocity = owner.global_position.direction_to(next_path_position) * owner.stats.movement_speed
 
 
 func _on_timer_timeout():
@@ -40,6 +45,3 @@ func _on_timer_timeout():
 		agent.target_position = target.global_position
 		var dir = owner.global_position.direction_to(agent.target_position)
 		owner.check_sprite_direction(dir)
-
-
-

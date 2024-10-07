@@ -1,0 +1,187 @@
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://ba6fjfmvjnvh5"]
+
+[ext_resource type="Texture2D" uid="uid://dyxh8d3d0i1sk" path="res://scenes/maps/test_map/tilemap.png" id="1_tjqs4"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f4yau"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_q5ura"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hk7qq"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0ynx2"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hydye"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dxjis"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ogt0d"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mq346"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02adp"]
+texture = ExtResource("1_tjqs4")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_f4yau")
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrains_peering_bit/bottom_right_corner = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrains_peering_bit/bottom_right_corner = 0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/bottom_left_corner = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrains_peering_bit/bottom_left_corner = 0
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/terrains_peering_bit/bottom_left_corner = 0
+4:0/0/terrains_peering_bit/left_side = 0
+4:0/0/terrains_peering_bit/top_left_corner = 0
+4:0/0/terrains_peering_bit/top_side = 0
+4:0/0/terrains_peering_bit/top_right_corner = 0
+5:0/0 = 0
+5:0/0/terrain_set = 0
+5:0/0/terrains_peering_bit/right_side = 0
+5:0/0/terrains_peering_bit/bottom_right_corner = 0
+5:0/0/terrains_peering_bit/top_left_corner = 0
+5:0/0/terrains_peering_bit/top_side = 0
+5:0/0/terrains_peering_bit/top_right_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_right_corner = 0
+1:1/0/terrains_peering_bit/top_right_corner = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/terrains_peering_bit/right_side = 0
+2:1/0/terrains_peering_bit/bottom_right_corner = 0
+2:1/0/terrains_peering_bit/bottom_side = 0
+2:1/0/terrains_peering_bit/bottom_left_corner = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_left_corner = 0
+2:1/0/terrains_peering_bit/top_side = 0
+2:1/0/terrains_peering_bit/top_right_corner = 0
+2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ynx2")
+2:1/0/custom_data_0 = &"grass"
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrains_peering_bit/bottom_left_corner = 0
+3:1/0/terrains_peering_bit/left_side = 0
+3:1/0/terrains_peering_bit/top_left_corner = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+4:1/0/terrains_peering_bit/bottom_right_corner = 0
+4:1/0/terrains_peering_bit/bottom_side = 0
+4:1/0/terrains_peering_bit/bottom_left_corner = 0
+4:1/0/terrains_peering_bit/left_side = 0
+4:1/0/terrains_peering_bit/top_left_corner = 0
+5:1/0 = 0
+5:1/0/terrain_set = 0
+5:1/0/terrains_peering_bit/right_side = 0
+5:1/0/terrains_peering_bit/bottom_right_corner = 0
+5:1/0/terrains_peering_bit/bottom_side = 0
+5:1/0/terrains_peering_bit/bottom_left_corner = 0
+5:1/0/terrains_peering_bit/top_right_corner = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrains_peering_bit/top_right_corner = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrains_peering_bit/top_left_corner = 0
+2:2/0/terrains_peering_bit/top_side = 0
+2:2/0/terrains_peering_bit/top_right_corner = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrains_peering_bit/top_left_corner = 0
+0:5/0 = 0
+0:5/0/custom_data_0 = &"tree"
+1:5/0 = 0
+1:5/0/custom_data_0 = &"tree"
+1:6/0 = 0
+1:6/0/custom_data_0 = &"tree"
+2:6/0 = 0
+2:6/0/custom_data_0 = &"tree"
+2:7/0 = 0
+2:7/0/custom_data_0 = &"tree"
+2:8/0 = 0
+2:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_hydye")
+2:8/0/custom_data_0 = &"tree"
+3:8/0 = 0
+3:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ogt0d")
+3:8/0/custom_data_0 = &"tree"
+3:9/0 = 0
+3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.53846, -8, -5.53846, 8, -8, 8, -8, -8)
+3:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_mq346")
+3:9/0/custom_data_0 = &"tree"
+2:9/0 = 0
+2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dxjis")
+2:9/0/custom_data_0 = &"tree"
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -0.615384, 8, -0.615384, -6.76923)
+1:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_hk7qq")
+1:9/0/custom_data_0 = &"tree"
+0:9/0 = 0
+0:9/0/custom_data_0 = &"tree"
+0:8/0 = 0
+0:8/0/custom_data_0 = &"tree"
+0:7/0 = 0
+0:7/0/custom_data_0 = &"tree"
+0:6/0 = 0
+0:6/0/custom_data_0 = &"tree"
+2:5/0 = 0
+2:5/0/custom_data_0 = &"tree"
+3:5/0 = 0
+3:5/0/custom_data_0 = &"tree"
+4:5/0 = 0
+4:5/0/custom_data_0 = &"tree"
+4:6/0 = 0
+4:6/0/custom_data_0 = &"tree"
+4:7/0 = 0
+4:7/0/custom_data_0 = &"tree"
+4:8/0 = 0
+4:8/0/custom_data_0 = &"tree"
+4:9/0 = 0
+4:9/0/custom_data_0 = &"tree"
+4:10/0 = 0
+4:10/0/custom_data_0 = &"tree"
+3:10/0 = 0
+3:10/0/custom_data_0 = &"tree"
+2:10/0 = 0
+2:10/0/custom_data_0 = &"tree"
+1:10/0 = 0
+1:10/0/custom_data_0 = &"tree"
+0:10/0 = 0
+0:10/0/custom_data_0 = &"tree"
+1:8/0 = 0
+1:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_q5ura")
+1:8/0/custom_data_0 = &"tree"
+1:7/0 = 0
+1:7/0/custom_data_0 = &"tree"
+3:7/0 = 0
+3:7/0/custom_data_0 = &"tree"
+3:6/0 = 0
+3:6/0/custom_data_0 = &"tree"
+
+[resource]
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "grass"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_1/mode = 0
+navigation_layer_0/layers = 1
+custom_data_layer_0/name = "type"
+custom_data_layer_0/type = 21
+sources/0 = SubResource("TileSetAtlasSource_02adp")

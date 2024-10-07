@@ -40,4 +40,3 @@ func _on_timer_timeout():
 	if is_active:
 		$Timer.wait_time = randf_range(1,3)
 		$Timer.start()
-

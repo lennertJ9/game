@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4j24w3eke75h"]
+
+[ext_resource type="Shader" path="res://shaders/learning_shaders/learning_shaders.gdshader" id="1_8cp1u"]
+[ext_resource type="Texture2D" uid="uid://diubujgkbqtl3" path="res://shaders/learning_shaders/icon_color.png" id="2_u0jep"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p3q51"]
+shader = ExtResource("1_8cp1u")
+
+[node name="LearningShaders" type="Node2D"]
+
+[node name="GodotLogo" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_p3q51")
+position = Vector2(107, 146)
+texture = ExtResource("2_u0jep")
+offset = Vector2(-94, -137)

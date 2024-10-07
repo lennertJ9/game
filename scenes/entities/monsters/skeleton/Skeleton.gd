@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal safe_velocity_calced
 
 @export var stats: Stats
 
@@ -62,3 +63,8 @@ func hit_flash():
 	shader.set_shader_parameter("active", true)
 	await get_tree().create_timer(0.125).timeout
 	shader.set_shader_parameter("active", false)
+
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity

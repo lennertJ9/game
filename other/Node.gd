@@ -13,10 +13,9 @@ func _ready():
 
 
 func change_state(new_state: Node):
+	print('switching to: ', new_state)
 	if current_state:
 		current_state.exit()
 	current_state = new_state
 	new_state.enter()
 	
-
-

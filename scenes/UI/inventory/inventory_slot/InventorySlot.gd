@@ -52,8 +52,19 @@ func _drop_data(at_position, data):
 	if inventory_item:
 		swap.emit(inventory_item, get_index(), source)
 	else:
+<<<<<<< Updated upstream
 		drop.emit(data, get_index(), source)
 		
 	
 
 
+=======
+		amount_label.visible = false
+
+
+
+func _gui_input(event):
+	var health_component: HealthComponent = get_tree().get_first_node_in_group("player").health_component
+	if event.is_action_pressed("right_click") and item:
+		item.use(health_component)
+>>>>>>> Stashed changes

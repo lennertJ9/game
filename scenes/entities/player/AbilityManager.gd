@@ -37,6 +37,7 @@ func check(ability: Ability):
 			print("duplicate!!")
 			remove_child(manager) # beide zijn nodig voor naming conflict te voorkomen
 			manager.queue_free()
+<<<<<<< Updated upstream:scenes/entities/player/AbilityManager.gd
 			
 
 
@@ -52,3 +53,5 @@ func check(ability: Ability):
 func _on_attack_speed_timer_timeout():
 	attack_ready = true
 	
+=======
+>>>>>>> Stashed changes:scenes/abilities/ability_manager/AbilityManager.gd
